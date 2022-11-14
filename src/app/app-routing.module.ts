@@ -19,6 +19,7 @@ import { PostAJobPageComponent } from './components/pages/post-a-job-page/post-a
 import { PricingPageComponent } from './components/pages/pricing-page/pricing-page.component';
 import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-page/privacy-policy-page.component';
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
+import { EmployLoginComponent } from './components/pages/emp-account/emp-account';
 
 const routes: Routes = [
     {path: '', component: MainHomeComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
     {path: 'blog', component: BlogPageComponent},
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
+    {path: 'emp-account', component: EmployLoginComponent},
     // Here add new pages component
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
@@ -49,3 +51,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

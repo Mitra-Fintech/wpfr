@@ -45,7 +45,7 @@ import { CompanyDetailsPageComponent } from './components/pages/company-details-
 import { CategoriesPageComponent } from './components/pages/categories-page/categories-page.component';
 import { CandidatesPageComponent } from './components/pages/candidates-page/candidates-page.component';
 import { CandidateDetailsPageComponent } from './components/pages/candidate-details-page/candidate-details-page.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [
         AppComponent,
@@ -94,7 +94,8 @@ import { CandidateDetailsPageComponent } from './components/pages/candidate-deta
         NgxSmartModalModule.forRoot(),
         StickyNavModule,
         TabsModule,
-        NgxEditorModule
+        NgxEditorModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

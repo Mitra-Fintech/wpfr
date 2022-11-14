@@ -2,7 +2,7 @@
 <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
-            <h3>My Account</h3>
+            <h3>Employ Account Login/Registration</h3>
             <ul>
                 <li>
                     <a routerLink="/">
@@ -22,7 +22,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="login-form">
                     <h2>Login</h2>
-                    <form>
+                    <form method="get" action="https://api.workfromhome.world/candidate_signup?name=Ronit&email_id=ronit@gmail.com&mobile_number=7003622801&password=123">
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" class="form-control" placeholder="Enter your Email">
@@ -34,14 +34,14 @@
                         <div class="forgot-password-wrap">
                             <a routerLink="/forgot-password" class="lost-your-password">Forgot password?</a>
                         </div>
-                        <button (click)="onClick()" type="button">Login</button>
+                        <button type="submit">Login</button>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-6 col-m d-12">
                 <div class="register-form">
                     <h2>Register</h2>
-                    <form>
+                    <form method="get" action="https://api.workfromhome.world/">
                         <div class="form-group">
                             <label>Full Name</label>
                             <input type="text" class="form-control" placeholder="Full Name">
