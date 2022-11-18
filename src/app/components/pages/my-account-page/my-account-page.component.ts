@@ -37,7 +37,7 @@ export class MyAccountPageComponent implements OnInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('/api/candidate/login?' + body)
+            .get('http://mitrafintech.com/api/wfh/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
@@ -60,7 +60,7 @@ export class MyAccountPageComponent implements OnInit {
 
     private async checkIsLoggedInInsideApp() {
         // this.http
-        //     .get('/api/session')
+        //     .get('http://mitrafintech.com/api/wfh/session')
         //     .subscribe((response) => {
         //         interface ReposnseObject {
         //             status: string;
