@@ -1,52 +1,80 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-my-account-page',
-  templateUrl: './my-account-page.component.html',
-  styleUrls: ['./my-account-page.component.scss']
+    selector: 'app-my-account-page',
+    templateUrl: './my-account-page.component.html',
+    styleUrls: ['./my-account-page.component.scss'],
 })
-
-
 export class MyAccountPageComponent implements OnInit {
+    public getJsonValue: any;
+    public postJsonvalue: any;
+    constructor(private http: HttpClient, private router: Router) {}
 
-  public getJsonValue: any; 
-  public postJsonvalue: any;
-  constructor(private http: HttpClient) { }
+    ngOnInit(): void {
+        // this.postMethod();
+        this.checkIsLoggedInInsideApp();
+    }
+    private async postMethod() {
+        const header = new HttpHeaders();
+        header.set('Content-Type', 'application/x-www-form-urlencoded');
+        // let body = {
+        //     mobile_number: 'dummy',
+        //     password: 'dummy',
+        // };
+        var mobile_number = (<HTMLInputElement>(
+            document.getElementById('mobile_number')
+        )).value;
+        var password = (<HTMLInputElement>document.getElementById('password'))
+            .value;
 
-  ngOnInit(): void {
-    // this.postMethod(); 
-  }
-  private async postMethod() { 
-      const header = new HttpHeaders ({
-        contentType: 'application/x-www-form-urlencoded'
-      })
-      let body = {
-        "mobile_number" : "dummy",
-        "password" : "dummy",
-      }
-      
-      console.log("Api Call")
+        let body = new URLSearchParams();
+        body.set('mobile_number', mobile_number);
+        body.set('password', password);
 
-      // this.http.get('http://api.mitrafintech.com/wfh/session').subscribe((data) => {
-      //   console.log(data); 
-      //   // this.postJsonValue = data; 
-      // });
+        console.log('Api Call : ' + body);
 
-    const response = await window.fetch('http://api.mitrafintech.com/wfh/candidate/login', {
-    // learn more about this API here: https://graphql-pokemon2.vercel.app/
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-    },
-    body: JSON.stringify(body),
-  })
-  console.log(response.text)
+        this.http
+            .get('http://api.mitrafintech.com/wfh/candidate/login?' + body)
+            .subscribe((response) => {
+                interface ReposnseObject {
+                    status: string;
+                    isUserLoggedIn: boolean;
+                }
+                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+                // console.log(json.isUserLoggedIn);
+                console.log(response);
+                if (json.status == 'success') {
+                    sessionStorage.setItem('isUserLoggedIn', 'true');
+                    this.router.navigate(['/candidate-details']);
 
-      console.log("Ended")
+                }else{
+                    sessionStorage.setItem('isUserLoggedIn', 'false');
+                }
+            });
+
+        console.log('Ended');
     }
 
-     onClick(){
-     this.postMethod()
+    private async checkIsLoggedInInsideApp() {
+        // this.http
+        //     .get('http://api.mitrafintech.com/wfh/session')
+        //     .subscribe((response) => {
+        //         interface ReposnseObject {
+        //             status: string;
+        //             isUserLoggedIn: boolean;
+        //         }
+        //         let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+        //         console.log(json.isUserLoggedIn);
+        //     });
+
+        if (sessionStorage.getItem('isUserLoggedIn') == 'true') {
+            this.router.navigate(['/candidate-details']);
+        }
+    }
+
+    onClick() {
+        this.postMethod();
     }
 }

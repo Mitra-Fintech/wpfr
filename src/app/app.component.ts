@@ -53,7 +53,7 @@ export class AppComponent {
     private async checkIsLoggedIn() {
         let session_id = sessionStorage.getItem('session_id');
 
-        if (!session_id) {
+        if (session_id == null) {
             console.log('No Session ID');
             this.http
                 .get('http://api.mitrafintech.com/wfh/session?new=true')
@@ -71,7 +71,7 @@ export class AppComponent {
         } else {
 
             this.http
-                .get('http://api.mitrafintech.com/wfh/session?new=false&session_id='+session_id)
+                .get('http://api.mitrafintech.com/wfh/session?new=false&session_id=' + session_id)
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: string;

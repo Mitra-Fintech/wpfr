@@ -36,11 +36,11 @@ const routes: Routes = [
     {path: 'faq', component: FaqPageComponent},
     {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
     {path: 'terms-conditions', component: TermsConditionsPageComponent},
-    {path: 'profile-authentication', component: MyAccountPageComponent},
+    {path: 'candidate', component: MyAccountPageComponent},
     {path: 'blog', component: BlogPageComponent},
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
-    {path: 'emp-account', component: EmployLoginComponent},
+    {path: 'company', component: EmployLoginComponent},
     // Here add new pages component
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
