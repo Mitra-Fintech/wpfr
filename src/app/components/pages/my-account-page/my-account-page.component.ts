@@ -28,10 +28,11 @@ export class MyAccountPageComponent implements OnInit {
         )).value;
         var password = (<HTMLInputElement>document.getElementById('password'))
             .value;
-
+        let session_id = sessionStorage.getItem('session_id') || 'no-session';
         let body = new URLSearchParams();
         body.set('mobile_number', mobile_number);
         body.set('password', password);
+        body.set('session_id', session_id)
 
         console.log('Api Call : ' + body);
 
