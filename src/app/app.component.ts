@@ -56,7 +56,7 @@ export class AppComponent {
         if (session_id == null) {
             console.log('No Session ID');
             this.http
-                .get('http://api.mitrafintech.com/wfh/session?new=true')
+                .get('/api/session?new=true')
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: string;
@@ -71,7 +71,7 @@ export class AppComponent {
         } else {
 
             this.http
-                .get('http://api.mitrafintech.com/wfh/session?new=false&session_id=' + session_id)
+                .get('/api/session?new=false&session_id=' + session_id)
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: string;

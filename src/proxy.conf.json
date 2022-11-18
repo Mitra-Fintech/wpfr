@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "http://api.mitrafintech.com/wfh",
+        "secure": false
+    }
+}
