@@ -1,27 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-    isUserLoggedIn = false
+    public isUserLoggedIn = false;
     i = 0;
 
-    constructor() {
-        
-     }
+    constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
-        console.log("Url Change" + this.i+1);
-        this.i++;
-        // this.isUserLoggedIn = sessionStorage.getItem('isUserLoggedIn')
-        console.log(this.isUserLoggedIn);
-        let status = sessionStorage.getItem('isUserLoggedIn');
-        if(status == "true")
-            this.isUserLoggedIn = true;
+        this.router.events.subscribe((val:any)=>{
+            if(val.url){
+
+                console.log("Url Change" + this.i+1);
+                this.i++;
+                console.log(this.isUserLoggedIn);
+                let status = sessionStorage.getItem('isUserLoggedIn');
+                if(status == "true")
+                this.isUserLoggedIn = true;
+            }
+
+        });
     }
 
     switcherClassApplied = false;
