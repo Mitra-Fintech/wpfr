@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+    isUserLoggedIn = false
+    i = 0;
 
-    constructor() { }
+    constructor() {
+        
+     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        console.log("Url Change" + this.i+1);
+        this.i++;
+        // this.isUserLoggedIn = sessionStorage.getItem('isUserLoggedIn')
+        console.log(this.isUserLoggedIn);
+        let status = sessionStorage.getItem('isUserLoggedIn');
+        if(status == "true")
+            this.isUserLoggedIn = true;
+    }
 
     switcherClassApplied = false;
     switcherToggleClass() {
