@@ -48,7 +48,7 @@ export class MyAccountPageComponent implements OnInit {
                 console.log(response);
                 if (json.status == 'success') {
                     sessionStorage.setItem('isUserLoggedIn', 'true');
-                    this.router.navigate(['/candidate-details']);
+                    this.router.navigate(['/my-profile']);
 
                 }else{
                     sessionStorage.setItem('isUserLoggedIn', 'false');

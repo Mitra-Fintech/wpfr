@@ -45,6 +45,7 @@ import { CompanyDetailsPageComponent } from './components/pages/company-details-
 import { CategoriesPageComponent } from './components/pages/categories-page/categories-page.component';
 import { CandidatesPageComponent } from './components/pages/candidates-page/candidates-page.component';
 import { CandidateDetailsPageComponent } from './components/pages/candidate-details-page/candidate-details-page.component';
+import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [
@@ -82,7 +83,8 @@ import { HttpClientModule } from '@angular/common/http';
         CompanyDetailsPageComponent,
         CategoriesPageComponent,
         CandidatesPageComponent,
-        CandidateDetailsPageComponent
+        CandidateDetailsPageComponent,
+        MyProfileCandidatesComponent
     ],
     imports: [
         BrowserModule,

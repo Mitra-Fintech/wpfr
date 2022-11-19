@@ -20,6 +20,8 @@ import { PricingPageComponent } from './components/pages/pricing-page/pricing-pa
 import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-page/privacy-policy-page.component';
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
 import { EmployLoginComponent } from './components/pages/emp-account/emp-account';
+import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
+
 
 const routes: Routes = [
     {path: '', component: MainHomeComponent},
@@ -41,6 +43,7 @@ const routes: Routes = [
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
     {path: 'company', component: EmployLoginComponent},
+    {path: 'my-profile', component: MyProfileCandidatesComponent},
     // Here add new pages component
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
