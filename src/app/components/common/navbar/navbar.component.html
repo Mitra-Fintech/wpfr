@@ -288,7 +288,7 @@
                             <i class="ri-user-3-line"></i> Employer
                         </a>
 
-                        <a *ngIf="isUserLoggedIn;" routerLink="/" class="default-btn">
+                        <a *ngIf="isUserLoggedIn;" (click)="logout()" class="default-btn">
                             <i class="ri-user-3-line"></i> Logout
                         </a>
                     </div>

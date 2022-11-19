@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
                 console.log(this.isUserLoggedIn);
                 let status = sessionStorage.getItem('isUserLoggedIn');
                 if(status == "true")
-                this.isUserLoggedIn = true;
+                    this.isUserLoggedIn = true;
             }
 
         });
@@ -40,6 +40,12 @@ export class NavbarComponent implements OnInit {
     classApplied = false;
     toggleClass() {
         this.classApplied = !this.classApplied;
+    }
+    logout(){
+        sessionStorage.removeItem('isUserLoggedIn');
+        sessionStorage.removeItem('session_id');
+        this.isUserLoggedIn = false;
+        this.router.navigate(['/']);
     }
 
 }
