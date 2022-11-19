@@ -29,7 +29,7 @@ import { FunfactsComponent } from './components/common/funfacts/funfacts.compone
 import { ServicesComponent } from './components/common/services/services.component';
 import { AboutComponent } from './components/common/about/about.component';
 import { ContactPageComponent } from './components/pages/contact-page/contact-page.component';
-import { PricingPageComponent } from './components/pages/pricing-page/pricing-page.component';
+// import { PricingPageComponent } from './components/pages/pricing-page/pricing-page.component';
 import { NotFoundComponent } from './components/common/not-found/not-found.component';
 import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-page/privacy-policy-page.component';
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
@@ -67,7 +67,7 @@ import { HttpClientModule } from '@angular/common/http';
         ServicesComponent,
         AboutComponent,
         ContactPageComponent,
-        PricingPageComponent,
+        // PricingPageComponent,
         NotFoundComponent,
         PrivacyPolicyPageComponent,
         TermsConditionsPageComponent,
