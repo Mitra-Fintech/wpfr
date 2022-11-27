@@ -1,0 +1,31 @@
+on:
+  pull_request:
+    branches:
+      - production
+    types:
+      [closed]
+name: 🚀 Deploy Website to Production on pull request
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+      - name: 🚧 Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: 🚧 Install dependencies
+        run: npm install
+
+      - name: 🏗️ Build
+        run: npm run build -- --prod
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server:  ftp.workfromhome.world
+          username: ${{ secrets.WFH_PRD_USERNAME_PUBLIC }}
+          password: ${{ secrets.WFH_PRD_PASSWORD }}
+          state-name: angular-sync-state.json
+          local-dir: ./dist/jend/
