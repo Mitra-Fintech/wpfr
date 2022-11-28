@@ -74,7 +74,7 @@ export class MyAccountPageComponent implements OnInit {
         }
     }
 
-    private async registerAccount() {
+    public async registerAccount() {
         let consditions = {
             passwordValid: false,
             emailValid: false,
