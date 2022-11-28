@@ -47,6 +47,7 @@ import { CandidatesPageComponent } from './components/pages/candidates-page/cand
 import { CandidateDetailsPageComponent } from './components/pages/candidate-details-page/candidate-details-page.component';
 import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
     declarations: [
         AppComponent,
@@ -99,7 +100,7 @@ import { HttpClientModule } from '@angular/common/http';
         NgxEditorModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
