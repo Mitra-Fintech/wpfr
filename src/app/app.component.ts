@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import {
     Location,
@@ -8,6 +8,7 @@ import {
 } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 declare let $: any;
 
 @Component({
@@ -22,6 +23,19 @@ declare let $: any;
         },
     ],
 })
+
+@NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule],
+    providers: [
+        {
+            provide: LocationStrategy, 
+            useClass: HashLocationStrategy
+        }
+    ],
+    bootstrap: [AppComponent],
+})
+
 export class AppComponent {
     location: any;
     routerSubscription: any;
