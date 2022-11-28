@@ -14,7 +14,7 @@ import { FaqPageComponent } from './components/pages/faq-page/faq-page.component
 import { JobDetailsPageComponent } from './components/pages/job-details-page/job-details-page.component';
 import { JobListingsPageComponent } from './components/pages/job-listings-page/job-listings-page.component';
 import { MainHomeComponent } from './components/pages/main-home/main-home.component';
-import { MyAccountPageComponent } from './components/pages/my-account-page/my-account-page.component';
+import { MyAccountPageComponent } from './components/pages/candidate-account/my-account-page.component';
 import { PostAJobPageComponent } from './components/pages/post-a-job-page/post-a-job-page.component';
 import { PricingPageComponent } from './components/pages/pricing-page/pricing-page.component';
 import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-page/privacy-policy-page.component';

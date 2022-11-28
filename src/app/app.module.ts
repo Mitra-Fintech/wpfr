@@ -33,7 +33,7 @@ import { ContactPageComponent } from './components/pages/contact-page/contact-pa
 import { NotFoundComponent } from './components/common/not-found/not-found.component';
 import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-page/privacy-policy-page.component';
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
-import { MyAccountPageComponent } from './components/pages/my-account-page/my-account-page.component';
+import { MyAccountPageComponent } from './components/pages/candidate-account/my-account-page.component';
 import { FaqPageComponent } from './components/pages/faq-page/faq-page.component';
 import { BlogDetailsPageComponent } from './components/pages/blog-details-page/blog-details-page.component';
 import { BlogPageComponent } from './components/pages/blog-page/blog-page.component';
