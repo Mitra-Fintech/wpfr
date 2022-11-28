@@ -22,19 +22,20 @@ declare let $: any;
             useClass: HashLocationStrategy,
         },
     ],
+    
 })
 
-@NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule],
-    providers: [
-        {
-            provide: LocationStrategy, 
-            useClass: HashLocationStrategy
-        }
-    ],
-    bootstrap: [AppComponent],
-})
+// @NgModule({
+//     declarations: [AppComponent],
+//     imports: [BrowserModule],
+//     providers: [
+//         {
+//             provide: LocationStrategy, 
+//             useClass: HashLocationStrategy
+//         }
+//     ],
+//     bootstrap: [AppComponent],
+// })
 
 export class AppComponent {
     location: any;
