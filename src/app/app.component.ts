@@ -4,6 +4,7 @@ import {
     Location,
     LocationStrategy,
     PathLocationStrategy,
+    HashLocationStrategy
 } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +18,7 @@ declare let $: any;
         Location,
         {
             provide: LocationStrategy,
-            useClass: PathLocationStrategy,
+            useClass: HashLocationStrategy,
         },
     ],
 })
