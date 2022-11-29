@@ -48,4 +48,8 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/']);
     }
 
+    checkUserType(){
+        return sessionStorage.getItem('userType')
+    }
+
 }
