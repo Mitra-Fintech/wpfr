@@ -128,21 +128,25 @@ onClick() {
     this.http
         .get('http://workfromhome.world/api/company/login?' + body)
         .subscribe((response) => {
+
+            
             interface ReposnseObject {
                 status: string;
+                status_code : any;
                 isUserLoggedIn: boolean;
+                message : any;
             }
             let json: ReposnseObject = JSON.parse(JSON.stringify(response));
             // console.log(json.isUserLoggedIn);
             console.log(response);
-            if (json.status == 'success') {
+            if (json.status == 'success' && json.status_code != 1300) {
                 this.http
                 .get('https://workfromhome.world/api/session/get')
                 .subscribe((response) => {
                     interface ReposnseObject {
-                        userType: string;
                         isUserLoggedIn: boolean;
-                        userId : string;
+                        userType: any;                   
+                        userId : any;
                     }
                     let json: ReposnseObject = JSON.parse(
                         JSON.stringify(response)
@@ -154,6 +158,7 @@ onClick() {
                 });
                 this.router.navigate(['/my-profile']);
             } else {
+                alert(json.message)
                 sessionStorage.setItem('isUserLoggedIn', 'false');
             }
         });
