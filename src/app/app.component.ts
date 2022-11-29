@@ -67,37 +67,43 @@ export class AppComponent {
     }
 
     private async checkIsLoggedIn() {
-        let session_id = sessionStorage.getItem('session_id');
+        let isUserLoggedIn = sessionStorage.getItem('isUserLoggedIn');
 
-        if (session_id == null) {
+        if (isUserLoggedIn == null) {
             console.log('No Session ID');
             this.http
-                .get('http://mitrafintech.com/api/wfh/session?new=true')
+                .get('https://workfromhome.world/api/session/create')
                 .subscribe((response) => {
                     interface ReposnseObject {
-                        status: string;
-                        session_id: string;
+                        userType: string;
+                        isUserLoggedIn: boolean;
+                        userId : string;
                     }
                     let json: ReposnseObject = JSON.parse(
                         JSON.stringify(response)
                     );
                     console.log(json);
-                    sessionStorage.setItem('session_id', json.session_id);
+                    sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
+                    sessionStorage.setItem('userType', JSON.stringify(json.userType));
+                    sessionStorage.setItem('userId', JSON.stringify(json.userId));
                 });
         } else {
 
             this.http
-                .get('http://mitrafintech.com/api/wfh/session?new=false&session_id=' + session_id)
+                .get('https://workfromhome.world/api/session/get')
                 .subscribe((response) => {
                     interface ReposnseObject {
-                        status: string;
+                        userType: string;
                         isUserLoggedIn: boolean;
+                        userId : string;
                     }
                     let json: ReposnseObject = JSON.parse(
                         JSON.stringify(response)
                     );
                     console.log(json.isUserLoggedIn);
                     sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
+                    sessionStorage.setItem('userType', JSON.stringify(json.userType));
+                    sessionStorage.setItem('userId', JSON.stringify(json.userId));
                 });
         }
     }
