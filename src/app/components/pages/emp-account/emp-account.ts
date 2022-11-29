@@ -105,4 +105,60 @@ export class EmployLoginComponent implements OnInit {
     }else{}
 }
 
+onClick() {
+    const header = new HttpHeaders();
+    header.set('Content-Type', 'application/x-www-form-urlencoded');
+    // let body = {
+    //     mobile_number: 'dummy',
+    //     password: 'dummy',
+    // };
+    var mobile_number = (<HTMLInputElement>(
+        document.getElementById('mobile_number')
+    )).value;
+    var password = (<HTMLInputElement>document.getElementById('password'))
+        .value;
+    let session_id = sessionStorage.getItem('session_id') || 'no-session';
+    let body = new URLSearchParams();
+    body.set('mobile_number', mobile_number);
+    body.set('password', password);
+    // body.set('session_id', session_id)
+
+    console.log('Api Call : ' + body);
+
+    this.http
+        .get('http://workfromhome.world/api/company/login?' + body)
+        .subscribe((response) => {
+            interface ReposnseObject {
+                status: string;
+                isUserLoggedIn: boolean;
+            }
+            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+            // console.log(json.isUserLoggedIn);
+            console.log(response);
+            if (json.status == 'success') {
+                this.http
+                .get('https://workfromhome.world/api/session/get')
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        userType: string;
+                        isUserLoggedIn: boolean;
+                        userId : string;
+                    }
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    console.log(json.isUserLoggedIn);
+                    sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
+                    sessionStorage.setItem('userType', JSON.stringify(json.userType));
+                    sessionStorage.setItem('userId', JSON.stringify(json.userId));
+                });
+                this.router.navigate(['/my-profile']);
+            } else {
+                sessionStorage.setItem('isUserLoggedIn', 'false');
+            }
+        });
+
+    console.log('Ended');
+}
+
 }

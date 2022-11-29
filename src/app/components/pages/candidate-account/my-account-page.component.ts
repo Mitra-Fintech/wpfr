@@ -47,7 +47,22 @@ export class MyAccountPageComponent implements OnInit {
                 // console.log(json.isUserLoggedIn);
                 console.log(response);
                 if (json.status == 'success') {
-                    sessionStorage.setItem('isUserLoggedIn', 'true');
+                    this.http
+                .get('https://workfromhome.world/api/session/get')
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        userType: string;
+                        isUserLoggedIn: boolean;
+                        userId : string;
+                    }
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    console.log(json.isUserLoggedIn);
+                    sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
+                    sessionStorage.setItem('userType', JSON.stringify(json.userType));
+                    sessionStorage.setItem('userId', JSON.stringify(json.userId));
+                });
                     this.router.navigate(['/my-profile']);
                 } else {
                     sessionStorage.setItem('isUserLoggedIn', 'false');
