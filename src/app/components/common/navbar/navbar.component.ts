@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
     public isUserLoggedIn = false;
+    public postajob = false;
     i = 0;
 
     constructor(private http: HttpClient, private router: Router) {}
