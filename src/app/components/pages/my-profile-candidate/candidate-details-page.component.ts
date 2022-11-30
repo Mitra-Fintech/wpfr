@@ -12,4 +12,10 @@ export class MyProfileCandidatesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public checkIsLoggedIn(){
+    if(sessionStorage.getItem('isUserLoggedIn') == 'true'){
+      console.log('User is logged in');
+    }
+  }
+
 }
