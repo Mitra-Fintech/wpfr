@@ -37,16 +37,18 @@ export class MyAccountPageComponent implements OnInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('http://mitrafintech.com/api/wfh/candidate/login?' + body)
+            .get('https://workfromhome.world/api/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
+                    status_code : any;
                     isUserLoggedIn: boolean;
+                    message : any;
                 }
                 let json: ReposnseObject = JSON.parse(JSON.stringify(response));
                 // console.log(json.isUserLoggedIn);
                 console.log(response);
-                if (json.status == 'success') {
+                if (json.status == 'success' && json.status_code != 1300) {
                     this.http
                 .get('https://workfromhome.world/api/session/get')
                 .subscribe((response) => {
@@ -65,6 +67,7 @@ export class MyAccountPageComponent implements OnInit {
                 });
                     this.router.navigate(['/my-profile']);
                 } else {
+                    alert(json.message)
                     sessionStorage.setItem('isUserLoggedIn', 'false');
                 }
             });
