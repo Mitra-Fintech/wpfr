@@ -10,6 +10,7 @@ export class MyProfileCandidatesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.checkIsLoggedIn()
   }
 
   public checkIsLoggedIn(){
