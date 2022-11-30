@@ -53,9 +53,14 @@ export class NavbarComponent implements OnInit {
         let str = sessionStorage.getItem('userType') || "not-set";
          str =  str.replace('"', '')
          console.log(str)
+
+
+
          if(str == "company"){
+            sessionStorage.setItem('post-a-job', 'true')
             return true;
          }else{
+            sessionStorage.setItem('post-a-job', 'false')
             return false;
          }
     }
