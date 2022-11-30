@@ -49,7 +49,9 @@ export class NavbarComponent implements OnInit {
     }
 
     checkUserType(){
-        return sessionStorage.getItem('userType')
+        // console.log
+        let str = sessionStorage.getItem('userType')
+        return str?.replace('"', '')
     }
 
 }
