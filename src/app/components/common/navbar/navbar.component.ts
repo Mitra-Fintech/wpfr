@@ -23,6 +23,11 @@ export class NavbarComponent implements OnInit {
                 let status = sessionStorage.getItem('isUserLoggedIn');
                 if(status == "true")
                     this.isUserLoggedIn = true;
+
+                console.log(this.isUserLoggedIn);
+                let postajobstatus = sessionStorage.getItem('post-a-job');
+                if(postajobstatus == "true")
+                    this.postajob = true;
             }
 
         });
