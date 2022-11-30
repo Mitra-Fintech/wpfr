@@ -37,7 +37,7 @@ export class MyAccountPageComponent implements OnInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('http://mitrafintech.com/api/wfh/candidate/login?' + body)
+            .get('https://workfromhome.world/api/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
