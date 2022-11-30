@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit {
         this.router.events.subscribe((val:any)=>{
             if(val.url){
 
-                console.log("Url Change" + this.i+1);
-                this.i++;
+                // console.log("Url Change" + this.i+1);
+                // this.i++;
                 console.log(this.isUserLoggedIn);
                 let status = sessionStorage.getItem('isUserLoggedIn');
                 if(status == "true")
@@ -50,8 +50,14 @@ export class NavbarComponent implements OnInit {
 
     checkUserType(){
         // console.log
-        let str = sessionStorage.getItem('userType')
-        return str?.replace('"', '')
+        let str = sessionStorage.getItem('userType') || "not-set";
+         str =  str.replace('"', '')
+         console.log(str)
+         if(str == "company"){
+            return true;
+         }else{
+            return false;
+         }
     }
 
 }
