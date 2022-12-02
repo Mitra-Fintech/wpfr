@@ -1,0 +1,82 @@
+.faq-accordion .box {
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  background-color: var(--whiteColor);
+  -webkit-box-shadow: 0px 0px 59px 31px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 0px 59px 31px rgba(0, 0, 0, 0.04);
+}
+
+.faq-accordion .box:last-child {
+  margin-bottom: 0;
+}
+
+.faq-accordion h3 {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.faq-accordion strong {
+  color: var(--blackColor) !important;
+}
+
+.faq-accordion p {
+  color: var(--paragraphColor);
+}
+
+.faq-accordion p a {
+  color: var(--primaryColor);
+}
+
+.faq-accordion p a:hover {
+  text-decoration: underline;
+}
+
+.faq-accordion ul li, .faq-accordion ol li {
+  margin-bottom: 12px;
+  color: var(--paragraphColor);
+}
+
+.faq-accordion ul li a, .faq-accordion ol li a {
+  color: var(--primaryColor);
+}
+
+.faq-accordion ul li a:hover, .faq-accordion ol li a:hover {
+  text-decoration: underline;
+}
+
+.faq-accordion ul li:last-child, .faq-accordion ol li:last-child {
+  margin-bottom: 0;
+}
+
+.faq-accordion ul:last-child, .faq-accordion ol:last-child {
+  margin-bottom: 0;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .faq-accordion .box {
+    padding: 20px;
+  }
+  .faq-accordion h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .faq-accordion .box {
+    padding: 30px;
+  }
+  .faq-accordion h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+/* Min width 1200px to Max width 1399px */
+/* Min width 1600px */
+/*# sourceMappingURL=faq-page.component.css.map */

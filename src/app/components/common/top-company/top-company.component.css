@@ -1,0 +1,112 @@
+.company-card {
+  background-color: var(--whiteColor);
+  padding: 25px 25px 25px 105px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.company-card img {
+  top: 25px;
+  left: 25px;
+  max-width: 60px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.company-card h3 {
+  margin-bottom: 7px;
+  font-size: 22px;
+}
+
+.company-card p {
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.company-card p i {
+  left: 0;
+  top: -1px;
+  position: absolute;
+  color: var(--primaryColor);
+}
+
+.company-card .company-btn {
+  color: var(--primaryColor);
+  display: inline-block;
+}
+
+.company-card .company-btn:hover {
+  color: var(--secondaryColor);
+}
+
+.company-card:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .company-card {
+    padding: 15px 15px 15px 90px;
+  }
+  .company-card img {
+    top: 15px;
+    left: 15px;
+  }
+  .company-card h3 {
+    font-size: 18px;
+  }
+  .company-card p {
+    padding-left: 18px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .company-card {
+    padding: 20px 20px 20px 95px;
+  }
+  .company-card img {
+    top: 20px;
+    left: 20px;
+  }
+  .company-card h3 {
+    font-size: 20px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .company-card {
+    padding: 20px 20px 20px 95px;
+  }
+  .company-card img {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .company-card {
+    padding: 20px 20px 20px 85px;
+  }
+  .company-card img {
+    top: 20px;
+    left: 20px;
+    max-width: 50px;
+  }
+  .company-card h3 {
+    font-size: 20px;
+  }
+}
+
+/* Min width 1600px */
+/*# sourceMappingURL=top-company.component.css.map */
