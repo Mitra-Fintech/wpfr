@@ -1,0 +1,58 @@
+.counter-card {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.counter-card h3 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.counter-card .bar {
+  height: 7px;
+  width: 85px;
+  position: relative;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  background: #00ca9723;
+}
+
+.counter-card .bar:before {
+  left: 0;
+  top: -2px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50px;
+  background: var(--primaryColor);
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: MOVE-BG;
+          animation-name: MOVE-BG;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .counter-card h3 {
+    font-size: 30px;
+    margin-bottom: 13px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .counter-card h3 {
+    font-size: 38px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+/* Min width 1200px to Max width 1399px */
+/* Min width 1600px */
+/*# sourceMappingURL=funfacts.component.css.map */

@@ -1,0 +1,414 @@
+.banner-form {
+  background-color: var(--whiteColor);
+  border-radius: 5px;
+  max-width: 800px;
+  padding: 10px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner-form .form-group {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.banner-form .form-group i {
+  top: 50%;
+  left: 8px;
+  font-size: 20px;
+  position: absolute;
+  color: var(--primaryColor);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.banner-form .form-group .form-control {
+  background-color: var(--whiteColor);
+  font-size: var(--fontSize);
+  color: var(--blackColor);
+  border-radius: 3px;
+  position: relative;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  height: 50px;
+  border: none;
+  width: 100%;
+  padding-left: 38px;
+  padding-right: 15px;
+}
+
+.banner-form .form-group .form-control::-webkit-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner-form .form-group .form-control:-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner-form .form-group .form-control::-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner-form .form-group .form-control::placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner-form .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.banner-form .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.banner-form .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.banner-form .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+.banner-form .col-lg-5 {
+  border-right: 1px solid #eeeeee;
+}
+
+.banner-form .submit-btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  display: block;
+  border-radius: 5px;
+  text-align: center;
+  padding: 13px 20px;
+  color: var(--whiteColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: var(--primaryColor);
+  font-size: var(--fontSize);
+  font-weight: 500;
+}
+
+.banner-form .submit-btn:hover {
+  background-color: var(--secondaryColor);
+}
+
+.jend-grid-sorting {
+  margin-bottom: 35px;
+}
+
+.jend-grid-sorting .ordering-industries label {
+  display: inline-block;
+  color: var(--blackColor);
+  margin-bottom: 0;
+  margin-right: 5px;
+}
+
+.jend-grid-sorting .ordering-industries select {
+  height: 45px;
+  width: 230px;
+  cursor: pointer;
+  line-height: 45px;
+  padding: 0 0 0 10px;
+  background: #f8f8f8;
+  display: inline-block;
+  border-color: #eeeeee;
+  color: var(--blackColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: var(--fontSize);
+  font-weight: 500;
+}
+
+.jend-grid-sorting .ordering-industries select:hover {
+  border-color: var(--primaryColor);
+  background-color: transparent;
+}
+
+.jend-grid-sorting .result-count {
+  text-align: center;
+}
+
+.jend-grid-sorting .result-count p {
+  color: var(--blackColor);
+  line-height: initial;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.jend-grid-sorting .ordering {
+  text-align: end;
+}
+
+.jend-grid-sorting .ordering label {
+  display: inline-block;
+  color: var(--blackColor);
+  margin-bottom: 0;
+  margin-right: 5px;
+}
+
+.jend-grid-sorting .ordering select {
+  height: 45px;
+  width: 215px;
+  cursor: pointer;
+  line-height: 45px;
+  padding: 0 0 0 10px;
+  background: #f8f8f8;
+  display: inline-block;
+  border-color: #eeeeee;
+  color: var(--blackColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: var(--fontSize);
+  font-weight: 500;
+}
+
+.jend-grid-sorting .ordering select:hover {
+  border-color: var(--primaryColor);
+  background-color: transparent;
+}
+
+.candidate-card {
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: var(--whiteColor);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.03) 0px 10px 36px 0px, rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.03) 0px 10px 36px 0px, rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+}
+
+.candidate-card a img {
+  max-width: 90px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid var(--primaryColor);
+}
+
+.candidate-card .title {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.candidate-card .title h3 {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.candidate-card .title img {
+  width: 40px;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+.candidate-card p {
+  margin-bottom: 8px;
+}
+
+.candidate-card .rating i {
+  line-height: 1;
+  font-size: 18px;
+  color: #fea014;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.candidate-card .sub-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.candidate-card .sub-title span {
+  color: var(--paragraphColor);
+}
+
+.candidate-card .sub-title span b {
+  color: var(--blackColor);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.candidate-card:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 36px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 36px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .banner-form {
+    padding: 0 10px 10px;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  .banner-form .form-group i {
+    left: 8px;
+    font-size: 15px;
+  }
+  .banner-form .form-group .form-control {
+    font-size: 14px;
+    padding-left: 30px;
+    padding-right: 12px;
+  }
+  .banner-form .col-lg-5 {
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .banner-form .submit-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .jend-grid-sorting {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .jend-grid-sorting .ordering-industries {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .jend-grid-sorting .ordering-industries select {
+    padding: 0 0 0 8px;
+    line-height: 45px;
+    font-size: 14px;
+    width: 190px;
+    height: 45px;
+  }
+  .jend-grid-sorting .result-count p {
+    font-size: 14px;
+  }
+  .jend-grid-sorting .ordering {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .jend-grid-sorting .ordering select {
+    padding: 0 0 0 8px;
+    line-height: 45px;
+    font-size: 14px;
+    width: 190px;
+    height: 45px;
+  }
+  .candidate-card {
+    padding: 20px 15px;
+  }
+  .candidate-card .title {
+    margin-bottom: 5px;
+  }
+  .candidate-card .title h3 {
+    font-size: 18px;
+  }
+  .candidate-card .title img {
+    width: 35px;
+    margin-left: 10px;
+  }
+  .candidate-card p {
+    margin-bottom: 8px;
+  }
+  .candidate-card .rating i {
+    font-size: 16px;
+  }
+  .candidate-card .sub-title {
+    margin-top: 8px;
+  }
+  .candidate-card .sub-title span b {
+    font-size: 14px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .banner-content .banner-form {
+    padding: 8px;
+    max-width: 100%;
+    margin-top: 25px;
+  }
+  .banner-content .banner-form .form-group i {
+    left: 8px;
+    font-size: 18px;
+  }
+  .banner-content .banner-form .form-group .form-control {
+    font-size: 15px;
+    padding-left: 35px;
+    padding-right: 15px;
+  }
+  .banner-content .banner-form .submit-btn {
+    font-size: 15px;
+  }
+  .jend-grid-sorting {
+    margin-bottom: 30px;
+  }
+  .jend-grid-sorting .ordering-industries label {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .jend-grid-sorting .ordering-industries select {
+    font-size: 15px;
+  }
+  .jend-grid-sorting .result-count p {
+    font-size: 16px;
+  }
+  .jend-grid-sorting .ordering label {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .jend-grid-sorting .ordering select {
+    font-size: 15px;
+  }
+  .candidate-card {
+    padding: 25px 20px;
+  }
+  .candidate-card .title h3 {
+    font-size: 20px;
+  }
+  .candidate-card .sub-title span b {
+    font-size: 16px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .jend-grid-sorting .ordering-industries select {
+    width: 210px;
+  }
+  .jend-grid-sorting .result-count p {
+    font-size: 17px;
+  }
+  .candidate-card {
+    padding: 25px 20px;
+  }
+  .candidate-card .sub-title span b {
+    font-size: 15px;
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+/* Min width 1600px */
+/*# sourceMappingURL=candidates-page.component.css.map */

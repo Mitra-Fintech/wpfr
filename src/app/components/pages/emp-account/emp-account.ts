@@ -97,7 +97,7 @@ export class EmployLoginComponent implements OnInit {
             console.log(response);
             if (json.status == 'success') {
                 sessionStorage.setItem('isUserLoggedIn', 'true');
-                this.router.navigate(['/my-profile']);
+                this.router.navigate(['/my-details']);
             } else {
                 sessionStorage.setItem('isUserLoggedIn', 'false');
             }
@@ -156,7 +156,7 @@ onClick() {
                     sessionStorage.setItem('userType', JSON.stringify(json.userType));
                     sessionStorage.setItem('userId', JSON.stringify(json.userId));
                 });
-                this.router.navigate(['/my-profile']);
+                this.router.navigate(['/my-details']);
             } else {
                 alert(json.message)
                 sessionStorage.setItem('isUserLoggedIn', 'false');

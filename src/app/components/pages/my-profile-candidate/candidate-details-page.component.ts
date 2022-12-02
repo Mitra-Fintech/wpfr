@@ -21,12 +21,15 @@ export class MyProfileCandidatesComponent implements OnInit {
                 .get('https://workfromhome.world/api/users/details')
                 .subscribe((response) => {
                     interface ReposnseObject {
-                        xjson: object;
+                        status: boolean,
+                        status_code: number,
+                        userId: string,
+                        data: object
                     }
                     let json: ReposnseObject = JSON.parse(
                         JSON.stringify(response)
                     );
-                   console.log(json)
+                   console.log(json.data)
                 });
         } else {
             this.router.navigate(['/candidate']);
