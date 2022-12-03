@@ -1,0 +1,37 @@
+.terms-conditions-content .h1, .terms-conditions-content .h2, .terms-conditions-content .h3, .terms-conditions-content .h4, .terms-conditions-content .h5, .terms-conditions-content .h6, .terms-conditions-content h1, .terms-conditions-content h2, .terms-conditions-content h3, .terms-conditions-content h4, .terms-conditions-content h5, .terms-conditions-content h6 {
+  margin-bottom: 12px;
+}
+
+.terms-conditions-content .h1:not(:first-child), .terms-conditions-content .h2:not(:first-child), .terms-conditions-content .h3:not(:first-child), .terms-conditions-content .h4:not(:first-child), .terms-conditions-content .h5:not(:first-child), .terms-conditions-content .h6:not(:first-child), .terms-conditions-content h1:not(:first-child), .terms-conditions-content h2:not(:first-child), .terms-conditions-content h3:not(:first-child), .terms-conditions-content h4:not(:first-child), .terms-conditions-content h5:not(:first-child), .terms-conditions-content h6:not(:first-child) {
+  margin-top: 25px;
+}
+
+.terms-conditions-content strong {
+  color: var(--blackColor) !important;
+}
+
+.terms-conditions-content p a {
+  color: var(--primaryColor);
+}
+
+.terms-conditions-content p a:hover {
+  text-decoration: underline;
+}
+
+.terms-conditions-content ul li, .terms-conditions-content ol li {
+  color: var(--paragraphColor);
+  margin-bottom: 12px;
+}
+
+.terms-conditions-content ul li a, .terms-conditions-content ol li a {
+  color: var(--primaryColor);
+}
+
+.terms-conditions-content ul li a:hover, .terms-conditions-content ol li a:hover {
+  text-decoration: underline;
+}
+
+.terms-conditions-content ul li:last-child, .terms-conditions-content ol li:last-child {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=terms-conditions-page.component.css.map */

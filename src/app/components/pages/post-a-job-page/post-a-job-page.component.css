@@ -1,0 +1,177 @@
+.post-a-job-form {
+  padding: 50px;
+  border-radius: 8px;
+  border: 1px solid #ecedf2;
+  background-color: var(--whiteColor);
+  -webkit-box-shadow: 0 6px 15px 0 rgba(64, 79, 104, 0.05);
+          box-shadow: 0 6px 15px 0 rgba(64, 79, 104, 0.05);
+}
+
+.post-a-job-form .form-group {
+  margin-bottom: 25px;
+}
+
+.post-a-job-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.post-a-job-form .form-group label span {
+  color: red;
+}
+
+.post-a-job-form .form-group .form-control {
+  height: 55px;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  border-radius: 5px;
+  padding-left: 20px;
+  color: var(--blackColor);
+  font-size: var(--fontSize);
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+}
+
+.post-a-job-form .form-group .form-control::-webkit-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.post-a-job-form .form-group .form-control:-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.post-a-job-form .form-group .form-control::-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.post-a-job-form .form-group .form-control::placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.post-a-job-form .form-group .form-control:focus {
+  border-color: var(--primaryColor);
+}
+
+.post-a-job-form .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.post-a-job-form .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.post-a-job-form .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.post-a-job-form .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+.post-a-job-form .form-group .form-select {
+  color: var(--paragraphColor);
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+  font-size: var(--fontSize);
+  border-radius: 5px;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  cursor: pointer;
+  height: 55px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.post-a-job-form .form-group .form-select:hover {
+  border-color: var(--primaryColor);
+}
+
+.post-a-job-form .form-group input[type="file" i] {
+  margin-top: 7px;
+}
+
+.post-a-job-form .form-group p {
+  line-height: initial;
+  margin-top: 12px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.post-a-job-form .default-btn {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .post-a-job-form {
+    border: 0;
+    padding: 0;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    background-color: transparent;
+  }
+  .post-a-job-form .form-group {
+    margin-bottom: 20px;
+  }
+  .post-a-job-form .form-group label {
+    font-size: 14px;
+  }
+  .post-a-job-form .form-group .form-control {
+    height: 50px;
+    font-size: 14px;
+    padding-left: 12px;
+  }
+  .post-a-job-form .form-group .form-select {
+    font-size: 14px;
+    height: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .post-a-job-form .form-group input[type="file" i] {
+    margin-top: 5px;
+  }
+  .post-a-job-form .form-group p {
+    font-size: 13px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .post-a-job-form {
+    padding: 30px;
+  }
+  .post-a-job-form .form-group label {
+    font-size: 14px;
+  }
+  .post-a-job-form .form-group .form-control {
+    height: 50px;
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  .post-a-job-form .form-group .form-select {
+    height: 50px;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .post-a-job-form .form-group input[type="file" i] {
+    margin-top: 7px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+/* Min width 1200px to Max width 1399px */
+/* Min width 1600px */
+/*# sourceMappingURL=post-a-job-page.component.css.map */

@@ -1,0 +1,37 @@
+.privacy-policy-content .h1, .privacy-policy-content .h2, .privacy-policy-content .h3, .privacy-policy-content .h4, .privacy-policy-content .h5, .privacy-policy-content .h6, .privacy-policy-content h1, .privacy-policy-content h2, .privacy-policy-content h3, .privacy-policy-content h4, .privacy-policy-content h5, .privacy-policy-content h6 {
+  margin-bottom: 12px;
+}
+
+.privacy-policy-content .h1:not(:first-child), .privacy-policy-content .h2:not(:first-child), .privacy-policy-content .h3:not(:first-child), .privacy-policy-content .h4:not(:first-child), .privacy-policy-content .h5:not(:first-child), .privacy-policy-content .h6:not(:first-child), .privacy-policy-content h1:not(:first-child), .privacy-policy-content h2:not(:first-child), .privacy-policy-content h3:not(:first-child), .privacy-policy-content h4:not(:first-child), .privacy-policy-content h5:not(:first-child), .privacy-policy-content h6:not(:first-child) {
+  margin-top: 25px;
+}
+
+.privacy-policy-content strong {
+  color: var(--blackColor) !important;
+}
+
+.privacy-policy-content p a {
+  color: var(--primaryColor);
+}
+
+.privacy-policy-content p a:hover {
+  text-decoration: underline;
+}
+
+.privacy-policy-content ul li, .privacy-policy-content ol li {
+  color: var(--paragraphColor);
+  margin-bottom: 12px;
+}
+
+.privacy-policy-content ul li a, .privacy-policy-content ol li a {
+  color: var(--primaryColor);
+}
+
+.privacy-policy-content ul li a:hover, .privacy-policy-content ol li a:hover {
+  text-decoration: underline;
+}
+
+.privacy-policy-content ul li:last-child, .privacy-policy-content ol li:last-child {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=privacy-policy-page.component.css.map */

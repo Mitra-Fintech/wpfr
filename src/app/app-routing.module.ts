@@ -21,6 +21,8 @@ import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-pa
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
 import { EmployLoginComponent } from './components/pages/emp-account/emp-account';
 import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
+import { MyCompanyDetailsPageComponent } from './components/pages/my-details/company-details-page.component';
+
 import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp/my-account-page.component'
 
 const routes: Routes = [
