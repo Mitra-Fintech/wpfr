@@ -7,15 +7,18 @@ import { Router } from '@angular/router';
     templateUrl: './my-account-page.component.html',
     styleUrls: ['./my-account-page.component.scss'],
 })
-export class MyAccountPageComponent implements OnInit {
+
+export class CandidateVerifyOtp implements OnInit {
     public getJsonValue: any;
     public postJsonvalue: any;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
         // this.postMethod();
         this.checkIsLoggedInInsideApp();
     }
+
     private async postMethod() {
         const header = new HttpHeaders();
         header.set('Content-Type', 'application/x-www-form-urlencoded');
@@ -26,8 +29,10 @@ export class MyAccountPageComponent implements OnInit {
         var mobile_number = (<HTMLInputElement>(
             document.getElementById('mobile_number')
         )).value;
+
         var password = (<HTMLInputElement>document.getElementById('password'))
             .value;
+            
         let session_id = sessionStorage.getItem('session_id') || 'no-session';
         let body = new URLSearchParams();
         body.set('mobile_number', mobile_number);
@@ -37,7 +42,7 @@ export class MyAccountPageComponent implements OnInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('http://localhost:8000/candidate/login?' + body)
+            .get('https://workfromhome.world/api/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
@@ -50,7 +55,7 @@ export class MyAccountPageComponent implements OnInit {
                 console.log(response);
                 if (json.status == 'success' && json.status_code != 1300) {
                     this.http
-                .get('http://localhost:8000/session/get?session_id=' + sessionStorage.getItem('session_id'))
+                .get('https://workfromhome.world/api/session/get')
                 .subscribe((response) => {
                     interface ReposnseObject {
                         userType: string;
@@ -161,7 +166,7 @@ export class MyAccountPageComponent implements OnInit {
         // body.set('password', password);
 
         this.http
-            .get('http://localhost:8000/candidate/signup?' + body)
+            .get('https://workfromhome.world/api/candidate/signup?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
@@ -183,4 +188,5 @@ export class MyAccountPageComponent implements OnInit {
     onClick() {
         this.postMethod();
     }
+
 }

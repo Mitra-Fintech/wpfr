@@ -23,6 +23,7 @@ import { EmployLoginComponent } from './components/pages/emp-account/emp-account
 import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
 import { MyCompanyDetailsPageComponent } from './components/pages/my-details/company-details-page.component';
 
+import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp/my-account-page.component'
 
 const routes: Routes = [
     {path: '', component: MainHomeComponent},
@@ -45,7 +46,8 @@ const routes: Routes = [
     {path: 'contact', component: ContactPageComponent},
     {path: 'company', component: EmployLoginComponent},
     {path: 'my-profile', component: MyProfileCandidatesComponent},
-    {path: 'my-details', component: MyProfileCandidatesComponent},
+    {path: 'candidate-verify-otp', component: CandidateVerifyOtp},
+    {path: 'my-details', component: MyCompanyDetailsPageComponent},
 
     // Here add new pages component
 
