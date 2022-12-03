@@ -28,46 +28,62 @@ export class MyAccountPageComponent implements OnInit {
         )).value;
         var password = (<HTMLInputElement>document.getElementById('password'))
             .value;
-        let session_id = sessionStorage.getItem('session_id') || 'no-session';
+        let session_id =
+            sessionStorage
+                .getItem('session_id')
+                ?.replace('"', '')
+                .replace('"', '') || 'no-session';
         let body = new URLSearchParams();
         body.set('mobile_number', mobile_number);
         body.set('password', password);
-        // body.set('session_id', session_id)
+        body.set('session_id', session_id);
 
         console.log('Api Call : ' + body);
 
         this.http
-            .get('http://localhost:8000/candidate/login?' + body)
+            .get('https://workfromhome.world/api/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
-                    status_code : any;
+                    status_code: any;
                     isUserLoggedIn: boolean;
-                    message : any;
+                    message: any;
                 }
                 let json: ReposnseObject = JSON.parse(JSON.stringify(response));
                 // console.log(json.isUserLoggedIn);
                 console.log(response);
                 if (json.status == 'success' && json.status_code != 1300) {
                     this.http
-                .get('http://localhost:8000/session/get?session_id=' + sessionStorage.getItem('session_id'))
-                .subscribe((response) => {
-                    interface ReposnseObject {
-                        userType: string;
-                        isUserLoggedIn: boolean;
-                        userId : string;
-                    }
-                    let json: ReposnseObject = JSON.parse(
-                        JSON.stringify(response)
-                    );
-                    console.log(json.isUserLoggedIn);
-                    sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
-                    sessionStorage.setItem('userType', JSON.stringify(json.userType));
-                    sessionStorage.setItem('userId', JSON.stringify(json.userId));
-                });
+                        .get(
+                            'https://workfromhome.world/api/session/get?session_id=' +
+                                sessionStorage.getItem('session_id')
+                        )
+                        .subscribe((response) => {
+                            interface ReposnseObject {
+                                userType: string;
+                                isUserLoggedIn: boolean;
+                                userId: string;
+                            }
+                            let json: ReposnseObject = JSON.parse(
+                                JSON.stringify(response)
+                            );
+                            console.log(json.isUserLoggedIn);
+                            sessionStorage.setItem(
+                                'isUserLoggedIn',
+                                JSON.stringify(json.isUserLoggedIn)
+                            );
+                            sessionStorage.setItem(
+                                'userType',
+                                JSON.stringify(json.userType)
+                            );
+                            sessionStorage.setItem(
+                                'userId',
+                                JSON.stringify(json.userId)
+                            );
+                        });
                     this.router.navigate(['/my-profile']);
                 } else {
-                    alert(json.message)
+                    alert(json.message);
                     sessionStorage.setItem('isUserLoggedIn', 'false');
                 }
             });
@@ -118,7 +134,10 @@ export class MyAccountPageComponent implements OnInit {
         )).value;
 
         consditions.emailValid = validateEmail(email_id);
-        consditions.passwordValid = validatePassword(register_password, register_confirm_password);
+        consditions.passwordValid = validatePassword(
+            register_password,
+            register_confirm_password
+        );
         consditions.mobileNumberValid = validateMobileNumber(register_mobile);
         function validateEmail(email: string) {
             if (
@@ -132,52 +151,62 @@ export class MyAccountPageComponent implements OnInit {
             }
         }
 
-        function validatePassword(password: any , confirm_password: any) {
+        function validatePassword(password: any, confirm_password: any) {
             if (password == confirm_password) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
-        function validateMobileNumber(mobilenumber:any) {
-            if (mobilenumber.match("[6-9]{1}[0-9]{9}")) {
+        function validateMobileNumber(mobilenumber: any) {
+            if (mobilenumber.match('[6-9]{1}[0-9]{9}')) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
 
-        if (consditions.emailValid == true && consditions.mobileNumberValid == true && consditions.passwordValid == true) {
-            
-       
+        if (
+            consditions.emailValid == true &&
+            consditions.mobileNumberValid == true &&
+            consditions.passwordValid == true
+        ) {
+            let session_id =
+                sessionStorage
+                    .getItem('session_id')
+                    ?.replace('"', '')
+                    .replace('"', '') || 'no-session';
+            let body = new URLSearchParams();
+            body.set('name', full_name);
+            body.set('email_id', email_id);
+            body.set('mobile_number', register_mobile);
+            body.set('password', register_password);
+            body.set('session_id', session_id);
 
-        let session_id = sessionStorage.getItem('session_id') || 'no-session';
-        let body = new URLSearchParams();
-        body.set('name', full_name);
-        body.set('email_id', email_id);
-        body.set('mobile_number', register_mobile);
-        body.set('password', register_password);
 
-        // body.set('password', password);
+            // body.set('password', password);
 
-        this.http
-            .get('http://localhost:8000/candidate/signup?' + body)
-            .subscribe((response) => {
-                interface ReposnseObject {
-                    status: string;
-                    isUserLoggedIn: boolean;
-                }
-                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-                // console.log(json.isUserLoggedIn);
-                console.log(response);
-                if (json.status == 'success') {
-                    sessionStorage.setItem('isUserLoggedIn', 'true');
-                    this.router.navigate(['/my-profile']);
-                } else {
-                    sessionStorage.setItem('isUserLoggedIn', 'false');
-                }
-            });
-        }else{}
+            this.http
+                .get('https://workfromhome.world/api/candidate/signup?' + body)
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        isUserLoggedIn: boolean;
+                    }
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    console.log(response);
+                    if (json.status == 'success') {
+                        sessionStorage.setItem('isUserLoggedIn', 'true');
+                        this.router.navigate(['/my-profile']);
+                    } else {
+                        sessionStorage.setItem('isUserLoggedIn', 'false');
+                    }
+                });
+        } else {
+        }
     }
 
     onClick() {

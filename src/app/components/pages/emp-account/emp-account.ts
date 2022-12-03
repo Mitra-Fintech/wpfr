@@ -97,7 +97,7 @@ export class EmployLoginComponent implements AfterViewInit {
             // body.set('password', password);
 
             this.http
-                .get('http://localhost:8000/company/signup?' + body)
+                .get('https://workfromhome.world/api/company/signup?' + body)
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: string;
@@ -114,7 +114,7 @@ export class EmployLoginComponent implements AfterViewInit {
                         session_id = session_id.replace('"', '');
                         this.http
                             .get(
-                                'http://localhost:8000/session/get?session_id=' +
+                                'https://workfromhome.world/api/session/get?session_id=' +
                                     session_id.replace('"', '')
                             )
                             .subscribe((response) => {
@@ -177,7 +177,7 @@ export class EmployLoginComponent implements AfterViewInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('http://localhost:8000/company/login?' + body)
+            .get('https://workfromhome.world/api/company/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
@@ -193,7 +193,7 @@ export class EmployLoginComponent implements AfterViewInit {
                     session_id = session_id.replace('"', '');
                     this.http
                         .get(
-                            'http://localhost:8000/session/get?session_id=' +
+                            'https://workfromhome.world/api/session/get?session_id=' +
                                 session_id.replace('"', '')
                         )
                         .subscribe((response) => {
