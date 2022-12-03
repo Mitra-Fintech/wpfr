@@ -20,8 +20,8 @@ export class NavbarComponent implements OnInit {
                 // console.log("Url Change" + this.i+1);
                 // this.i++;
                 console.log(this.isUserLoggedIn);
-                let status = sessionStorage.getItem('isUserLoggedIn');
-                if(status == "true")
+                let status = sessionStorage.getItem('isUserLoggedIn')?.replace('"','').replace('"','');
+                if(status == "1")
                     this.isUserLoggedIn = true;
 
                 console.log(this.isUserLoggedIn);
@@ -31,6 +31,8 @@ export class NavbarComponent implements OnInit {
             }
 
         });
+
+        this.checkUserType();
     }
 
     switcherClassApplied = false;
@@ -51,14 +53,17 @@ export class NavbarComponent implements OnInit {
         sessionStorage.removeItem('isUserLoggedIn');
         sessionStorage.removeItem('session_id');
         this.isUserLoggedIn = false;
+        sessionStorage.setItem('post-a-job', 'false')
+        this.postajob   = false;
         this.router.navigate(['/']);
     }
 
     checkUserType(){
         // console.log
         let str = sessionStorage.getItem('userType') || "not-set";
-         str =  str.replace('"', '')
-         console.log(str)
+        str =  str.replace('"', '')
+        str =  str.replace('"', '')
+        console.log(str)
 
 
 

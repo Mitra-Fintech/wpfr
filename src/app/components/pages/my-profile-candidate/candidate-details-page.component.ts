@@ -15,10 +15,10 @@ export class MyProfileCandidatesComponent implements OnInit {
     }
 
     public checkIsLoggedIn() {
-        if (sessionStorage.getItem('isUserLoggedIn') == 'true') {
+        if (sessionStorage.getItem('isUserLoggedIn') == '1') {
             console.log('User is logged in');
             this.http
-                .get('https://workfromhome.world/api/users/details')
+                .get('http://localhost:8000/users/details')
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: boolean,

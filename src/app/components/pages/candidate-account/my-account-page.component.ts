@@ -37,7 +37,7 @@ export class MyAccountPageComponent implements OnInit {
         console.log('Api Call : ' + body);
 
         this.http
-            .get('https://workfromhome.world/api/candidate/login?' + body)
+            .get('http://localhost:8000/candidate/login?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;
@@ -50,7 +50,7 @@ export class MyAccountPageComponent implements OnInit {
                 console.log(response);
                 if (json.status == 'success' && json.status_code != 1300) {
                     this.http
-                .get('https://workfromhome.world/api/session/get')
+                .get('http://localhost:8000/session/get?session_id=' + sessionStorage.getItem('session_id'))
                 .subscribe((response) => {
                     interface ReposnseObject {
                         userType: string;
@@ -161,7 +161,7 @@ export class MyAccountPageComponent implements OnInit {
         // body.set('password', password);
 
         this.http
-            .get('https://workfromhome.world/api/candidate/signup?' + body)
+            .get('http://localhost:8000/candidate/signup?' + body)
             .subscribe((response) => {
                 interface ReposnseObject {
                     status: string;

@@ -47,6 +47,8 @@ const routes: Routes = [
     {path: 'company', component: EmployLoginComponent},
     {path: 'my-profile', component: MyProfileCandidatesComponent},
     {path: 'candidate-verify-otp', component: CandidateVerifyOtp},
+    {path: 'my-details', component: MyCompanyDetailsPageComponent},
+
     // Here add new pages component
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
