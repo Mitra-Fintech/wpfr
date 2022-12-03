@@ -72,7 +72,7 @@ export class AppComponent {
         if (isUserLoggedIn == null) {
             console.log('No Session ID');
             this.http
-                .get('http://localhost:8000/session/create')
+                .get('https://workfromhome.world/api/session/create')
                 .subscribe((response) => {
                     interface ReposnseObject {
                         userType: string;
@@ -95,7 +95,7 @@ export class AppComponent {
 
 
             this.http
-                .get('http://localhost:8000/session/get?session_id=' + session_id?.replace('"',''))
+                .get('https://workfromhome.world/api/session/get?session_id=' + session_id?.replace('"',''))
                 .subscribe((response) => {
                     interface ReposnseObject {
                         userType: string;

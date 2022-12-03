@@ -18,7 +18,7 @@ export class MyProfileCandidatesComponent implements OnInit {
         if (sessionStorage.getItem('isUserLoggedIn') == '1') {
             console.log('User is logged in');
             this.http
-                .get('http://localhost:8000/users/details')
+                .get('https://workfromhome.world/api/users/details')
                 .subscribe((response) => {
                     interface ReposnseObject {
                         status: boolean,
