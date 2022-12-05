@@ -1,0 +1,351 @@
+.login-form {
+  padding-right: 15px;
+}
+
+.login-form h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.login-form form .form-group {
+  margin-bottom: 25px;
+}
+
+.login-form form .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.login-form form .form-group .form-control {
+  background-color: #f9f9f9;
+  font-size: var(--fontSize);
+  color: var(--blackColor);
+  padding-left: 18px;
+  border-radius: 5px;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  height: 55px;
+  border: 0;
+}
+
+.login-form form .form-group .form-control::-webkit-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.login-form form .form-group .form-control:-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.login-form form .form-group .form-control::-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.login-form form .form-group .form-control::placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.login-form form .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.login-form form .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.login-form form .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.login-form form .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+.login-form form .form-group textarea.form-control {
+  padding-top: 18px;
+  height: auto;
+}
+
+.login-form form .forgot-password-wrap a {
+  display: inline-block;
+  position: relative;
+  line-height: 1.5;
+}
+
+.login-form form .forgot-password-wrap a::before {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.login-form form .forgot-password-wrap a::after {
+  left: 0;
+  width: 0;
+  bottom: 0;
+  height: 1px;
+  content: '';
+  position: absolute;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: var(--primaryColor);
+}
+
+.login-form form .forgot-password-wrap a:hover::before {
+  width: 0;
+}
+
+.login-form form .forgot-password-wrap a:hover::after {
+  width: 100%;
+}
+
+.login-form form button {
+  width: 100%;
+  border: none;
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 14px 30px;
+  display: inline-block;
+  color: var(--whiteColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: var(--primaryColor);
+  font-size: var(--fontSize);
+  font-weight: 500;
+}
+
+.login-form form button:hover {
+  background-color: var(--secondaryColor);
+  color: var(--whiteColor);
+}
+
+.register-form {
+  padding-left: 15px;
+}
+
+.register-form h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.register-form form .form-group {
+  margin-bottom: 25px;
+}
+
+.register-form form .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.register-form form .form-group .form-control {
+  background-color: #f9f9f9;
+  font-size: var(--fontSize);
+  color: var(--blackColor);
+  padding-left: 18px;
+  border-radius: 5px;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  height: 55px;
+  border: 0;
+}
+
+.register-form form .form-group .form-control::-webkit-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.register-form form .form-group .form-control:-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.register-form form .form-group .form-control::-ms-input-placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.register-form form .form-group .form-control::placeholder {
+  color: var(--paragraphColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.register-form form .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.register-form form .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.register-form form .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.register-form form .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+.register-form form .form-group textarea.form-control {
+  padding-top: 18px;
+  height: auto;
+}
+
+.register-form form .description {
+  font-style: italic;
+  font-size: 14.5px;
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+.register-form form button {
+  width: 100%;
+  border: none;
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 14px 30px;
+  display: inline-block;
+  color: var(--whiteColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: var(--primaryColor);
+  font-size: var(--fontSize);
+  font-weight: 500;
+}
+
+.register-form form button:hover {
+  background-color: var(--secondaryColor);
+  color: var(--whiteColor);
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .login-form {
+    padding-right: 0;
+  }
+  .login-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .login-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .login-form form .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .login-form form .form-group .form-control {
+    padding-left: 15px;
+    font-size: 13px;
+    height: 50px;
+  }
+  .login-form form button {
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .register-form {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+  .register-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .register-form form .description {
+    font-size: 12px;
+  }
+  .register-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .register-form form .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .register-form form .form-group .form-control {
+    padding-left: 15px;
+    font-size: 13px;
+    height: 50px;
+  }
+  .register-form form button {
+    padding: 12px 30px;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .login-form {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .login-form h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+  .login-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .login-form form .form-group .form-control {
+    padding-left: 15px;
+    font-size: 14px;
+    height: 50px;
+  }
+  .login-form form button {
+    padding: 13px 30px;
+    font-size: 15px;
+  }
+  .register-form {
+    padding-left: 0;
+  }
+  .register-form h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+  .register-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .register-form form .form-group .form-control {
+    padding-left: 15px;
+    font-size: 14px;
+    height: 50px;
+  }
+  .register-form form button {
+    padding: 13px 30px;
+    font-size: 15px;
+  }
+  .register-form form .description {
+    font-size: 14px;
+    margin-top: 0;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+/* Min width 1200px to Max width 1399px */
+/* Min width 1600px */
+/*# sourceMappingURL=emp-account.css.map */

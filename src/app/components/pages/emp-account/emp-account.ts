@@ -8,19 +8,20 @@ import { NavbarComponent } from '../../common/navbar/navbar.component';
     templateUrl: './emp-account.html',
     styleUrls: ['./emp-account.scss'],
 })
-export class EmployLoginComponent implements AfterViewInit {
+export class EmployLoginComponent implements OnInit {
     @ViewChild(NavbarComponent) navabar: any;
     public getJsonValue: any;
     public postJsonvalue: any;
     constructor(private http: HttpClient, private router: Router) {}
-    ngAfterViewInit(): void {
-        // throw new Error('Method not implemented.');
-        this.navabar.checkUserType();
-    }
+    // ngAfterViewInit(): void {
+    //     // throw new Error('Method not implemented.');
+    //     this.navabar.checkUserType();
+    // }
 
     ngOnInit(): void {}
 
     public async registerAccount() {
+        console.log('Registering')
         let consditions = {
             passwordValid: false,
             emailValid: false,
@@ -86,6 +87,7 @@ export class EmployLoginComponent implements AfterViewInit {
             let session_id =
                 sessionStorage.getItem('session_id') || 'no-session';
             session_id = session_id.replace('"', '');
+            sessionStorage.setItem('mobile_number', register_mobile);
 
             let body = new URLSearchParams();
             body.set('name', full_name);
@@ -141,7 +143,7 @@ export class EmployLoginComponent implements AfterViewInit {
                                 );
                             });
                         // this.router.navigate(['/']);
-                        this.router.navigate(['/'], {
+                        this.router.navigate(['/verify-otp'], {
                             skipLocationChange: false,
                         });
                     } else {
@@ -149,6 +151,8 @@ export class EmployLoginComponent implements AfterViewInit {
                     }
                 });
         } else {
+            console.log('No session');
+            console.log(consditions)
         }
     }
 
