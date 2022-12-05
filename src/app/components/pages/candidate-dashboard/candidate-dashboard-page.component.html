@@ -6,7 +6,7 @@
                 <img src="assets/images/candidates/candidate1.jpg" alt="job-image">
             </div>
             <h3>Jhon Doe</h3>
-            <span class="location">by <a routerLink="/">Python Developer</a> in Brooklyn, NY</span>
+            <!-- <span class="location">by <a routerLink="/">Python Developer</a> in Brooklyn, NY</span> -->
             <ul class="job-sub-content">
                 <a href=""><img src="assets/images/facebook.png" alt="" width="35" style="padding: 5px"></a>
                 <a href=""><img src="assets/images/linkedin.png" alt="" width="35" style="padding: 5px"></a>
@@ -29,11 +29,11 @@
 </div>
 
 
-<h2 style="text-align: center;" class="mt-5">Your Applications</h2>
+<h1 style="text-align: center;" class="mt-5">Your Applications</h1>
 
 <div class="row p-5">
     <div class="col-lg-12 col-sm-6 col-md-6">
-
+        
         <div class="job-card">
             <div class="content">
                 <div class="job-image">
@@ -41,101 +41,162 @@
                         <img src="assets/images/job/job1.jpg" alt="job-image">
                     </a>
                 </div>
-                <h3><a routerLink="/job-details">Company Name - A</a></h3> 
+            <div class="px-5">
+                <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
 
-                <div>
-                    <span class="dot-success mt-4"></span>
-                    <span class="mt-0 mx-1"> <strong>Selected</strong> </span>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4 dot-success"></div>
+                        <div class="col-sm-8"><strong>Selected</strong></div>
+                    </div>
+                </div>
+                    <!-- <span class="dot-success mt-4"></span> -->
+                    <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
+                <br>
+
+                <div style="font-size:20px">
+                <ul class="job-list1">
+                    <li><i class=""></i> Product Design Job</li>
+                <li><i class=""></i> Applied On - 
+                    <span class="date_of_appy">10 Dec 2022</span>
+                </li>
+                </ul>
                 </div>
                 
-                <br>
-                <br>
-                
-                <ul class="job-list1">
-                    <li><i class="ri-briefcase-line"></i> Product Design Job</li>
-                    <li><i class="ri-time-line"></i> Applied On - 10 Dec 2022</li>
-                </ul>
-                
-                <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
             </div>
-            <div class="job-sub-content">
-                <ul class="job-list2">
-                    <li class="time">Review Application</li>
+            
+            <div class="container px-5">
+                <div class="row">
+
+                    <div class="col-sm-12" style="font-size: 18px">
+                        <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
+                    </div>
+    
+                </div>
+            </div>
+            
+            <div class="job-sub-content px-5">
+                <div class="job-list">
+                    <a href=""><li class="time" style="font-size:larger">Review Application</li></a>
                     <!-- <li class="freelance">Freelance</li> -->
                     <!-- <li class="urgent">Urgent</li> -->
-                </ul>
+                </div>
                 <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
             </div>
-            <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
-        </div>
 
-
-
-        <div class="job-card mt-3">
-            <div class="content">
-                <div class="job-image">
-                    <a routerLink="/job-details">
-                        <img src="assets/images/job/job1.jpg" alt="job-image">
-                    </a>
-                </div>
-                <h3><a routerLink="/job-details">Company Name - B</a></h3>
-                <div>
-                    <span class="dot-fail mt-4"></span>
-                    <span class="mt-0 mx-1"> <strong>Not-Selected</strong> </span>
-                </div>
-                <br>
-                <br>
-                <ul class="job-list1">
-                    <li><i class="ri-briefcase-line"></i> Information Technology</li>
-                    <li><i class="ri-time-line"></i> Applied On - 6 Dec 2022</li>
-                </ul>
-                <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
-            </div>
-            <div class="job-sub-content">
-                <ul class="job-list2">
-                    <li class="time">Review Application</li>
-                    <!-- <li class="freelance">Freelance</li> -->
-                    <!-- <li class="urgent">Urgent</li> -->
-                </ul>
-                <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
-            </div>
-            <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
-        </div>
-
-
-        <div class="job-card mt-3">
-            <div class="content">
-                <div class="job-image">
-                    <a routerLink="/job-details">
-                        <img src="assets/images/job/job1.jpg" alt="job-image">
-                    </a>
-                </div>
-                <h3><a routerLink="/job-details">Company Name - C</a></h3>
-                <div>
-                    <span class="dot-inTouch mt-4"></span>
-                    <span class="mt-0 mx-1"> <strong>In Touch</strong> </span>
-                </div>
-                <br>
-                <br>
-                <ul class="job-list1">
-                    <li><i class="ri-briefcase-line"></i> Electronics and Electrical</li>
-                    <li><i class="ri-time-line"></i> Applied On - 1 Dec 2022</li>
-                </ul>
-                <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
-            </div>
-
-
-            <div class="job-sub-content">
-                <ul class="job-list2">
-                    <li class="time">Review Application</li>
-                    <!-- <li class="freelance">Freelance</li> -->
-                    <!-- <li class="urgent">Urgent</li> -->
-                </ul>
-                <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
-            </div>
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
         </div>
     </div>
+
+
+    <div class="job-card mt-5">
+        <div class="content">
+            <div class="job-image">
+                <a routerLink="/job-details">
+                    <img src="assets/images/job/job1.jpg" alt="job-image">
+                </a>
+            </div>
+        <div class="px-5">
+            <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4 dot-fail"></div>
+                    <div class="col-sm-8"><strong>Not-Selected</strong></div>
+                </div>
+            </div>
+                <!-- <span class="dot-success mt-4"></span> -->
+                <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
+            <br>
+
+            <div style="font-size:20px">
+            <ul class="job-list1">
+                <li><i class=""></i> Product Design Job</li>
+            <li><i class=""></i> Applied On - 
+                <span class="date_of_appy">10 Dec 2022</span>
+            </li>
+            </ul>
+            </div>
+            
+        </div>
+        
+        <div class="container px-5">
+            <div class="row">
+
+                <div class="col-sm-12" style="font-size: 18px">
+                    <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="job-sub-content px-5">
+            <div class="job-list">
+                <a href=""><li class="time" style="font-size:larger">Review Application</li></a>
+                <!-- <li class="freelance">Freelance</li> -->
+                <!-- <li class="urgent">Urgent</li> -->
+            </div>
+            <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
+        </div>
+
+        <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+</div>
+
+
+
+<div class="job-card mt-5">
+    <div class="content">
+        <div class="job-image">
+            <a routerLink="/job-details">
+                <img src="assets/images/job/job1.jpg" alt="job-image">
+            </a>
+        </div>
+    <div class="px-5">
+        <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 dot-inTouch"></div>
+                <div class="col-sm-8"><strong>In-Touch</strong></div>
+            </div>
+        </div>
+            <!-- <span class="dot-success mt-4"></span> -->
+            <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
+        <br>
+
+        <div style="font-size:20px">
+        <ul class="job-list1">
+            <li><i class=""></i> Product Design Job</li>
+        <li><i class=""></i> Applied On - 
+            <span class="date_of_appy">10 Dec 2022</span>
+        </li>
+        </ul>
+        </div>
+        
+    </div>
+    
+    <div class="container px-5">
+        <div class="row">
+
+            <div class="col-sm-12" style="font-size: 18px">
+                <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="job-sub-content px-5">
+        <div class="job-list">
+            <a href=""><li class="time" style="font-size:larger">Review Application</li></a>
+            <!-- <li class="freelance">Freelance</li> -->
+            <!-- <li class="urgent">Urgent</li> -->
+        </div>
+        <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
+    </div>
+
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+</div>
 </div>
 
 <!-- Jobs Details -->
