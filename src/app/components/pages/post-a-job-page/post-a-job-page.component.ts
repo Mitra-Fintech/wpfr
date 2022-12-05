@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Editor, Toolbar } from 'ngx-editor';
 
 @Component({
@@ -7,6 +9,8 @@ import { Editor, Toolbar } from 'ngx-editor';
     styleUrls: ['./post-a-job-page.component.scss']
 })
 export class PostAJobPageComponent implements OnInit, OnDestroy {
+    public isUserLoggedIn = false;
+    
 
     editor: any;
     html: any;
@@ -22,10 +26,17 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         ['align_left', 'align_center', 'align_right', 'align_justify'],
     ];
 
-    constructor() { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
         this.editor = new Editor();
+        let postajobstatus = sessionStorage.getItem('post-a-job');
+
+        if(postajobstatus != "true"){
+            this.router.navigate(['/company'], {
+                skipLocationChange: false,
+            });
+        }
     }
 
     // make sure to destory the editor

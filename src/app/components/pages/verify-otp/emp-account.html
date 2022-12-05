@@ -1,0 +1,41 @@
+<!-- Page Title -->
+<div class="inner-banner">
+    <div class="container">
+        <div class="inner-title text-center">
+            <h3>Verify OTP</h3>
+            <ul>
+                <li>
+                    <a routerLink="/">
+                        Home
+                    </a>
+                </li>
+                <!-- <li>Login/Register</li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- My Account -->
+<div class="profile-authentication-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+                    <h2>Verify OTP</h2>
+                    <form>
+                        <div class="form-group">
+                            <label>Enter OTP</label>
+                            <input type="number" class="form-control" id="otp">
+                        </div>
+                  
+                        <div class="forgot-password-wrap">
+                            <a (click)="resendOtp()" class="lost-your-password">Didnt Recived OTP yet? Resend it.</a>
+                        </div>
+                        <button (click)="verifyOtp()" type="button">Login</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
