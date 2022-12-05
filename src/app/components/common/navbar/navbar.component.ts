@@ -1,19 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable, Subscription, timer } from 'rxjs';
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
     public isUserLoggedIn = false;
     public postajob = false;
     i = 0;
+    subscription: Subscription = new Subscription;
+    everyFiveSeconds: Observable<number> = timer(0, 5000);
 
     constructor(private http: HttpClient, private router: Router) {}
+    ngOnDestroy(): void {
+        throw new Error('Method not implemented.');
+    }
 
     ngOnInit(): void {
+        this.subscription = this.everyFiveSeconds.subscribe(() => {
+            this.checkUserType();
+          });
         this.router.events.subscribe((val:any)=>{
             if(val.url){
 
@@ -52,6 +62,7 @@ export class NavbarComponent implements OnInit {
     logout(){
         sessionStorage.removeItem('isUserLoggedIn');
         sessionStorage.removeItem('session_id');
+        sessionStorage.removeItem('userType');
         this.isUserLoggedIn = false;
         sessionStorage.setItem('post-a-job', 'false')
         this.postajob   = false;
@@ -69,11 +80,15 @@ export class NavbarComponent implements OnInit {
 
          if(str == "company"){
             sessionStorage.setItem('post-a-job', 'true')
+            this.postajob = true
+            this.isUserLoggedIn = true
             return true;
          }else{
             sessionStorage.setItem('post-a-job', 'false')
             return false;
          }
     }
+
+
 
 }
