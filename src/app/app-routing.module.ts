@@ -24,7 +24,7 @@ import { MyProfileCandidatesComponent } from './components/pages/my-profile-cand
 import { MyCompanyDetailsPageComponent } from './components/pages/my-details/company-details-page.component';
 
 import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp-page/candidate-page.component';
-import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account.component'
+import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
 
 const routes: Routes = [
