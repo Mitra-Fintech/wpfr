@@ -9,6 +9,7 @@ import {
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { Observable, Subscription, timer } from 'rxjs';
 declare let $: any;
 
 @Component({
@@ -40,10 +41,15 @@ declare let $: any;
 export class AppComponent {
     location: any;
     routerSubscription: any;
+    subscription: Subscription = new Subscription;
+    everyFiveSeconds: Observable<number> = timer(0, 5000);
 
     constructor(private router: Router, private http: HttpClient) {}
 
     ngOnInit() {
+        this.subscription = this.everyFiveSeconds.subscribe(() => {
+            this.checkIsLoggedIn();
+          });
         this.recallJsFuntions();
         this.checkIsLoggedIn();
     }
