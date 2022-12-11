@@ -26,6 +26,7 @@ import { MyCompanyDetailsPageComponent } from './components/pages/my-details/com
 import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp-page/candidate-page.component';
 import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
+import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component'
 
 const routes: Routes = [
     {path: '', component: MainHomeComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
     {path: 'candidates', component: CandidatesPageComponent},
     {path: 'candidate-details', component: CandidateDetailsPageComponent},
     {path: 'candidate-dashboard', component: CandidateDashboardPageComponent},
+    {path: 'employer-dashboard', component: EmployerDashboardPageComponent},
     {path: 'faq', component: FaqPageComponent},
     {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
     {path: 'terms-conditions', component: TermsConditionsPageComponent},
