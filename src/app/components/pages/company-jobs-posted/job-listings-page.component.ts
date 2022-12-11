@@ -12,6 +12,7 @@ export class CompanyJobListingsPageComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadJobsPosted();
   }
 
   loadJobsPosted(){
@@ -20,6 +21,7 @@ export class CompanyJobListingsPageComponent implements OnInit {
 
     let userId =
                 sessionStorage.getItem('userId') || 'no-session';
+                userId = userId.replace('"', '');
                 userId = userId.replace('"', '');
 
     let body = new URLSearchParams();
