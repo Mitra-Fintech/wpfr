@@ -12,18 +12,20 @@ export class CompanyJobListingsPageComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadJobsPosted();
   }
 
   loadJobsPosted(){
 
     // https://workfromhome.world/api/job/list?company_id=8986194738
 
-    let session_id =
-                sessionStorage.getItem('mobile_number') || 'no-session';
-            session_id = session_id.replace('"', '');
+    let userId =
+                sessionStorage.getItem('userId') || 'no-session';
+                userId = userId.replace('"', '');
+                userId = userId.replace('"', '');
 
     let body = new URLSearchParams();
-    body.set('company_id', session_id);
+    body.set('company_id', userId);
 
     this.http
     .get('https://workfromhome.world/api/job/list?' + body)
