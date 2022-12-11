@@ -95,12 +95,20 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
             interface ReposnseObject {
                 status: string;
                 status_code: any;
-                isUserLoggedIn: boolean;
-                message: any;
+                data: object;
+            }  
+            interface DataObject {
+                job_created: boolean
             }
             let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+            let DataJson: DataObject = JSON.parse(JSON.stringify(json.data));
             // console.log(json.isUserLoggedIn);
-            console.log(response);
+            console.log(DataJson.job_created);
+
+            if(DataJson.job_created){
+                this.router.navigate(['/jobs-posted'], {
+                                    skipLocationChange: false,})
+            }
         })
 
     }
