@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobListingsPageComponent implements OnInit {
 
-  constructor() { }
+  public getJsonValue: any;
+  public postJsonValue: any;
+
+  constructor(private http: HttpClient) {  }
 
   ngOnInit(): void {
+    this.getMethod();
+  }
+
+  public getMethod() {
+    this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
   }
 
 }
