@@ -24,7 +24,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Job Title <span>*</span></label>
-                            <input type="text" class="form-control" id="title">
+                            <input type="text" class="form-control" id="title" required>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
@@ -34,14 +34,14 @@
                                 <!-- <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
                                 </ngx-editor-menu>
                                 <ngx-editor [editor]="editor" [placeholder]="'Type here...'" id="description"></ngx-editor> -->
-                           <textarea class="form-control"  style="height:300px;" id="description"></textarea>
+                           <textarea class="form-control"  style="height:300px;" id="description" required></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Category <span>*</span></label>
-                            <select class="form-select" id="category_id">
+                            <select class="form-select" id="category_id" required>
                                 <option selected>Accounting / Finance</option>
                                 <option value="1">Automotive Jobs</option>
                                 <option value="2">Customer Service</option>
@@ -56,7 +56,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Type <span>*</span></label>
-                            <select class="form-select" id="type_id">
+                            <select class="form-select" id="type_id" required>
                                 <option selected>Freelance</option>
                                 <option value="1">Full Time</option>
                                 <option value="2">Internship</option>
@@ -74,7 +74,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Gender <span>*</span></label>
-                            <select class="form-select" id="gender">
+                            <select class="form-select" id="gender" required>
                                 <option selected>Both</option>
                                 <option value="1">Female</option>
                                 <option value="2">Male</option>
@@ -94,7 +94,7 @@
                     </div> -->
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Salary Type <span>*</span></label>
+                            <label>Salary Type <span></span></label>
                             <select class="form-select" id="salary_type">
                                 <option selected>Monthly</option>
                                 <option value="1">Weekly</option>
@@ -106,20 +106,20 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group" id="minimum_salary">
-                            <label>Min. Salary <span>*</span></label>
+                            <label>Min. Salary <span></span></label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Max. Salary <span>*</span></label>
+                            <label>Max. Salary <span></span></label>
                             <input type="text" class="form-control" id="maximum_salary">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Experience <span>*</span></label>
-                            <select class="form-select" id="experience">
+                            <select class="form-select" id="experience" required>
                                 <option selected>Fresh</option>
                                 <option value="1">1 Year</option>
                                 <option value="2">2 Year</option>
@@ -134,7 +134,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Career Level <span>*</span></label>
-                            <select class="form-select" id="career_level">
+                            <select class="form-select" id="career_level" required>
                                 <option selected>Manager</option>
                                 <option value="1">Officer</option>
                                 <option value="2">Student</option>
@@ -146,7 +146,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Qualification <span>*</span></label>
-                            <select class="form-select" id="qualification">
+                            <select class="form-select" id="qualification" required>
                                 <option selected>Certificate</option>
                                 <option value="1">Associate Degree</option>
                                 <option value="2">Bachelor Degree</option>
@@ -157,20 +157,20 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Introduction Video URL <span>*</span></label>
+                            <label>Introduction Video URL </label>
                             <input type="text" class="form-control" id="introduction_video_url">
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <label>Application Deadline Date <span>*</span></label>
-                            <input type="date" class="form-control" id="deadline">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Friendly Address <span>*</span></label>
-                            <input type="text" class="form-control" id="friendly_address">
+                            <label>Application Deadline Date <span>*</span></label>
+                            <input type="date" class="form-control" id="deadline" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Address <span>*</span></label>
+                            <input type="text" class="form-control" id="friendly_address" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -183,7 +183,7 @@
                                 <option value="3">Miami</option>
                                 <option value="4">Paris</option>
                             </select> -->
-                            <input type="text" class="form-control" id="location">
+                            <input type="text" class="form-control" id="location" required>
 
                         </div>
                     </div>

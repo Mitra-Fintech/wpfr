@@ -107,7 +107,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
 
             if(DataJson.job_created){
                 alert('Job Posted successfully')
-                this.router.navigate(['/jobs-posted'], {
+                this.router.navigate(['/job-listings'], {
                                     skipLocationChange: false,})
             }
             else{

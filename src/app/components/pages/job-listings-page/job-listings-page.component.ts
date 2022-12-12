@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-listings-page',
@@ -10,15 +11,53 @@ export class JobListingsPageComponent implements OnInit {
 
   public getJsonValue: any;
   public postJsonValue: any;
+  public objToArray: any;
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.getMethod();
+    this.getJobListing();
   }
 
-  public getMethod() {
-    this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
+  getJobListing() {
+    // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
+
+    let user_id = sessionStorage.getItem('userId') || 'no-user-id';
+
+    user_id = user_id.replace('"', '').replace('"', '');
+
+    this.http
+                .get('https://workfromhome.world/api/job/list' + '?company_id=' + user_id)
+                .subscribe((response) => {
+
+                    interface ResponseObject {
+                        status: string;
+                        code: any;
+                        data : Object;
+                        // session_id: string;
+                    }
+
+                    interface DataArrayObject {
+                        // job_title: string;
+                        array: Object;
+                        
+
+                    }
+
+                    let responseObj: ResponseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+
+                    let dataJson: DataArrayObject = JSON.parse(
+                        JSON.stringify(responseObj.data)
+                    );
+                      
+                    this.objToArray = Object.entries(dataJson);
+
+                    console.log(this.objToArray[2][1]);  
+                    // console.log(responseObj.status);
+
+                });
   }
 
 }

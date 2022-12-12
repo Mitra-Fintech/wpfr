@@ -48,6 +48,8 @@ import { CandidateDetailsPageComponent } from './components/pages/candidate-deta
 import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule } from '@angular/common'
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -88,6 +90,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         MyProfileCandidatesComponent
     ],
     imports: [
+        CommonModule,
         BrowserModule,
         AppRoutingModule,
         CarouselModule,

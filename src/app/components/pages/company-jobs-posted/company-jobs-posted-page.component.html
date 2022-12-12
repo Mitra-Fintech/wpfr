@@ -61,33 +61,58 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-sm-6 col-md-6">
+
+
+
+                    <div  class="col-lg-12 col-sm-6 col-md-6" *ngFor = "let details of final_array">
                         <div class="job-card">
                             <div class="content">
+                                
                                 <div class="job-image">
                                     <a routerLink="/job-details">
                                         <img src="assets/images/job/job1.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">Product Designer</a></h3>
+                                
+                                <h3><a routerLink="/job-details">{{ details[1].job_title }}</a></h3>
                                 <ul class="job-list1">
-                                    <li><i class="ri-briefcase-line"></i> Design</li>
-                                    <li><i class="ri-time-line"></i> 2 Week Ago</li>
-                                </ul>
-                                <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
+                                    <li><i class="ri-briefcase-line"></i> {{details[1].career_level}}</li>
+                                    <li><i class="ri-time-line"></i> {{details[1].deadline}}</li>
+                                    <li><i class="ri-time-line"></i> Experience: {{details[1].experience}}</li>
+                                    <li><i class="ri-time-line"></i> Qualification: {{details[1].qualification}}</li>
+                                    <li><i class="ri-time-line"></i> Job Type: {{details[1].job_type}} </li>
+                                    <li><i class="ri-time-line"></i> Allowed Genders: {{details[1].allowed_genders}} </li>
+                                    <li><i class="ri-time-line"></i> Job Tags: {{details[1].job_tags}} </li>
+                                    <li><i class="ri-time-line"></i> Job Category: {{details[1].job_category}} </li>
+                                    <li><i class="ri-time-line"></i> <a href="{{details[1].introduction_video_url}}">Video Url</a> </li>
+                                </ul>          
+
+                                <span><i class="ri-map-pin-line"></i> {{details[1].office_address}}, {{details[1].location}}</span>
                             </div>
-                            <div class="job-sub-content">
+                            <!-- <div class="job-sub-content">
                                 <ul class="job-list2">
+                                    
+                                    <div *ngIf = "job[1]._job_type === Freelance">
+                                        <li class="freelance">Freelance</li>
+                                    </div>
+
+                                    <div *ngIf = "job[1]._job_type === Freelance">
+                                        <li class="freelance">Freelance</li>
+                                    </div>
+
                                     <li class="time">Full Time</li>
-                                    <li class="freelance">Freelance</li>
+                                    
                                     <li class="urgent">Urgent</li>
                                 </ul>
-                                <div class="price">$150 - $180 <span>/Per Week</span></div>
-                            </div>
+                            </div> -->
+                            <div class="price">{{details[1].salary_minimum}} - {{details[1].salary_maximum}} <span>/{{details[1].salary_type}}</span></div>
                             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-sm-6 col-md-6">
+
+
+
+                    <!-- <div class="col-lg-12 col-sm-6 col-md-6">
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
@@ -253,7 +278,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
             <div class="col-lg-4 col-md-12">
                 <div class="job-listings-sidebar">

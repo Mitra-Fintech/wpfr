@@ -27,7 +27,7 @@ declare let $: any;
 })
 
 // @NgModule({
-//     declarations: [AppComponent],
+//     // declarations: [AppComponent],
 //     imports: [BrowserModule],
 //     providers: [
 //         {
@@ -35,7 +35,7 @@ declare let $: any;
 //             useClass: HashLocationStrategy
 //         }
 //     ],
-//     bootstrap: [AppComponent],
+//     // bootstrap: [AppComponent],
 // })
 
 export class AppComponent {
