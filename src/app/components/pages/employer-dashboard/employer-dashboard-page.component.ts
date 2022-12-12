@@ -12,7 +12,7 @@ export class EmployerDashboardPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(){
+  onLoad(){
       
   }
 }
