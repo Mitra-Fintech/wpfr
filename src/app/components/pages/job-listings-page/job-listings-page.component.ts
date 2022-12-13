@@ -12,6 +12,7 @@ export class JobListingsPageComponent implements OnInit {
   public getJsonValue: any;
   public postJsonValue: any;
   public objToArray: any;
+  public arraySize: any; 
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -53,7 +54,8 @@ export class JobListingsPageComponent implements OnInit {
                     );
                       
                     this.objToArray = Object.entries(dataJson);
-
+                    this.arraySize = this.objToArray.length
+                    
                     console.log(this.objToArray[2][1]);  
                     // console.log(responseObj.status);
 
