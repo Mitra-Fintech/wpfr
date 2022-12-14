@@ -27,7 +27,7 @@ import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp-page/
 import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component'
-import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/job-listings-page.component';
+import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
 
 
 const routes: Routes = [

@@ -2,22 +2,30 @@
 <div class="inner-banner">
     <div class="container">
         <div class="job-card">
+
             <div class="job-image">
                 <img src="assets/images/job/job1.jpg" alt="job-image">
             </div>
-            <h3>Product Designer</h3>
-            <span class="location">by <a routerLink="/">Technology IT</a> in Brooklyn, NY</span>
-            <ul class="job-sub-content">
-                <li class="time">Full Time</li>
+            
+            <h3>{{ jobToArray[0][1].job_title }}</h3>
+
+            <span class="location">by <a routerLink="/">{{ jobToArray[0][1].career_level }}</a> in {{ jobToArray[0][1].office_address }}, {{ jobToArray[0][1].location }}</span>
+            <br>
+            <span> Job-Type - {{ jobToArray[0][1].job_type }} </span>
+            <div> Job-tags - {{ jobToArray[0][1].job_tags }} </div>
+            <!-- <ul class="job-sub-content">
+                <li class="freelance" *ngIf = "{{ jobToArray[0][1].job_type }} === 'Freelance' " >Freelance</li>
                 <li class="freelance">Freelance</li>
                 <li class="urgent">Urgent</li>
-            </ul>
+            </ul> -->
+            
             <div class="d-md-flex align-items-center justify-content-between">
-                <div class="last-date">Last Date: October 7, 2022</div>
+                <div class="last-date">Last Date: {{ jobToArray[0][1].deadline }}</div>
                 <a routerLink="/profile-authentication" class="default-btn">Apply Now</a>
             </div>
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
         </div>
+
     </div>
 </div>
 
@@ -28,11 +36,12 @@
             <div class="col-lg-8 col-md-12">
                 <div class="job-details-desc">
                     <h4>Job Description:</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate <strong>elementum</strong>. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus ands placerat
+                    <p style="font-size: larger;">{{ jobToArray[0][1].job_description }}</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate <strong>elementum</strong>. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus ands placerat
                         maecenas egestas <a routerLink="/">ullamcorper</a> sed nunc. Vitae egestas tellus amet nulla something loss pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare <strong>venenatis</strong> proin ac varius ut. Vitae egestas tellus amet nulla cursus in that. Pellentesque
-                        placerat maecenas egestas ullamcorper sed sarinto.</p>
-                    <h4>Responsabilities</h4>
+                        placerat maecenas egestas ullamcorper sed sarinto.</p> -->
+                    <!-- <h4>Responsabilities</h4>
                     <ul>
                         <li>Capable to handle subordinates leading, monitoring, and reporting to the management.</li>
                         <li>70% work time for marketing & sales.</li>
@@ -66,7 +75,9 @@
                         <li>Episerver CMS</li>
                         <li>Microsoft Team Foundation Server</li>
                         <li>Speaker Management System (Planstone)</li>
-                    </ul>
+                    </ul> -->
+
+
                     <div class="btn-box">
                         <a routerLink="/profile-authentication" class="default-btn">Apply Now</a>
                     </div>
@@ -77,16 +88,20 @@
                     <div class="widget-item">
                         <ul class="features-list">
                             <li>
-                                <span>Experience</span> Min 1 year
+                                <span>Experience</span> {{ jobToArray[0][1].experience }}
                             </li>
                             <li>
-                                <span>Work Level</span> Entry-Level
+                                <span>Work Level</span> {{ jobToArray[0][1].career_level }}
                             </li>
                             <li>
                                 <span>Employment Type</span> Part Time
                             </li>
                             <li>
-                                <span>Salary</span> 20k-40k / year
+                                <span>Allowed Genders</span> {{ jobToArray[0][1].allowed_genders }}
+                            </li>
+
+                            <li>
+                                <span>Salary</span> {{ jobToArray[0][1].salary_minimum }} - {{ jobToArray[0][1].salary_maximum }} / {{ jobToArray[0][1].salary_type }}
                             </li>
                         </ul>
                     </div>

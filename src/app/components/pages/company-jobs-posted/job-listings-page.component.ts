@@ -37,9 +37,15 @@ export class CompanyJobListingsPageComponent implements OnInit {
             message: any;
             data:object
         }
+        interface DataObject {
+          job_title: string
+      }
         let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+        let DataJson: DataObject = JSON.parse(JSON.stringify(json.data));
+
         // console.log(json.isUserLoggedIn);
         console.log(response);
+        console.log(DataJson.job_title);
     })
   }
 

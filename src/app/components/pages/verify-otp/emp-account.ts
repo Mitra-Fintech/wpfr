@@ -19,7 +19,7 @@ export class VerifyOtpComponent implements OnInit {
     // }
 
     ngOnInit(): void {
-        this.resendOtp()
+        // this.resendOtp()
         
     }
 
