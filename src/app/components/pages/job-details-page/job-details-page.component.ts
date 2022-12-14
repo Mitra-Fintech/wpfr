@@ -31,7 +31,7 @@ export class JobDetailsPageComponent implements OnInit {
 
   getJobDetails(){
 
-    console.log(environment.apiHost);
+    // console.log(environment.apiHost);
 
     this.job_details = localStorage.getItem('job_id');
 
@@ -40,7 +40,7 @@ export class JobDetailsPageComponent implements OnInit {
     // console.log(typeof this.job_details)
 
     this.http
-                .get(environment.apiHost + '/details?job_id=' + this.job_details)
+                .get('https://workfromhome.world/api/job/details?job_id=' + this.job_details)
                 .subscribe((response: any) => {
 
                     interface ResponseObject {
