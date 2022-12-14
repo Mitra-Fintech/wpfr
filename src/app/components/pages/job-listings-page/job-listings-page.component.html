@@ -69,12 +69,12 @@
                             <div class="content">
                                 
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a (click)="idPass(job[1].id)" routerLink="/job-details">
                                         <img src="assets/images/job/job1.jpg" alt="job-image">
                                     </a>
                                 </div>
                                 
-                                <h3><a routerLink="/job-details" style="font-size: larger;">{{ job[1].job_title }}</a></h3>
+                                <h3> <a (click)="idPass(job[1].id)" routerLink="/job-details" style="font-size: larger;"> {{ job[1].job_title }}</a></h3>
                                 <ul class="job-list1" style="font-size: large;">
 
                                     <li><i class="ri-briefcase-line"></i> Career Level: {{job[1].career_level}}</li>
@@ -115,8 +115,8 @@
                         
                     </div>
                     
-                    <div class="col-lg-4 col-sm-6 col-md-6 px-0 mx-0">
-                    <div class="job-listings-sidebar">
+                    <div class="col-lg-4 col-sm-6 col-md-6 px-0 mx-0" >
+                    <div class="job-listings-sidebar" style="font-size: larger;">  
                         <div class="widget-item">
                             <h3>Type of Category</h3>
                             <div class="widget-body">

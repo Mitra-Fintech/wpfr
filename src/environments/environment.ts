@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiHost: 'https://workfromhome.world/api/job',
   production: false
 };
 
