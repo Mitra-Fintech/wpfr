@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     public postajob = false;
     i = 0;
     subscription: Subscription = new Subscription;
-    everyFiveSeconds: Observable<number> = timer(0, 5000);
+    everyFiveSeconds: Observable<number> = timer(0, 1000);
 
     constructor(private http: HttpClient, private router: Router) {}
     ngOnDestroy(): void {
@@ -83,9 +83,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
             this.postajob = true
             this.isUserLoggedIn = true
             return true;
+         }else if(str == "candidate"){
+            sessionStorage.setItem('post-a-job', 'false')
+            this.isUserLoggedIn = true
+            this.postajob = false
+            return true;
          }else{
             sessionStorage.setItem('post-a-job', 'false')
-            return false;
+            // this.isUserLoggedIn = true
+            // this.postajob = false
+            return true;
          }
     }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../../common/navbar/navbar.component';
 
 @Component({
     selector: 'app-candidate-account-page',
@@ -8,107 +9,17 @@ import { Router } from '@angular/router';
     styleUrls: ['./my-account-page.component.scss'],
 })
 export class MyAccountPageComponent implements OnInit {
+    @ViewChild(NavbarComponent) navabar: any;
     public getJsonValue: any;
     public postJsonvalue: any;
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
         // this.postMethod();
-        this.checkIsLoggedInInsideApp();
+        // this.checkIsLoggedInInsideApp();
     }
-    private async postMethod() {
-        const header = new HttpHeaders();
-        header.set('Content-Type', 'application/x-www-form-urlencoded');
-        // let body = {
-        //     mobile_number: 'dummy',
-        //     password: 'dummy',
-        // };
-        var mobile_number = (<HTMLInputElement>(
-            document.getElementById('mobile_number')
-        )).value;
-        var password = (<HTMLInputElement>document.getElementById('password'))
-            .value;
-        let session_id =
-            sessionStorage
-                .getItem('session_id')
-                ?.replace('"', '')
-                .replace('"', '') || 'no-session';
-        let body = new URLSearchParams();
-        body.set('mobile_number', mobile_number);
-        body.set('password', password);
-        body.set('session_id', session_id);
-
-        console.log('Api Call : ' + body);
-
-        this.http
-            .get('https://workfromhome.world/api/candidate/login?' + body)
-            .subscribe((response) => {
-                interface ReposnseObject {
-                    status: string;
-                    status_code: any;
-                    isUserLoggedIn: boolean;
-                    message: any;
-                }
-                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-                // console.log(json.isUserLoggedIn);
-                console.log(response);
-                if (json.status == 'success' && json.status_code != 1300) {
-                    this.http
-                        .get(
-                            'https://workfromhome.world/api/session/get?session_id=' +
-                                sessionStorage.getItem('session_id')
-                        )
-                        .subscribe((response) => {
-                            interface ReposnseObject {
-                                userType: string;
-                                isUserLoggedIn: boolean;
-                                userId: string;
-                            }
-                            let json: ReposnseObject = JSON.parse(
-                                JSON.stringify(response)
-                            );
-                            console.log(json.isUserLoggedIn);
-                            sessionStorage.setItem(
-                                'isUserLoggedIn',
-                                JSON.stringify(json.isUserLoggedIn)
-                            );
-                            sessionStorage.setItem(
-                                'userType',
-                                JSON.stringify(json.userType)
-                            );
-                            sessionStorage.setItem(
-                                'userId',
-                                JSON.stringify(json.userId)
-                            );
-                        });
-                    this.router.navigate(['/my-profile']);
-                } else {
-                    alert(json.message);
-                    sessionStorage.setItem('isUserLoggedIn', 'false');
-                }
-            });
-
-        console.log('Ended');
-    }
-
-    private async checkIsLoggedInInsideApp() {
-        // this.http
-        //     .get('http://mitrafintech.com/api/wfh/session')
-        //     .subscribe((response) => {
-        //         interface ReposnseObject {
-        //             status: string;
-        //             isUserLoggedIn: boolean;
-        //         }
-        //         let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-        //         console.log(json.isUserLoggedIn);
-        //     });
-
-        if (sessionStorage.getItem('isUserLoggedIn') == 'true') {
-            this.router.navigate(['/candidate-details']);
-        }
-    }
-
     public async registerAccount() {
+        console.log('Registering')
         let consditions = {
             passwordValid: false,
             emailValid: false,
@@ -172,17 +83,16 @@ export class MyAccountPageComponent implements OnInit {
             consditions.passwordValid == true
         ) {
             let session_id =
-                sessionStorage
-                    .getItem('session_id')
-                    ?.replace('"', '')
-                    .replace('"', '') || 'no-session';
+                sessionStorage.getItem('session_id') || 'no-session';
+            session_id = session_id.replace('"', '');
+            sessionStorage.setItem('mobile_number', register_mobile);
+
             let body = new URLSearchParams();
             body.set('name', full_name);
             body.set('email_id', email_id);
             body.set('mobile_number', register_mobile);
             body.set('password', register_password);
-            body.set('session_id', session_id);
-
+            body.set('session_id', session_id.replace('"', ''));
 
             // body.set('password', password);
 
@@ -199,17 +109,126 @@ export class MyAccountPageComponent implements OnInit {
                     // console.log(json.isUserLoggedIn);
                     console.log(response);
                     if (json.status == 'success') {
-                        sessionStorage.setItem('isUserLoggedIn', 'true');
-                        this.router.navigate(['/my-profile']);
+                        let session_id =
+                            sessionStorage.getItem('session_id') || '';
+                        session_id = session_id.replace('"', '');
+                        this.http
+                            .get(
+                                'https://workfromhome.world/api/session/get?session_id=' +
+                                    session_id.replace('"', '')
+                            )
+                            .subscribe((response) => {
+                                interface ReposnseObject {
+                                    isUserLoggedIn: boolean;
+                                    userType: any;
+                                    userId: any;
+                                }
+                                let json: ReposnseObject = JSON.parse(
+                                    JSON.stringify(response)
+                                );
+                                console.log(json.isUserLoggedIn);
+                                sessionStorage.setItem(
+                                    'isUserLoggedIn',
+                                    JSON.stringify(json.isUserLoggedIn)
+                                );
+                                sessionStorage.setItem(
+                                    'userType',
+                                    JSON.stringify(json.userType)
+                                );
+                                sessionStorage.setItem(
+                                    'userId',
+                                    JSON.stringify(json.userId)
+                                );
+                            });
+                        // this.router.navigate(['/']);
+                        this.router.navigate(['/verify-otp'], {
+                            skipLocationChange: false,
+                        });
                     } else {
                         sessionStorage.setItem('isUserLoggedIn', 'false');
                     }
                 });
         } else {
+            console.log('No session');
+            console.log(consditions)
         }
     }
 
     onClick() {
-        this.postMethod();
+        const header = new HttpHeaders();
+        header.set('Content-Type', 'application/x-www-form-urlencoded');
+        // let body = {
+        //     mobile_number: 'dummy',
+        //     password: 'dummy',
+        // };
+        var mobile_number = (<HTMLInputElement>(
+            document.getElementById('mobile_number')
+        )).value;
+        var password = (<HTMLInputElement>document.getElementById('password'))
+            .value;
+        let session_id =
+            sessionStorage
+                .getItem('session_id')
+                ?.replace('"', '')
+                .replace('"', '') || 'no-session';
+        let body = new URLSearchParams();
+        body.set('mobile_number', mobile_number);
+        body.set('password', password);
+        body.set('session_id', session_id);
+
+        console.log('Api Call : ' + body);
+
+        this.http
+            .get('https://workfromhome.world/api/candidate/login?' + body)
+            .subscribe((response) => {
+                interface ReposnseObject {
+                    status: string;
+                    status_code: any;
+                    isUserLoggedIn: boolean;
+                    message: any;
+                }
+                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+                // console.log(json.isUserLoggedIn);
+                console.log(response);
+                if (json.status == 'success' && json.status_code != 1300) {
+                    let session_id = sessionStorage.getItem('session_id') || '';
+                    session_id = session_id.replace('"', '');
+                    this.http
+                        .get(
+                            'https://workfromhome.world/api/session/get?session_id=' +
+                                session_id.replace('"', '')
+                        )
+                        .subscribe((response) => {
+                            interface ReposnseObject {
+                                isUserLoggedIn: boolean;
+                                userType: any;
+                                userId: any;
+                            }
+                            let json: ReposnseObject = JSON.parse(
+                                JSON.stringify(response)
+                            );
+                            console.log(json.isUserLoggedIn);
+                            sessionStorage.setItem(
+                                'isUserLoggedIn',
+                                JSON.stringify(json.isUserLoggedIn)
+                            );
+                            sessionStorage.setItem(
+                                'userType',
+                                JSON.stringify(json.userType)
+                            );
+                            sessionStorage.setItem(
+                                'userId',
+                                JSON.stringify(json.userId)
+                            );
+                        });
+                    this.router.navigate(['/']);
+                    // window.location.reload();
+                } else {
+                    alert(json.message);
+                    sessionStorage.setItem('isUserLoggedIn', 'false');
+                }
+            });
+
+        console.log('Ended');
     }
 }
