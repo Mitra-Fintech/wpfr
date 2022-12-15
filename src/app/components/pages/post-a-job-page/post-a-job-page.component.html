@@ -34,7 +34,7 @@
                                 <!-- <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
                                 </ngx-editor-menu>
                                 <ngx-editor [editor]="editor" [placeholder]="'Type here...'" id="description"></ngx-editor> -->
-                           <textarea maxlength="500" class="form-control"  style="height:300px;" id="description" required></textarea>
+                           <textarea class="form-control"  style="height:300px;" id="description" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -43,13 +43,13 @@
                             <label>Category <span>*</span></label>
                             <select class="form-select" id="category_id" required>
                                 <option selected>Accounting / Finance</option>
-                                <option value="1">Automotive Jobs</option>
-                                <option value="2">Customer Service</option>
-                                <option value="3">Development</option>
-                                <option value="4">Health and Care</option>
-                                <option value="5">Human Resource</option>
-                                <option value="6">Marketing</option>
-                                <option value="7">Project Management</option>
+                                <option value="Automotive Jobs">Automotive Jobs</option>
+                                <option value="Customer Service">Customer Service</option>
+                                <option value="Development">Development</option>
+                                <option value="Health and Care">Health and Care</option>
+                                <option value="Human Resource">Human Resource</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Project Management">Project Management</option>
                             </select>
                         </div>
                     </div>
@@ -58,10 +58,10 @@
                             <label>Type <span>*</span></label>
                             <select class="form-select" id="type_id" required>
                                 <option selected>Freelance</option>
-                                <option value="1">Full Time</option>
-                                <option value="2">Internship</option>
-                                <option value="3">Part Time</option>
-                                <option value="4">Temporary</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Temporary">Temporary</option>
                             </select>
                         </div>
                     </div>
@@ -76,8 +76,8 @@
                             <label>Gender <span>*</span></label>
                             <select class="form-select" id="gender" required>
                                 <option selected>Both</option>
-                                <option value="1">Female</option>
-                                <option value="2">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
                             </select>
                         </div>
                     </div>
@@ -97,17 +97,17 @@
                             <label>Salary Type <span></span></label>
                             <select class="form-select" id="salary_type">
                                 <option selected>Monthly</option>
-                                <option value="1">Weekly</option>
-                                <option value="2">Daily</option>
-                                <option value="3">Hourly</option>
-                                <option value="4">Yearly</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Hourly">Hourly</option>
+                                <option value="Yearly">Yearly</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group" id="minimum_salary">
                             <label>Min. Salary <span></span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="minimum_salary">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -136,10 +136,10 @@
                             <label>Career Level <span>*</span></label>
                             <select class="form-select" id="career_level" required>
                                 <option selected>Manager</option>
-                                <option value="1">Officer</option>
-                                <option value="2">Student</option>
-                                <option value="3">Executive</option>
-                                <option value="4">Others</option>
+                                <option value="Officer">Officer</option>
+                                <option value="Student">Student</option>
+                                <option value="Executive">Executive</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                     </div>
@@ -148,10 +148,10 @@
                             <label>Qualification <span>*</span></label>
                             <select class="form-select" id="qualification" required>
                                 <option selected>Certificate</option>
-                                <option value="1">Associate Degree</option>
-                                <option value="2">Bachelor Degree</option>
-                                <option value="3">Master’s Degree</option>
-                                <option value="4">Doctorate Degree</option>
+                                <option value="Associate Degree">Associate Degree</option>
+                                <option value="Bachelor Degree">Bachelor Degree</option>
+                                <option value="Master Degree">Master Degree</option>
+                                <option value="Doctorate Degree">Doctorate Degree</option>
                             </select>
                         </div>
                     </div>
@@ -168,13 +168,13 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-lg-6 col-md-6">
+                    <!-- <div class="col-lg-6 col-md-6" style="display: none;">
                         <div class="form-group">
                             <label>Address <span>*</span></label>
                             <input type="text" class="form-control" id="friendly_address" required>
                         </div>
-                    </div> -->
-                    <!-- <div class="col-lg-6 col-md-6">
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="display: none;">
                         <div class="form-group">
                             <label>Location <span>*</span></label>
                             <select class="form-select" id="location">
