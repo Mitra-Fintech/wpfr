@@ -2,7 +2,7 @@
     <div class="container">
         <div class="banner-content">
             <h1>We Give You World's Most Precious Thing - TIME </h1>
-            <div class="banner-form">
+            <div class="banner-form" *ngIf="!postajob;">
                 <form>
                     <div class="row">
                         <div class="col-lg-9 col-md-9">
@@ -23,7 +23,7 @@
                     </div>
                 </form>
             </div>
-            <div class="popular-search">
+            <div class="popular-search" *ngIf="!postajob;">
                 <span class="title">Popular Search: </span>
                 <a routerLink="/job-listing">Moonlighting</a>
                 <!-- <a routerLink="/job-listing">Developer</a> -->
