@@ -5,34 +5,60 @@
             <div class="bar ms-auto me-auto"></div>
             <p class="ms-auto me-auto">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</p>
         </div>
+        
+
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-sm-6 col-md-6">
+            <div class="col-lg-6 col-sm-6 col-md-6" style="height: auto;" *ngFor = "let rjob of recentJobs">
+                
                 <div class="job-card">
+                    
                     <div class="content">
+
                         <div class="job-image">
-                            <a routerLink="/job-details">
+                            <a (click)="rJobidPass(rjob[1].id)" routerLink="/job-details">
                                 <img src="assets/images/job/job1.jpg" alt="job-image">
                             </a>
                         </div>
-                        <h3><a routerLink="/job-details">Product Designer</a></h3>
-                        <ul class="job-list1">
-                            <li><i class="ri-briefcase-line"></i> Design</li>
-                            <li><i class="ri-time-line"></i> 2 Week Ago</li>
-                        </ul>
-                        <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
+
+                        <h3> <a (click)="rJobidPass(rjob[1].id)" routerLink="/job-details" style="font-size: larger;"> {{ rjob[1].job_title }}</a></h3>
+                                <ul class="job-list1" style="font-size: medium;">
+
+                                    <li><i class="ri-arrow-right-s-fill"></i> Career Level: {{rjob[1].career_level}}</li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> Dead Line: {{rjob[1].deadline}}</li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> Experience: {{rjob[1].experience}} Years</li>
+                                
+                                    <li><i class="ri-arrow-right-s-fill"></i> Qualification: {{rjob[1].qualification}}</li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> Job Type: {{rjob[1].job_type}} </li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> Allowed Genders: {{rjob[1].allowed_genders}} </li>
+                                
+                                    <li><i class="ri-arrow-right-s-fill"></i> Job Category: {{rjob[1].job_category}} </li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> <a href="{{rjob[1].introduction_video_url}}">Video Url</a> </li>
+                                    <li><i class="ri-arrow-right-s-fill"></i> Tags: {{rjob[1].job_tags}} </li>
+                                    <!-- <li><i class="ri-map-pin-line"></i> {{job[1].office_address}}, {{job[1].location}}</li> -->
+                                
+                                </ul>          
+
+                    <hr>
                     </div>
-                    <div class="job-sub-content">
+                    <div class="price" style="text-align: right;"> {{rjob[1].salary_minimum}} - {{rjob[1].salary_maximum}} <span>/{{rjob[1].salary_type}}</span></div>
+
+                    <!-- <div class="job-sub-content">
                         <ul class="job-list2">
                             <li class="time">Full Time</li>
                             <li class="freelance">Freelance</li>
                             <li class="urgent">Urgent</li>
                         </ul>
                         <div class="price">$150 - $180 <span>/Per Week</span></div>
-                    </div>
-                    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+                    </div> -->
+
+                    <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
+
                 </div>
+
             </div>
-            <div class="col-lg-6 col-sm-6 col-md-6">
+
+
+            <!-- <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="job-card">
                     <div class="content">
                         <div class="job-image">
@@ -56,8 +82,10 @@
                     </div>
                     <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
                 </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-md-6">
+            </div> -->
+
+
+            <!-- <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="job-card">
                     <div class="content">
                         <div class="job-image">
@@ -159,7 +187,7 @@
                     </div>
                     <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
