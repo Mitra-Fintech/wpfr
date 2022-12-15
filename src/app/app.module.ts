@@ -49,6 +49,8 @@ import { MyProfileCandidatesComponent } from './components/pages/my-profile-cand
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CommonModule } from '@angular/common'
+import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component';
+import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
 
 @NgModule({
     declarations: [
@@ -87,7 +89,9 @@ import { CommonModule } from '@angular/common'
         CategoriesPageComponent,
         CandidatesPageComponent,
         CandidateDetailsPageComponent,
-        MyProfileCandidatesComponent
+        MyProfileCandidatesComponent,
+        EmployerDashboardPageComponent,
+        CompanyJobListingsPageComponent
     ],
     imports: [
         CommonModule,

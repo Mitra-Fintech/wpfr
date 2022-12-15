@@ -7,6 +7,7 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './job-listings-page.component.html',
   styleUrls: ['./job-listings-page.component.scss']
 })
+
 export class JobListingsPageComponent implements OnInit {
   
   public getJsonValue: any;

@@ -45,7 +45,7 @@
             <div class="col-lg-8 col-md-12">
                 <div class="jend-grid-sorting row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-5 result-count">
-                        <p>Showing 1 – 6 of {{arraySize}} results</p>
+                        <p>Showing 1 – 10 of {{arraySize}} results</p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-7 ordering">
                         <div class="select-box">
@@ -74,35 +74,35 @@
                                     </a>
                                 </div>
                                 
-                                <h3> <a (click)="idPass(job[1].id)" routerLink="/job-details" style="font-size: larger;"> {{ job[1].job_title }}</a></h3>
+                                <h3> <a (click)="idPass(job[1].id)" routerLink="/job-details"> {{ job[1].job_title }}</a></h3>
                                 <ul class="job-list1" style="font-size: medium;">
 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Career Level: {{job[1].career_level}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Dead Line: {{job[1].deadline}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Experience: {{job[1].experience}} Years</li>
+                                    <li><i class="ri-briefcase-line"></i> {{job[1].career_level}}</li>
+                                    <li><i class="ri-time-line"></i> {{job[1].deadline}}</li>
+                                    <li><i class="ri-award-line"></i> {{job[1].experience}} Years</li>
                                 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Qualification: {{job[1].qualification}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Job Type: {{job[1].job_type}} </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Allowed Genders: {{job[1].allowed_genders}} </li>
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> {{job[1].qualification}}</li> -->
+                                    <li><i class="ri-profile-line"></i> {{job[1].job_type}} </li>
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> {{job[1].allowed_genders}} </li> -->
                                 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Job Category: {{job[1].job_category}} </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> <a href="{{job[1].introduction_video_url}}">Video Url</a> </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Tags: {{job[1].job_tags}} </li>
+                                    <li><i class="ri-medal-2-line"></i> {{job[1].job_category}} </li>
+                                    <li><i class="ri-video-line"></i> <a href="{{job[1].introduction_video_url}}">Video Url</a> </li>
+                                    <li><i class="ri-hashtag"></i> {{job[1].job_tags}} </li>
                                     <!-- <li><i class="ri-map-pin-line"></i> {{job[1].office_address}}, {{job[1].location}}</li> -->
-                                
+                                    <hr style="display:flex;">
+                                    <li style="text-align:right;"><i class="ri-wallet-line"></i> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} / {{job[1].salary_type}} </li>
                                 </ul>          
 
-                                <hr>
+                                <!-- <div class="price" style="text-align: right;"> <i class="ri-wallet-line"></i> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} / {{job[1].salary_type}}</div> -->
                             </div>
                             
-                            <div class="price" style="text-align: right;"> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} <span>/{{job[1].salary_type}}</span></div>
                             
                             <!-- <div class="job-sub-content">
                                 <ul class="job-list2">
                                     
                                     <div *ngIf = "job[1]._job_type === Freelance">
                                         <li class="freelance">Freelance</li>
-                                    </div>
+                                    </div> 
 
                                     <div *ngIf = "job[1]._job_type === Freelance">
                                         <li class="freelance">Freelance</li>
