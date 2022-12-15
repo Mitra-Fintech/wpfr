@@ -59,8 +59,8 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
         let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value;
         let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
-        let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
-        let location = (<HTMLInputElement>document.getElementById('location')).value;
+        // let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
+        // let location = (<HTMLInputElement>document.getElementById('location')).value;
        
         // let otp = (<HTMLInputElement>document.getElementById('otp')).value;
 
@@ -84,8 +84,8 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         body.set('qualification', qualification)
         body.set('introduction_video_url', introduction_video_url)
         body.set('deadline', deadline)
-        body.set('friendly_address', friendly_address)
-        body.set('location', location)
+        body.set('friendly_address', "null")
+        body.set('location', "null")
         body.set('session_id', session_id.replace('"', ''));
     
 
