@@ -23,20 +23,21 @@
                         <h3> <a (click)="rJobidPass(rjob[1].id)" routerLink="/job-details" style="font-size: larger;"> {{ rjob[1].job_title }}</a></h3>
                                 <ul class="job-list1" style="font-size: medium;">
 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Career Level: {{rjob[1].career_level}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Dead Line: {{rjob[1].deadline}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Experience: {{rjob[1].experience}} Years</li>
+                                    <li><i class="ri-briefcase-line"></i> {{rjob[1].career_level}} </li>
+                                    <li><i class="ri-time-line"></i> {{rjob[1].deadline}}</li>
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> Experience: {{rjob[1].experience}} Years</li> -->
                                 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Qualification: {{rjob[1].qualification}}</li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Job Type: {{rjob[1].job_type}} </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Allowed Genders: {{rjob[1].allowed_genders}} </li>
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> Qualification: {{rjob[1].qualification}}</li> -->
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> {{rjob[1].job_type}} </li> -->
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> Allowed Genders: {{rjob[1].allowed_genders}} </li> -->
                                 
-                                    <li><i class="ri-arrow-right-s-fill"></i> Job Category: {{rjob[1].job_category}} </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> <a href="{{rjob[1].introduction_video_url}}">Video Url</a> </li>
-                                    <li><i class="ri-arrow-right-s-fill"></i> Tags: {{rjob[1].job_tags}} </li>
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> Job Category: {{rjob[1].job_category}} </li> -->
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> <a href="{{rjob[1].introduction_video_url}}">Video Url</a> </li> -->
+                                    <!-- <li><i class="ri-arrow-right-s-fill"></i> Tags: {{rjob[1].job_tags}} </li> -->
                                     <!-- <li><i class="ri-map-pin-line"></i> {{job[1].office_address}}, {{job[1].location}}</li> -->
                                 
-                                </ul>          
+                                </ul>
+                                <span><i class="ri-profile-line"></i>{{rjob[1].job_type}}</span>          
 
                     <hr>
                     </div>
