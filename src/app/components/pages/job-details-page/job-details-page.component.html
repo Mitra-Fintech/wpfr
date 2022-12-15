@@ -4,7 +4,7 @@
         <div class="job-card">
 
             <div class="job-image">
-                <img src="assets/images/job/job1.jpg" alt="job-image">
+                <img src="assets/images/job/job1.jpg" alt="job-image" style="height: 70px; width:auto;">
             </div>
             
             <h3>{{ jobToArray[0][1].job_title }}</h3>
@@ -25,7 +25,7 @@
             
             <div class="d-md-flex align-items-center justify-content-between">
                 <div class="last-date">Last Date: {{ jobToArray[0][1].deadline }}</div>
-                <a routerLink="/profile-authentication" class="default-btn">Apply Now</a>
+                <a routerLink="/job-details" class="default-btn" *ngIf="!postajob;">Apply Now</a>
             </div>
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
         </div>
@@ -83,7 +83,7 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" class="default-btn">Apply Now</a>
+                        <a routerLink="/profile-authentication" class="default-btn" *ngIf="!postajob;">Apply Now</a>
                     </div>
                 </div>
             </div>
