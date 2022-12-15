@@ -223,7 +223,7 @@ export class EmployLoginComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/employer-dashboard']);
                     // window.location.reload();
                 } else {
                     alert(json.message);

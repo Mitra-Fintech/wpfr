@@ -221,8 +221,8 @@ export class MyAccountPageComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
-                    this.router.navigate(['/']);
-                    // window.location.reload();
+                        this.router.navigate(['/candidate-dashboard']);
+                        // window.location.reload();
                 } else {
                     alert(json.message);
                     sessionStorage.setItem('isUserLoggedIn', 'false');
