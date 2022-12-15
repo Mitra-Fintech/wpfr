@@ -20,7 +20,7 @@
                     <div class="row">
                     <div class="col-lg-2 col-2 col-md-2">
                         <div class="counter-item">
-                            <h4>5</h4>
+                            <h4>{{empDasharraySize}}</h4>
                             <p style="font-size: medium">Active Jobs</p>
                         </div>
                     </div>
@@ -267,27 +267,38 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-md-12">
-            <div class="job-card">
+            <div class="job-card" *ngFor = "let empjob of empDashArray">
                 <div class="content">
                     <div class="job-image">
-                        <a routerLink="/job-details">
+                        <a (click)="empidPass(empjob[1].id)" routerLink="/job-details">
                             <img
                                 src="assets/images/job/job1.jpg"
                                 alt="job-image"
                             />
                         </a>
                     </div>
-                    <h3><a routerLink="/job-details">Product Designer</a></h3>
-                    <ul class="job-list1">
-                        <li><i class="ri-briefcase-line"></i> Design</li>
-                        <li><i class="ri-time-line"></i> 2 Week Ago</li>
-                    </ul>
-                    <span
-                        ><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn,
-                        NY</span
-                    >
+                    <h3><a (click)="empidPass(empjob[1].id)" routerLink="/job-details">{{empjob[1].job_title}}</a></h3>
+                    
+                    <ul class="job-list1" style="font-size: medium;">
+
+                        <li><i class="ri-briefcase-line"></i> {{empjob[1].career_level}}</li>
+                        <li><i class="ri-time-line"></i> {{empjob[1].deadline}}</li>
+                        <li><i class="ri-award-line"></i> {{empjob[1].experience}} Years</li>
+                    
+                        <!-- <li><i class="ri-arrow-right-s-fill"></i> {{empjob[1].qualification}}</li> -->
+                        <li><i class="ri-profile-line"></i> {{empjob[1].empjob_type}} </li>
+                        <!-- <li><i class="ri-arrow-right-s-fill"></i> {{empjob[1].allowed_genders}} </li> -->
+                    
+                        <li><i class="ri-medal-2-line"></i> {{empjob[1].empjob_category}} </li>
+                        <li><i class="ri-video-line"></i> <a href="{{empjob[1].introduction_video_url}}">Video Url</a> </li>
+                        <li><i class="ri-hashtag"></i> {{empjob[1].empjob_tags}} </li>
+                        <!-- <li><i class="ri-map-pin-line"></i> {{empjob[1].office_address}}, {{empjob[1].location}}</li> -->
+                        <hr style="display:flex;">
+                        <li style="text-align:right;"><i class="ri-wallet-line"></i> {{empjob[1].salary_minimum}} - {{empjob[1].salary_maximum}} / {{empjob[1].salary_type}} </li>
+                    </ul>          
+
                 </div>
-                <div class="job-sub-content">
+                <!-- <div class="job-sub-content">
                     <ul class="job-list2">
                         <li class="time">Full Time</li>
                         <li class="freelance">Freelance</li>
@@ -297,9 +308,9 @@
                 </div>
                 <button class="bookmark-btn">
                     <i class="ri-bookmark-line"></i>
-                </button>
+                </button> -->
             </div>
-        </div>
+        <!-- </div>
         <div class="col-lg-12 col-sm-12 col-md-12">
             <div class="job-card">
                 <div class="content">
@@ -334,7 +345,7 @@
                     <i class="ri-bookmark-line"></i>
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

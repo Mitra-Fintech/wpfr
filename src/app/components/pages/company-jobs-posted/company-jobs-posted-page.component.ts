@@ -60,7 +60,8 @@ export class CompanyJobListingsPageComponent implements OnInit {
 
   public getJsonValue: any;
   public postJsonValue: any;
-  public final_array: any;
+  public objToArray: any;
+  public arraySize: any; 
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -100,14 +101,28 @@ export class CompanyJobListingsPageComponent implements OnInit {
                     let dataJson: DataArrayObject = JSON.parse(
                         JSON.stringify(responseObj.data)
                     );
-                      
-                    this.final_array = Object.entries(dataJson);
+                    
+                    // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
 
-                    console.log(this.final_array[0][1]);  
+                    this.objToArray = Object.entries(dataJson);
+
+                    this.arraySize = this.objToArray.length
+
+                    console.log(this.objToArray[2][1]);  
+                    
                     // console.log(responseObj.status);
 
                 });
-  }
+
+              }
+              
+              idPass(data: any){
+                
+                console.log(data);
+                // localStorage.clear();
+                localStorage.setItem('job_id',JSON.stringify(data));
+                
+              }
 
 }
 
