@@ -57,7 +57,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         let experience = (<HTMLInputElement>document.getElementById('experience')).value;
         let career_level = (<HTMLInputElement>document.getElementById('career_level')).value;
         let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
-        let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value;
+        let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
         let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
         // let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
         // let location = (<HTMLInputElement>document.getElementById('location')).value;
