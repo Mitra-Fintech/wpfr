@@ -6,7 +6,7 @@
             <div class="job-image">
                 <img src="assets/images/candidates/candidate1.jpg" alt="job-image">
             </div>
-            <h2>Jhon Doe</h2>
+            <h2>{{objToArray[0][1].name}}</h2>
             <!-- <span class="location">by <a routerLink="/">Python Developer</a> in Brooklyn, NY</span> -->
             <ul class="job-sub-content">
 
@@ -21,10 +21,10 @@
             </ul>
             <div class="d-md-flex align-items-center justify-content-between">
                 <a href="mailto:shiromanivivan@gmail.com">
-                    <div class="last-date">jhondoe@gmail.com</div>
+                    <div class="last-date">{{objToArray[0][1].email_id}}</div>
                 </a><br>
                 <a href="tel:+4733378901">
-                    <div class="last-date">+4733378901</div>
+                    <div class="last-date">{{objToArray[0][1].mobile_number}}</div>
                 </a><br>
 
                 <a routerLink="/profile-authentication" class="default-btn">View My Profile</a>
@@ -81,7 +81,6 @@
 
                             <div class="fw-bold">Applied</div>
 
-                            Content for list item
                         </div>
                         <span class="badge bg-primary rounded-pill">14</span>
 
@@ -91,7 +90,7 @@
 
                             <div class="fw-bold">Shortlisted</div>
 
-                            Content for list item
+                           
                         </div>
                         <span class="badge bg-primary rounded-pill">14</span>
 
@@ -101,7 +100,7 @@
 
                             <div class="fw-bold">Selected</div>
 
-                            Content for list item
+                           
                         </div>
                         <span class="badge bg-primary rounded-pill">14</span>
 
@@ -139,7 +138,7 @@
 
 
 
-<h1 style="text-align: center;" class="mt-5">Your Applications</h1>
+<h3 style="text-align: center;" class="mt-5">Your Applications</h3>
 
 <div class="row p-5">
     <div class="col-lg-12 col-sm-6 col-md-6">
@@ -152,7 +151,7 @@
                     </a>
                 </div>
                 <div class="px-5">
-                    <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
+                    <h4 class=""><a routerLink="/job-details">Company Name - A</a></h4>
 
                     <div class="container-fluid">
                         <div class="row">
@@ -175,7 +174,7 @@
 
                 </div>
 
-                <div class="container px-5">
+                <!-- <div class="container px-5">
                     <div class="row">
 
                         <div class="col-sm-12" style="font-size: 18px">
@@ -183,7 +182,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
 
                 <div class="job-sub-content px-5">
                     <div class="job-list">
@@ -209,7 +208,7 @@
                     </a>
                 </div>
                 <div class="px-5">
-                    <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
+                    <h4 class=""><a routerLink="/job-details">Company Name - A</a></h4>
 
                     <div class="container-fluid">
                         <div class="row">
@@ -235,9 +234,9 @@
                 <div class="container px-5">
                     <div class="row">
 
-                        <div class="col-sm-12" style="font-size: 18px">
+                        <!-- <div class="col-sm-12" style="font-size: 18px">
                             <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -267,7 +266,7 @@
                     </a>
                 </div>
                 <div class="px-5">
-                    <h2 class=""><a routerLink="/job-details">Company Name - A</a></h2>
+                    <h4 class=""><a routerLink="/job-details">Company Name - A</a></h4>
 
                     <div class="container-fluid">
                         <div class="row">
@@ -293,9 +292,9 @@
                 <div class="container px-5">
                     <div class="row">
 
-                        <div class="col-sm-12" style="font-size: 18px">
+                        <!-- <div class="col-sm-12" style="font-size: 18px">
                             <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

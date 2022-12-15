@@ -51,6 +51,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CommonModule } from '@angular/common'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component';
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
+import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
 
 @NgModule({
     declarations: [
@@ -91,7 +92,8 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
         CandidateDetailsPageComponent,
         MyProfileCandidatesComponent,
         EmployerDashboardPageComponent,
-        CompanyJobListingsPageComponent
+        CompanyJobListingsPageComponent,
+        CandidateDashboardPageComponent
     ],
     imports: [
         CommonModule,

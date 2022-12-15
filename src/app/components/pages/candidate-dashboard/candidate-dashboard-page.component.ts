@@ -8,100 +8,61 @@ import { Router } from '@angular/router';
     styleUrls: ['./candidate-dashboard-page.component.scss'],
 })
 export class CandidateDashboardPageComponent implements OnInit {
+    public objToArray: any;
+    public arraySize: any;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
-        this.checkIsLoggedIn();
-        this.checkAccountVerificationStatus();
+        this.getJobListing();
     }
 
-    private async checkIsLoggedIn() {
-        let isUserLoggedIn = sessionStorage.getItem('session_id');
+    getJobListing() {
+        // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
-        if (isUserLoggedIn == null) {
-            console.log('No Session ID');
-            this.http
-                .get('https://workfromhome.world/api/session/create')
-                .subscribe((response) => {
-                    interface ReposnseObject {
-                        userType: string;
-                        isUserLoggedIn: boolean;
-                        userId: string;
-                        session_id: string;
-                    }
-                    let json: ReposnseObject = JSON.parse(
-                        JSON.stringify(response)
-                    );
-                    // console.log(json);
-                    // sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
-                    // sessionStorage.setItem('userType', JSON.stringify(json.userType));
-                    // sessionStorage.setItem('userId', JSON.stringify(json.userId));
-                    // sessionStorage.setItem('session_id', JSON.stringify(json.session_id));
+        let user_id = sessionStorage.getItem('userId') || 'no-user-id';
 
-                    if (
-                        json.isUserLoggedIn == true &&
-                        json.userType == 'candidate'
-                    ) {
-                    } else {
-                        this.router.navigateByUrl('/candidate');
-                    }
-                });
-        } else {
-            let session_id = sessionStorage.getItem('session_id') || '';
-            session_id = session_id.replace('"', '');
+        user_id = user_id.replace('"', '').replace('"', '');
 
-            this.http
-                .get(
-                    'https://workfromhome.world/api/session/get?session_id=' +
-                        session_id?.replace('"', '')
-                )
-                .subscribe((response) => {
-                    interface ReposnseObject {
-                        userType: string;
-                        isUserLoggedIn: boolean;
-                        userId: string;
-                    }
-                    let json: ReposnseObject = JSON.parse(
-                        JSON.stringify(response)
-                    );
-                    if (
-                        json.isUserLoggedIn == true &&
-                        json.userType == 'candidate'
-                    ) {
-                    } else {
-                        this.router.navigateByUrl('/candidate');
-                    }
-                });
-        }
-    }
-
-    private async checkAccountVerificationStatus(){
-        let mobile_number = sessionStorage.getItem('mobile_number') || '';
-        mobile_number = mobile_number.replace('"', '').replace('"', '');
-        let user_type = sessionStorage.getItem('userType') || '';
-        user_type = user_type.replace('"', '').replace('"', '');
-        
         this.http
-                .get(
-                    'https://workfromhome.world/api/account/verify-status?mobile_number=' +
-                        mobile_number + '&user_type=' + user_type
-                )
-                .subscribe((response) => {
-                    interface ReposnseObject {
-                        status: string;
-                        code: boolean;
-                        data: string;
-                    }
-                    let json: ReposnseObject = JSON.parse(
-                        JSON.stringify(response)
-                    );
-                    if (json.data == "0") {
-                        this.router.navigateByUrl('/verify-otp');
-                    } else {
-                        this.router.navigateByUrl('/candidate-dashboard');
-                    }
-                });
+            .get('https://workfromhome.world/api/candidate/details?id=7')
+            .subscribe((response) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    data: Object;
+                    // session_id: string;
+                }
 
+                interface DataArrayObject {
+                    // job_title: string;
+                    array: Object;
+                }
 
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+
+                let dataJson: DataArrayObject = JSON.parse(
+                    JSON.stringify(responseObj.data)
+                );
+
+                // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+
+                this.objToArray = Object.entries(dataJson);
+
+                this.arraySize = this.objToArray.length;
+
+                console.log(this.objToArray[0][1]);
+
+                // console.log(responseObj.status);
+            });
     }
+
+    idPass(data: any) {
+        console.log(data);
+        // localStorage.clear();
+        localStorage.setItem('job_id', JSON.stringify(data));
+    }
+
 }
