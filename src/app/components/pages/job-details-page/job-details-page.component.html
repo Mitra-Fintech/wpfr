@@ -9,24 +9,22 @@
             
             <h3>{{ jobToArray[0][1].job_title }}</h3>
 
-            <!-- <span class="location">by <a routerLink="/">{{ jobToArray[0][1].career_level }}</a> in {{ jobToArray[0][1].office_address }}, {{ jobToArray[0][1].location }}</span> -->
+            <ul class="list-group list-group-flush">
+                <li  class="list-group-item"><i class="ri-briefcase-line"></i> {{jobToArray[0][1].career_level}}</li>
+                <li class="list-group-item"><i class="ri-profile-line"></i> {{jobToArray[0][1].job_type}} </li>
+                <li class="list-group-item"><i class="ri-award-line"></i> {{jobToArray[0][1].experience}} Years</li>
+
+                <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+            </ul>
             <br>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <!-- <span> Job-Type - {{ jobToArray[0][1].job_type }} </span>
-            <div> Job-tags - {{ jobToArray[0][1].job_tags }} </div> -->
-            <!-- <ul class="job-sub-content">
-                <li class="freelance" *ngIf = "{{ jobToArray[0][1].job_type }} === 'Freelance' " >Freelance</li>
-                <li class="freelance">Freelance</li>
-                <li class="urgent">Urgent</li>
-            </ul> -->
             
             <div class="d-md-flex align-items-center justify-content-between">
                 <div class="last-date">Last Date: {{ jobToArray[0][1].deadline }}</div>
                 <a routerLink="/job-details" class="default-btn" *ngIf="!postajob;">Apply Now</a>
             </div>
+
+
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
         </div>
 
