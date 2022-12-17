@@ -17,6 +17,66 @@ export class MyAccountPageComponent implements OnInit {
     ngOnInit(): void {
         // this.postMethod();
         // this.checkIsLoggedInInsideApp();
+        this.checkIsLoggedIn();
+    }
+    private async checkIsLoggedIn() {
+        let isUserLoggedIn = sessionStorage.getItem('session_id');
+    
+        if (isUserLoggedIn == null) {
+            console.log('No Session ID');
+            this.http
+                .get('https://workfromhome.world/api/session/create')
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        userType: string;
+                        isUserLoggedIn: boolean;
+                        userId : string;
+                        session_id: string;
+                    }
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json);
+                    // sessionStorage.setItem('isUserLoggedIn', JSON.stringify(json.isUserLoggedIn));
+                    // sessionStorage.setItem('userType', JSON.stringify(json.userType));
+                    // sessionStorage.setItem('userId', JSON.stringify(json.userId));
+                    // sessionStorage.setItem('session_id', JSON.stringify(json.session_id));
+    
+                    if((json.isUserLoggedIn == true ) && json.userType == "candidate")
+                    {
+                        this.router.navigateByUrl('/candidate/dashboard');
+                    }else if((json.isUserLoggedIn == true ) && json.userType == "company")
+                    {
+                        this.router.navigateByUrl('/emoployer/dashboard');
+                    }
+    
+                });
+        } else {
+            let session_id = sessionStorage.getItem('session_id') || '';
+            session_id = session_id.replace('"','');
+    
+    
+            this.http
+                .get('https://workfromhome.world/api/session/get?session_id=' + session_id?.replace('"',''))
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        userType: string;
+                        isUserLoggedIn: boolean;
+                        userId : string;
+                    }
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json);
+                    if((json.isUserLoggedIn == true ) && json.userType == "candidate")
+                    {
+                        this.router.navigateByUrl('/candidate/dashboard');
+                    }else if((json.isUserLoggedIn == true ) && json.userType == "company")
+                    {
+                        this.router.navigateByUrl('/employer/dashboard');
+                    }
+                });
+        }
     }
     public async registerAccount() {
         console.log('Registering')
@@ -221,7 +281,7 @@ export class MyAccountPageComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
-                        this.router.navigate(['/candidate-dashboard']);
+                        this.router.navigate(['/candidate/dashboard']);
                         // window.location.reload();
                 } else {
                     alert(json.message);

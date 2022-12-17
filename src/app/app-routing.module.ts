@@ -52,7 +52,7 @@ const routes: Routes = [
     {path: 'blog', component: BlogPageComponent},
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
-    {path: 'company', component: EmployLoginComponent},
+    {path: 'employer', component: EmployLoginComponent},
     {path: 'candidate/my-profile', component: MyProfileCandidatesComponent},
     {path: 'candidate/verify-otp', component: CandidateVerifyOtp},
     {path: 'my-details', component: MyCompanyDetailsPageComponent},
