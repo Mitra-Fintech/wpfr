@@ -28,6 +28,7 @@ import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component'
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-page-edit/post-a-job-page-edit.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,7 @@ const routes: Routes = [
     {path: 'my-details', component: MyCompanyDetailsPageComponent},
     {path: 'verify-otp', component: VerifyOtpComponent},
     {path: 'jobs-posted', component: CompanyJobListingsPageComponent},
+    {path: 'post-a-job-edit', component: PostAJobPageEditComponent},
 
 
     // Here add new pages component

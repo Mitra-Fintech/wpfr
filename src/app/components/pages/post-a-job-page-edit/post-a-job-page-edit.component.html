@@ -24,9 +24,10 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Job Title <span>*</span></label>
-                            <input type="text" class="form-control" id="title" required>
+                            <input type="text" class="form-control" id="title" value = "{{empDashArray[0][1].job_title}}" required>
                         </div>
                     </div>
+
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Job Description <span>*</span></label>
@@ -34,7 +35,7 @@
                                 <!-- <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
                                 </ngx-editor-menu>
                                 <ngx-editor [editor]="editor" [placeholder]="'Type here...'" id="description"></ngx-editor> -->
-                           <textarea class="form-control"  style="height:300px;" id="description" required></textarea>
+                           <textarea class="form-control"  style="height:300px;" id="description" value = "{{empDashArray[0][1].job_description}}" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -43,7 +44,8 @@
                             <label>Category <span>*</span></label>
                             <select class="form-select" id="category_id" required>
                                 
-                                <option selected>Accounting / Finance</option>
+                                <option selected>{{empDashArray[0][1].job_category}}</option>
+
                                 <option value="Automotive Jobs">Automotive Jobs</option>
                                 <option value="Customer Service">Customer Service</option>
                                 <option value="Development">Development</option>
@@ -58,7 +60,7 @@
                         <div class="form-group">
                             <label>Type <span>*</span></label>
                             <select class="form-select" id="type_id" required>
-                                <option selected>Freelance</option>
+                                <option selected>{{empDashArray[0][1].job_type}}</option>
                                 <option value="Full Time">Full Time</option>
                                 <option value="Internship">Internship</option>
                                 <option value="Part Time">Part Time</option>
@@ -69,14 +71,14 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Tag</label>
-                            <input type="text" class="form-control" id="tags">
+                            <input type="text" class="form-control" id="tags" value = "{{empDashArray[0][1].job_tags}}">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Gender <span>*</span></label>
                             <select class="form-select" id="gender" required>
-                                <option selected>Both</option>
+                                <option selected>{{empDashArray[0][1].allowed_genders}}</option>
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
                             </select>
@@ -97,7 +99,7 @@
                         <div class="form-group">
                             <label>Salary Type <span></span></label>
                             <select class="form-select" id="salary_type">
-                                <option selected>Monthly</option>
+                                <option selected>{{empDashArray[0][1].salary_type}}</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Daily">Daily</option>
                                 <option value="Hourly">Hourly</option>
@@ -108,20 +110,20 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group" id="minimum_salary">
                             <label>Min. Salary <span></span></label>
-                            <input type="text" class="form-control" id="minimum_salary">
+                            <input type="text" class="form-control" id="minimum_salary" value = "{{empDashArray[0][1].salary_minimum}}">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Max. Salary <span></span></label>
-                            <input type="text" class="form-control" id="maximum_salary">
+                            <input type="text" class="form-control" id="maximum_salary" value="{{empDashArray[0][1].salary_maximum}}">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Experience <span>*</span></label>
                             <select class="form-select" id="experience" required>
-                                <option selected>Fresh</option>
+                                <option selected>{{empDashArray[0][1].experience}}</option>
                                 <option value="1">1 Year</option>
                                 <option value="2">2 Year</option>
                                 <option value="3">3 Year</option>
@@ -136,7 +138,7 @@
                         <div class="form-group">
                             <label>Career Level <span>*</span></label>
                             <select class="form-select" id="career_level" required>
-                                <option selected>Manager</option>
+                                <option selected>{{empDashArray[0][1].career_level}}</option>
                                 <option value="Officer">Officer</option>
                                 <option value="Student">Student</option>
                                 <option value="Executive">Executive</option>
@@ -148,7 +150,7 @@
                         <div class="form-group">
                             <label>Qualification <span>*</span></label>
                             <select class="form-select" id="qualification" required>
-                                <option selected>Certificate</option>
+                                <option selected>{{empDashArray[0][1].qualification}}</option>
                                 <option value="Associate Degree">Associate Degree</option>
                                 <option value="Bachelor Degree">Bachelor Degree</option>
                                 <option value="Master Degree">Master Degree</option>
@@ -159,13 +161,13 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Introduction Video URL </label>
-                            <input type="text" class="form-control" id="introduction_video_url">
+                            <input type="text" class="form-control" id="introduction_video_url" value="{{empDashArray[0][1].introduction_video_url}}">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Application Deadline Date <span>*</span></label>
-                            <input type="date" class="form-control" id="deadline" required>
+                            <input type="date" class="form-control" id="deadline" value = "{{empDashArray[0][1].deadline}}" required>
                         </div>
                     </div>
 

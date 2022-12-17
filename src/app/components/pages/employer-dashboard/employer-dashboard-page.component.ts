@@ -71,4 +71,6 @@ export class EmployerDashboardPageComponent implements OnInit {
                 localStorage.setItem('job_id',JSON.stringify(data));
                 
               }
+
+              
 }

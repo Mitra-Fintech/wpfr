@@ -52,6 +52,7 @@ import { CommonModule } from '@angular/common'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component';
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-page-edit/post-a-job-page-edit.component';
 
 @NgModule({
     declarations: [
@@ -93,7 +94,8 @@ import { CandidateDashboardPageComponent } from './components/pages/candidate-da
         MyProfileCandidatesComponent,
         EmployerDashboardPageComponent,
         CompanyJobListingsPageComponent,
-        CandidateDashboardPageComponent
+        CandidateDashboardPageComponent,
+        PostAJobPageEditComponent
     ],
     imports: [
         CommonModule,
