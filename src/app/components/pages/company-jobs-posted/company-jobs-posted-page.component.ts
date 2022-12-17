@@ -108,7 +108,8 @@ export class CompanyJobListingsPageComponent implements OnInit {
 
                     this.arraySize = this.objToArray.length
 
-                    console.log(this.objToArray[2][1]);  
+                    console.log(this.objToArray[2][1]);
+                    localStorage.setItem('active_jobs', JSON.stringify(this.arraySize));
                     
                     // console.log(responseObj.status);
 

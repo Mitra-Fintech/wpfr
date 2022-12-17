@@ -26,7 +26,7 @@ export class CandidateDetailsPageComponent implements OnInit {
         user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/candidate/details?id=7')
+            .get('https://workfromhome.world/api/candidate/details?id='+user_id)
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;

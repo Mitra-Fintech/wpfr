@@ -18,36 +18,42 @@
             <br>
             <div class="container-fluid m-2 p-2" style="text-align: center; margin: auto;">
                     <div class="row">
+
                     <div class="col-lg-2 col-2 col-md-2">
-                        <div class="counter-item">
+                        <div class="job-card p-2">
                             <h4>{{empDasharraySize}}</h4>
-                            <p style="font-size: medium">Active Jobs</p>
+                            <p style="font-size: 16px">Active Jobs</p>
                         </div>
                     </div>
+
                     <div class="col-lg-2 col-2 col-md-2">
-                        <div class="counter-item">
+                        <div class="job-card p-2">
                             <h4>5</h4>
-                            <p style="font-size: medium">New Applications</p>
+                            <p style="font-size: 16px">New Applications</p>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2 col-md-2">
-                        <div class="counter-item">
-                            <h4>5</h4>
-                            <p style="font-size: medium">Candidates to be reviewed</p>
+
+                    <div class="col-lg-3 col-2 col-md-2">
+                        <div class="job-card p-2">
+                            <h4 class="">5</h4>
+                            <p class="" style="font-size: 16px">Candidates to be reviewed</p>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-3 col-md-3">
-                        <div class="counter-item">
+                        <div class="job-card p-2">
                             <h4>5</h4>
-                            <p style="font-size: medium">Shortlisted candidates to be interviewed</p>
+                            <p style="font-size: 16px">Shortlisted candidates to be interviewed</p>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-3 col-md-3">
-                        <div class="counter-item">
+
+                    <div class="col-lg-2 col-3 col-md-3"    >
+                        <div class="job-card p-2">
                             <h4>5</h4>
-                            <p>Interviews scheduled for today</p>
+                            <p>Interviews today</p>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <!-- <ul>
@@ -64,10 +70,10 @@
 
 <!-- Company Details -->
 <div class="company-details-area ptb-100" style="padding-top: 0px; margin-top: 0px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="company-details-desc">
+    <!-- <div class="container"> -->
+        <!-- <div class="row"> -->
+            <!-- <div class="col-lg-12 col-md-12"> -->
+                <!-- <div class="company-details-desc"> -->
                     <!-- <h4>About Our Company</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus.ands Pellentesque placerat
                         maecenas egestas ullamcorper sed nunc. Vitae egestas tellus amet nulla something loss Pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
@@ -166,14 +172,15 @@
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus in that. Pellentesque
                         placerat maecenas egestas ullamcorper sed sarinto.</p> -->
-                </div>
-            </div>
+                <!-- </div> -->
+            <!-- </div> -->
 
             <!-- <div class="col-lg-4 col-md-12">
-                <div class="company-details-sidebar">
+                <div class="company-details-sidebar mt-5">
                     <div class="mb-5">
                         <h4>Personal Details</h4>
                     </div>
+
                     <div class="widget-item">
                         
                         <div class="job-company">
@@ -181,7 +188,7 @@
                             <div class="title">
                                 <h4 class="m-0 p-0">Allan Black</h4>
                                 <p style="color: gray;" class="mt-0">#201900189</p>
-                                <!-- <p style="color: orange;">Technical Recruiter</p> 
+                                <p style="color: orange;">Technical Recruiter</p> 
                             </div>
                         </div>
                         <ul class="features-list">
@@ -191,21 +198,21 @@
                             <li>
                                 <span>Recruting For</span> ABC Techno Solutions
                             </li>
-                            <!-- <li>
+                            <li>
                                 <span>Founded in</span> 2011
-                            </li> -->
-            <!-- <li>
+                            </li>
+                            <li>
                                 <span>Phone</span>
                                 <a href="tel:(123)4567890">(123) 456 7890</a>
                             </li>
                             <li>
                                 <span>Email</span>
                                 <a href="mailto: allanblack@abctechno.com">allanblack@abctechno.com</a>
-                            </li> -->
-            <!-- <li>
+                            </li> 
+                            <li>
                                 <span>Location</span> Brooklyn, NY
-                            </li> -->
-            <!-- <li>
+                            </li>
+                            <li>
                                 <span>Company Website</span>
                                 <a href="#" target="_blank">https://abctechnosol</a>
                             </li>
@@ -239,11 +246,11 @@
                         <a href="#" class="default-btn">View Your Profile</a>
                     </div>
                 </div>
-            </div> -->
-            <!--  -->
-        </div>
-    </div>
-</div>
+            </div>
+        
+        </div> -->
+    <!-- </div> -->
+<!-- </div> -->
 
 <!-- <div class="container mb-5">
 <div style="text-align: center;">
@@ -266,7 +273,7 @@
         <h4>Recent Jobs Posted</h4>
     </div>
     <div class="row">
-        <div class="col-lg-12 col-sm-12 col-md-12">
+        <div class="col-lg-8 col-sm-6 col-md-6">
             <div class="job-card" *ngFor = "let empjob of empDashArray">
                 <div class="content">
                     <div class="job-image">
@@ -286,17 +293,50 @@
                         <li><i class="ri-award-line"></i> {{empjob[1].experience}} Years</li>
                     
                         <!-- <li><i class="ri-arrow-right-s-fill"></i> {{empjob[1].qualification}}</li> -->
-                        <li><i class="ri-profile-line"></i> {{empjob[1].empjob_type}} </li>
+                        <li><i class="ri-profile-line"></i> {{empjob[1].job_type}} </li>
                         <!-- <li><i class="ri-arrow-right-s-fill"></i> {{empjob[1].allowed_genders}} </li> -->
                     
-                        <li><i class="ri-medal-2-line"></i> {{empjob[1].empjob_category}} </li>
+                        <li><i class="ri-medal-2-line"></i> {{empjob[1].job_category}} </li>
                         <li><i class="ri-video-line"></i> <a href="{{empjob[1].introduction_video_url}}">Video Url</a> </li>
-                        <li><i class="ri-hashtag"></i> {{empjob[1].empjob_tags}} </li>
+                        <li><i class="ri-hashtag"></i> {{empjob[1].job_tags}} </li>
                         <!-- <li><i class="ri-map-pin-line"></i> {{empjob[1].office_address}}, {{empjob[1].location}}</li> -->
                         <hr style="display:flex;">
-                        <li style="text-align:right;"><i class="ri-wallet-line"></i> {{empjob[1].salary_minimum}} - {{empjob[1].salary_maximum}} / {{empjob[1].salary_type}} </li>
-                    </ul>          
+                        
+                        <!-- <li><i class="ri-pencil-line"></i></li> -->
+                        <li>
+                            <!-- <div class="container-fluid">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-lg-10 col-sm-10 col-md-10" style="text-align: left;">
+                                        <li> <i class="ri-wallet-line"></i> {{empjob[1].salary_minimum}} - {{empjob[1].salary_maximum}} / {{empjob[1].salary_type}} </li>
+                                    </div>
 
+                                    <div class="col-lg-2 col-sm-2 col-md-2">
+                                        <li><i class="ri-pencil-line"></i> Edit</li>
+                                    </div>
+                                        
+                                </div>
+
+                            </div> -->
+                            
+                            <a href=""><div class="d-md-flex align-items-center justify-content-end">
+                                <li> <i class="ri-wallet-line"></i> {{empjob[1].salary_minimum}} - {{empjob[1].salary_maximum}} / {{empjob[1].salary_type}} </li>
+                                <li style="margin-left: 400px;"><i class="ri-pencil-line"></i>Edit</li>
+                            </div>
+                        </a>
+
+                            <!-- <div class="d-md-flex align-items-center justify-content-end">
+                                <li><i class="ri-pencil-line"></i> Edit</li>
+                                <li><i class="ri-pencil-line"></i> Edit</li>
+                            </div> -->
+                        </li>
+                    
+                    </ul>     
+
+                    
+                        
+                    
                 </div>
                 <!-- <div class="job-sub-content">
                     <ul class="job-list2">
@@ -309,9 +349,11 @@
                 <button class="bookmark-btn">
                     <i class="ri-bookmark-line"></i>
                 </button> -->
+            
             </div>
-        <!-- </div>
-        <div class="col-lg-12 col-sm-12 col-md-12">
+            <a routerLink="/jobs-posted"><div style="font-size: larger; font-style: italic; font-weight: 500;">See All jobs posted</div></a>
+            <!-- </div>
+            <div class="col-lg-12 col-sm-12 col-md-12">
             <div class="job-card">
                 <div class="content">
                     <div class="job-image">
@@ -345,8 +387,85 @@
                     <i class="ri-bookmark-line"></i>
                 </button>
             </div>
-        </div> -->
-    </div>
+            </div> -->
+        </div>
+        <div class="col-lg-4 col-md-12 m-0">
+            <div class="company-details-sidebar">
+                
+                <!-- <h4 class="mb-5 mt-0">Personal Details</h4> -->
+                
+
+                <div class="widget-item rounded">
+                    <div>Other Important Stats</div>
+<!--                     
+                    <div class="job-company">
+                        <img src="assets/images/job/job1.jpg" alt="job-image">
+                        <div class="title">
+                            <h4 class="m-0 p-0">Allan Black</h4>
+                            <p style="color: gray;" class="mt-0">#201900189</p>
+                            <p style="color: orange;">Technical Recruiter</p> 
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li>
+                            <span>Designation</span> Technical Recruiter
+                        </li>
+                        <li>
+                            <span>Recruting For</span> ABC Techno Solutions
+                        </li>
+                        <li>
+                            <span>Founded in</span> 2011
+                        </li>
+
+                        <li>
+                            <span>Phone</span>
+                            <a href="tel:(123)4567890">(123) 456 7890</a>
+                        </li>
+                        
+                        <li>
+                            <span>Email</span>
+                            <a href="mailto: allanblack@abctechno.com">allanblack@abctechno.com</a>
+                        </li> 
+                        
+                        <li>
+                            <span>Company HQ</span> Brooklyn, NY
+                        </li>
+                        
+                        <li>
+                            <span>Company Website</span>
+                            <a href="#" target="_blank">https://abctechnosol</a>
+                        </li>
+
+                        <li>
+                            <span>Company Media Handles</span>
+                            <ul class="social-link">
+                                <li>
+                                    <a href="https://www.facebook.com/" target="_blank">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" target="_blank">
+                                        <i class="ri-instagram-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" target="_blank">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/" target="_blank">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#" class="default-btn">View Your Profile</a>
+                </div> -->
+            </div>
+        </div>
 </div>
 
 <!-- <canvas id="lineChart"></canvas> -->

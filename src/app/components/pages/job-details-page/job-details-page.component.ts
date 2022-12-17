@@ -41,8 +41,7 @@ export class JobDetailsPageComponent implements OnInit {
 
         this.http
             .get(
-                'https://workfromhome.world/api/job/details?job_id=' +
-                    this.job_details
+                'https://workfromhome.world/api/job/details?job_id=' +this.job_details
             )
             .subscribe((response: any) => {
                 interface ResponseObject {

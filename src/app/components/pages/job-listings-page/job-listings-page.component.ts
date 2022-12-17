@@ -28,6 +28,7 @@ export class JobListingsPageComponent implements OnInit {
 
         this.http
             .get('https://workfromhome.world/api/job/recent' + '?limit=10')
+            
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;
