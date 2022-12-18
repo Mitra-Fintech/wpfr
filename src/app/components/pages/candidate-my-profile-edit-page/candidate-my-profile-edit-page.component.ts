@@ -4,15 +4,16 @@ import { Router } from '@angular/router';
 import { Editor, Toolbar } from 'ngx-editor';
 
 @Component({
-    selector: 'app-post-a-job-page',
-    templateUrl: './post-a-job-page.component.html',
-    styleUrls: ['./post-a-job-page.component.scss']
+    selector: 'app-candidate-my-profile-edit-page',
+    templateUrl: './candidate-my-profile-edit-page.component.html',
+    styleUrls: ['./candidate-my-profile-edit-page.component.scss']
 })
-export class PostAJobPageComponent implements OnInit, OnDestroy {
+export class CandidateMyProfileEdit implements OnInit, OnDestroy {
     public isUserLoggedIn = false;
     public dataFromEdit: any;
     public empDashArray: any;
-    
+    values_exp : any[] = [];
+    values_edu : any[] = [];
     
 
     editor: any;
@@ -30,13 +31,15 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
     ];
 
 
+
     constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
+        // this.addExp();
         this.editor = new Editor();
         let postajobstatus = sessionStorage.getItem('post-a-job');
 
-        if(postajobstatus != "true"){
+        if(postajobstatus == "true"){
             this.router.navigate(['/company'], {
                 skipLocationChange: false,
             });
@@ -114,7 +117,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
 
             if(DataJson.job_created){
                 alert('Job Posted successfully')
-                this.router.navigate(['/jobs/listings'], {
+                this.router.navigate(['/job-listings'], {
                                     skipLocationChange: false,})
             }
             else{
@@ -123,5 +126,21 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         })
 
     }
+
+    addExp(){
+        this.values_exp.push({value: ""});
+    }
+    remExp(i:any){
+        this.values_exp.splice(i,1);
+    }
+
+    
+    addEdu(){
+        this.values_edu.push({value: ""});
+    }
+    remEdu(i:any){
+        this.values_edu.splice(i,1);
+    }
+
 
 }
