@@ -10,8 +10,9 @@ import { Editor, Toolbar } from 'ngx-editor';
 })
 export class CandidateMyProfileEdit implements OnInit, OnDestroy {
     public isUserLoggedIn = false;
-    public dataFromEdit: any;
-    public empDashArray: any;
+    // public dataFromEdit: any;
+    // public empDashArray: any;
+    public objToArray: any;
     values_exp : any[] = [];
     values_edu : any[] = [];
     
@@ -35,7 +36,7 @@ export class CandidateMyProfileEdit implements OnInit, OnDestroy {
     constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
-        // this.addExp();
+        this.candidateDetailsValue();
         this.editor = new Editor();
         let postajobstatus = sessionStorage.getItem('post-a-job');
 
@@ -140,6 +141,47 @@ export class CandidateMyProfileEdit implements OnInit, OnDestroy {
     }
     remEdu(i:any){
         this.values_edu.splice(i,1);
+    }
+
+    candidateDetailsValue(){
+        let user_id = sessionStorage.getItem('userId') || 'no-user-id';
+
+        user_id = user_id.replace('"', '').replace('"', '');
+
+        this.http
+            .get('https://workfromhome.world/api/candidate/details?id=7')
+            .subscribe((response) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    data: Object;
+                    // session_id: string;
+                }
+
+                interface DataArrayObject {
+                    // job_title: string;
+                    array: Object;
+                }
+
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+
+                let dataJson: DataArrayObject = JSON.parse(
+                    JSON.stringify(responseObj.data)
+                );
+
+                // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+
+                this.objToArray = Object.entries(dataJson);
+
+                // this.arraySize = this.objToArray.length;
+
+                console.log(this.objToArray[0][1]);
+                // console.log("hello");
+
+                // console.log(responseObj.status);
+            });
     }
 
 
