@@ -118,4 +118,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
             this.router.navigate(['/candidate/dashboard']);
         }
     }
+    isAccountLoggedIn() {
+        let str = sessionStorage.getItem('userType') || 'not-set';
+        str = str.replace('"', '');
+        str = str.replace('"', '');
+        console.log(str);
+
+        if (str == 'company' || str == 'candidate') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
