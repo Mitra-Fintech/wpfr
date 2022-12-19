@@ -5,18 +5,37 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
     selector: 'app-job-listings-page',
     templateUrl: './job-listings-page.component.html',
-    styleUrls: ['./job-listings-page.component.scss'],
+    styleUrls: ['./job-listings-page.component.scss']
 })
+
 export class JobListingsPageComponent implements OnInit {
     public getJsonValue: any;
     public postJsonValue: any;
     public objToArray: any;
     public arraySize: any;
+    public count = 1;
+    public bmkArr:any[] = [];
+    public canBmked: any = false;
+    public dataArray: any;
+    
+    public user_type: any;
 
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
+        this.checkCanBeBookmarked();
         this.getJobListing();
+    }
+
+    checkCanBeBookmarked() {
+        this.user_type = sessionStorage.getItem('userType');
+        this.user_type = this.user_type.replace('"', '');
+        this.user_type = this.user_type.replace('"', '');
+        
+        if (this.user_type == "candidate") {
+          this.canBmked = true;
+          
+        }
     }
 
     getJobListing() {
@@ -67,4 +86,33 @@ export class JobListingsPageComponent implements OnInit {
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
     }
+   
+
+    idPassBmrk(data: number) {
+        console.log(data);
+        console.log("hrllo");
+        // localStorage.clear();
+        this.dataArray = localStorage.getItem('bmk_id');
+        this.dataArray = JSON.parse(this.dataArray);
+
+        if(this.dataArray.includes(data))
+        {
+            window.alert("Job Already Bookmarked");
+
+        }
+        else{
+            this.bmkArr.push(data);
+            localStorage.setItem('bmk_id', JSON.stringify(this.bmkArr));
+            window.alert("Job Bookmarked");
+        }
+        // let job_details = localStorage.getItem('job_id');
+        // job_details = JSON.parse(job_details);
+        
+
+        // this.bmkArr.push(this.count);
+        // console.log(this.bmkArr);
+
+    }
+
+    
 }

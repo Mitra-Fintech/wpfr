@@ -15,7 +15,9 @@ export class JobDetailsPageComponent implements OnInit {
     public job_details: any;
     public id: any;
     public jobToArray: any;
+    
     public postajob = false;
+
     public user_type: any;
     // public job_listing_data!: string;
 
@@ -33,8 +35,9 @@ export class JobDetailsPageComponent implements OnInit {
         this.checkCanApply();
         this.getJobDetails();
     }
-    checkCanApply(){
+    checkCanApply() {
         this.user_type = sessionStorage.getItem('userType');
+        
         // console.log(typeof user_type);
         // console.log("hrllo");
         
@@ -45,6 +48,7 @@ export class JobDetailsPageComponent implements OnInit {
             this.postajob = true;
             
         }
+
         else{
             console.log(this.user_type);
         }

@@ -113,10 +113,22 @@
                                     <li class="urgent">Urgent</li>
                                 </ul>
                             </div> -->
-                            <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
+                            <button type="button" id="liveToastBtn" (click)="idPassBmrk(job[1].id)" class="bookmark-btn" *ngIf="canBmked"><i class="ri-bookmark-line"></i></button>
+
                         </div>
                         
                     </div>
+                    <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                          <img src="..." class="rounded me-2" alt="...">
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 mins ago</small>
+                          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          Hello, world! This is a toast message.
+                        </div>
+                    </div> -->
                     
                     <div class="col-lg-4 col-sm-6 col-md-6 px-0 mx-0" >
                     <div class="job-listings-sidebar" style="font-size: larger;">  

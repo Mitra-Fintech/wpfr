@@ -34,6 +34,7 @@
                 "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
                 "src/assets/css/remixicon.css",
                 "src/styles.scss"
+                
             ],
             "scripts": []
           },

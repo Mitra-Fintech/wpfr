@@ -10,11 +10,27 @@ import { Router } from '@angular/router';
 export class RecentJobsComponent implements OnInit {
   public recentJobs: any;
   public recentJobsSize: any;
+  public canBmked: any = false;
+    
+  public user_type: any;
+
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.checkCanBeBookmarked();
     this.getJobListing();
+  }
+
+  checkCanBeBookmarked() {
+    this.user_type = sessionStorage.getItem('userType');
+    this.user_type = this.user_type.replace('"', '');
+    this.user_type = this.user_type.replace('"', '');
+    
+    if (this.user_type == "candidate") {
+      this.canBmked = true;
+      
+    }
   }
 
   getJobListing() {
