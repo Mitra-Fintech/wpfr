@@ -33,7 +33,6 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
     constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
-        this.editData();
         this.editor = new Editor();
         let postajobstatus = sessionStorage.getItem('post-a-job');
 
@@ -115,7 +114,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
 
             if(DataJson.job_created){
                 alert('Job Posted successfully')
-                this.router.navigate(['/job-listings'], {
+                this.router.navigate(['/jobs/listings'], {
                                     skipLocationChange: false,})
             }
             else{
@@ -123,48 +122,6 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
             }
         })
 
-    }
-
-    editData(){
-        this.dataFromEdit = localStorage.getItem('job_id');
-        console.log(this.dataFromEdit);
-        this.http
-                .get('https://workfromhome.world/api/job/details?job_id=' + this.dataFromEdit)
-                .subscribe((response) => {
-
-                    interface ResponseObject {
-                        status: string;
-                        code: any;
-                        data : Object;
-                        // session_id: string;
-                    }
-
-                    interface DataArrayObject {
-                        // job_title: string;
-                        array: Object;
-                        
-
-                    }
-
-                    let responseObj: ResponseObject = JSON.parse(
-                        JSON.stringify(response)
-                    );
-
-                    let dataJson: DataArrayObject = JSON.parse(
-                        JSON.stringify(responseObj.data)
-                    );
-                    
-                    // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
-
-                    this.empDashArray = Object.entries(dataJson);
-
-                    // this.empDasharraySize = localStorage.getItem('active_jobs');
-
-                    console.log(this.empDashArray[0][1]);  
-                    
-                    // console.log(responseObj.status);
-
-                });
     }
 
 }

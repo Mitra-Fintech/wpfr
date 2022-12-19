@@ -53,7 +53,8 @@ import { CommonModule } from '@angular/common'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component';
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
-import { PostAJobPageEditComponent } from './components/pages/post-a-job-page-edit/post-a-job-page-edit.component';
+import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
 
 @NgModule({
     declarations: [
@@ -96,7 +97,8 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-page-ed
         EmployerDashboardPageComponent,
         CompanyJobListingsPageComponent,
         CandidateDashboardPageComponent,
-        PostAJobPageEditComponent
+        CandidateMyProfileEdit,
+        PostAJobPageEditComponent,
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [

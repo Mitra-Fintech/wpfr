@@ -66,22 +66,35 @@
             </ul> -->
             <div class="col-12 col-md-12 col-lg-12">
                 <div
-                    class="col-8 col-md-8 col-lg-8 justify-content"
+                    class="col-10 col-md-10 col-lg-10 justify-content"
                     style="margin-left: 50%; transform: translateX(-50%)"
                 >
                     <div class="job-card">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-5">
-                                    <h4 class="card-title" id="greetings">
-                                        
-                                    </h4>
+                                    <h4 class="card-title" id="greetings"></h4>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-3">07</div>
+                                <div class="col-3">
+                                    <h2>07</h2>
+                                    <p>Active Jobs</p>
+                                </div>
+                                <div class="col-3 border-success border-right">
+                                    <h2>07</h2>
+                                    <p>New Applications</p>
+                                </div>
+                                <div class="col-3 border-success border-right">
+                                    <h2>07</h2>
+                                    <p>Total Interviews Scheduled</p>
+                                </div>
+                                <div class="col-3">
+                                    <h2>07</h2>
+                                    <p>Interviews Scheduled for today</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -305,7 +318,7 @@
                         <div class="job-image">
                             <a
                                 (click)="empidPass(empjob[1].id)"
-                                routerLink="/job-details"
+                                routerLink="/jobs/details"
                             >
                                 <img
                                     src="assets/images/job/job1.jpg"
@@ -316,7 +329,7 @@
                         <h3>
                             <a
                                 (click)="empidPass(empjob[1].id)"
-                                routerLink="/job-details"
+                                routerLink="/jobs/details"
                                 >{{ empjob[1].job_title }}</a
                             >
                         </h3>
@@ -388,7 +401,7 @@
                                     </li>
                                     <a
                                         (click)="empidPass(empjob[1].id)"
-                                        routerLink="/post-a-job-edit"
+                                        routerLink="/jobs/edit"
                                     >
                                         <li>
                                             <i class="ri-pencil-line"></i>Edit
@@ -431,14 +444,14 @@
             <div class="job-card">
                 <div class="content">
                     <div class="job-image">
-                        <a routerLink="/job-details">
+                        <a routerLink="/jobs/details">
                             <img
                                 src="assets/images/job/job2.jpg"
                                 alt="job-image"
                             />
                         </a>
                     </div>
-                    <h3><a routerLink="/job-details">Creative Director</a></h3>
+                    <h3><a routerLink="/jobs/details">Creative Director</a></h3>
                     <ul class="job-list1">
                         <li>
                             <i class="ri-briefcase-line"></i> Automotive Jobs
@@ -563,12 +576,12 @@
                             <div class="job-card w-55 p-0 m-0">
                                 <div class="p-0">
                                     <!-- <div class="job-image">
-                            <a routerLink="/job-details">
+                            <a routerLink="/jobs/details">
                                 <img src="assets/images/job/job1.jpg" alt="job-image">
                             </a>
                         </div> -->
 
-                                    <!-- <h3><a routerLink="/job-details">Product Designer</a></h3>-->
+                                    <!-- <h3><a routerLink="/jobs/details">Product Designer</a></h3>-->
 
                                     <div
                                         class="p-4 pt-4 px-3 m-0"
@@ -666,7 +679,7 @@
                             <div class="job-card">
                                 <div class="content">
                                     <div class="job-image">
-                                        <a routerLink="/job-details">
+                                        <a routerLink="/jobs/details">
                                             <img
                                                 src="assets/images/job/job2.jpg"
                                                 alt="job-image"
@@ -674,7 +687,7 @@
                                         </a>
                                     </div>
 
-                                    <!-- <h3><a routerLink="/job-details"></a></h3>
+                                    <!-- <h3><a routerLink="/jobs/details"></a></h3>
                             <ul class="job-list1">
                                 <li> Automotive Jobs</li>
                                 <li> 2 Hour Ago</li>
@@ -726,7 +739,7 @@
                             <div class="job-card">
                                 <div class="content">
                                     <div class="job-image">
-                                        <a routerLink="/job-details">
+                                        <a routerLink="/jobs/details">
                                             <img
                                                 src="assets/images/job/job2.jpg"
                                                 alt="job-image"
@@ -734,7 +747,7 @@
                                         </a>
                                     </div>
 
-                                    <!-- <h3><a routerLink="/job-details"></a></h3>
+                                    <!-- <h3><a routerLink="/jobs/details"></a></h3>
                             <ul class="job-list1">
                                 <li> Automotive Jobs</li>
                                 <li> 2 Hour Ago</li>
@@ -787,7 +800,7 @@
                             <div class="job-card">
                                 <div class="content">
                                     <div class="job-image">
-                                        <a routerLink="/job-details">
+                                        <a routerLink="/jobs/details">
                                             <img
                                                 src="assets/images/job/job2.jpg"
                                                 alt="job-image"

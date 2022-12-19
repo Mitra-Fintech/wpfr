@@ -28,7 +28,8 @@ import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component'
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
-import { PostAJobPageEditComponent } from './components/pages/post-a-job-page-edit/post-a-job-page-edit.component';
+import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,7 @@ const routes: Routes = [
     {path: 'pricing', component: PricingPageComponent},
     {path: 'categories', component: CategoriesPageComponent},
     {path: 'candidates', component: CandidatesPageComponent},
-    {path: 'candidate/details', component: CandidateDetailsPageComponent},
+    // {path: 'candidate/details', component: CandidateDetailsPageComponent},
     {path: 'candidate/dashboard', component: CandidateDashboardPageComponent},
     {path: 'employer/dashboard', component: EmployerDashboardPageComponent},
     {path: 'faq', component: FaqPageComponent},
@@ -53,12 +54,15 @@ const routes: Routes = [
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
     {path: 'employer', component: EmployLoginComponent},
-    {path: 'candidate/my-profile', component: MyProfileCandidatesComponent},
+    {path: 'jobs/edit', component: PostAJobPageEditComponent},
     {path: 'candidate/verify-otp', component: CandidateVerifyOtp},
     {path: 'my-details', component: MyCompanyDetailsPageComponent},
     {path: 'verify-otp', component: VerifyOtpComponent},
     {path: 'jobs/posted', component: CompanyJobListingsPageComponent},
-    {path: 'post-a-job-edit', component: PostAJobPageEditComponent},
+
+    {path: 'candidate/my-profile/edit', component: CandidateMyProfileEdit},
+    {path: 'candidate/my-profile', component: CandidateDetailsPageComponent},
+    
     {path: 'employer/my-profile', component: MyCompanyDetailsPageComponent},
 
 

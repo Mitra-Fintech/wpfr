@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { Editor, Toolbar } from 'ngx-editor';
 
 @Component({
-    selector: 'app-post-a-job-page-edit',
-    templateUrl: './post-a-job-page-edit.component.html',
-    styleUrls: ['./post-a-job-page-edit.component.scss']
+    selector: 'app-post-a-job-edit-page',
+    templateUrl: './post-a-job-edit-page.component.html',
+    styleUrls: ['./post-a-job-edit-page.component.scss']
 })
 export class PostAJobPageEditComponent implements OnInit, OnDestroy {
     public isUserLoggedIn = false;

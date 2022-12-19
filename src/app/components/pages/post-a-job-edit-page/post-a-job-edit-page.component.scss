@@ -1,0 +1,161 @@
+.post-a-job-form {
+    padding: 50px;
+    border-radius: 8px;
+    border: 1px solid #ecedf2;
+    background-color: var(--whiteColor);
+    box-shadow: 0 6px 15px 0 rgba(64, 79, 104, .05);
+
+    .form-group {
+        margin-bottom: 25px;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font: {
+                size: 15px;
+                weight: 500;
+            };
+            span {
+                color: red;
+            }
+        }
+        .form-control {
+            height: 55px;
+            box-shadow: unset;
+            border-radius: 5px;
+            padding-left: 20px;
+            color: var(--blackColor);
+            font-size: var(--fontSize);
+            border: 1px solid #f8f8f8;
+            background-color: #f8f8f8;
+
+            &::placeholder {
+                color: var(--paragraphColor);
+                transition: var(--transition);
+            }
+            &:focus {
+                border-color: var(--primaryColor);
+
+                &::placeholder {
+                    color: transparent;
+                }
+            }
+        }
+        .form-select {
+            color: var(--paragraphColor);
+            border: 1px solid #f8f8f8;
+            background-color: #f8f8f8;
+            font-size: var(--fontSize);
+            border-radius: 5px;
+            box-shadow: unset;
+            cursor: pointer;
+            height: 55px;
+            padding: {
+                left: 20px;
+                right: 20px;
+            };
+            &:hover {
+                border-color: var(--primaryColor);
+            }
+        }
+        input[type="file" i] {
+            margin-top: 7px;
+        }
+        p {
+            line-height: initial;
+            margin-top: 12px;
+            font: {
+                size: 14px;
+                style: italic;
+            };
+        }
+    }
+    .default-btn {
+        padding: {
+            left: 30px;
+            right: 30px;
+        };
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .post-a-job-form {
+        border: 0;
+        padding: 0;
+        box-shadow: unset;
+        background-color: transparent;
+    
+        .form-group {
+            margin-bottom: 20px;
+    
+            label {
+                font-size: 14px;
+            }
+            .form-control {
+                height: 50px;
+                font-size: 14px;
+                padding-left: 12px;
+            }
+            .form-select {
+                font-size: 14px;
+                height: 50px;
+                padding: {
+                    left: 12px;
+                    right: 12px;
+                };
+            }
+            input[type="file" i] {
+                margin-top: 5px;
+            }
+            p {
+                font-size: 13px;
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .post-a-job-form {
+        padding: 30px;
+
+        .form-group {
+            label {
+                font-size: 14px;
+            }
+            .form-control {
+                height: 50px;
+                font-size: 15px;
+                padding-left: 15px;
+            }
+            .form-select {
+                height: 50px;
+                font-size: 15px;
+                padding: {
+                    left: 15px;
+                    right: 15px;
+                };
+            }
+            input[type="file" i] {
+                margin-top: 7px;
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
