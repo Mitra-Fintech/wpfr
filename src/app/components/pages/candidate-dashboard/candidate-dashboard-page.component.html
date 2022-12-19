@@ -141,179 +141,85 @@
 <h3 style="text-align: center;" class="mt-5">Your Applications</h3>
 
 <div class="row p-5">
+
     <div class="col-lg-12 col-sm-6 col-md-6">
 
-        <div class="job-card">
+        <div class="job-card " *ngFor="let ad of finalArray">
             <div class="content">
+
                 <div class="job-image">
-                    <a routerLink="/jobs/details">
+                    <a (click)="idPass(ad.id)" routerLink="/jobs/details">
                         <img src="assets/images/job/job1.jpg" alt="job-image">
                     </a>
                 </div>
                 <div class="px-5">
-                    <h4 class=""><a routerLink="/jobs/details">Company Name - A</a></h4>
-
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-4 dot-success"></div>
-                            <div class="col-sm-8"><strong>Selected</strong></div>
-                        </div>
-                    </div>
-                    <!-- <span class="dot-success mt-4"></span> -->
-                    <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
-                    <br>
-
-                    <div style="font-size:20px">
-                        <ul class="job-list1">
-                            <li><i class=""></i> Product Design Job</li>
-                            <li><i class=""></i> Applied On -
-                                <span class="date_of_appy">10 Dec 2022</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <!-- <div class="container px-5">
-                    <div class="row">
-
-                        <div class="col-sm-12" style="font-size: 18px">
-                            <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
-                        </div>
-
-                    </div>
-                </div> -->
-
-                <div class="job-sub-content px-5">
-                    <div class="job-list">
-                        <a href="">
-                            <li class="time" style="font-size:larger">Review Application</li>
-                        </a>
-                        <!-- <li class="freelance">Freelance</li> -->
-                        <!-- <li class="urgent">Urgent</li> -->
-                    </div>
-                    <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
-                </div>
-
-                <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
-            </div>
-        </div>
-
-
-        <div class="job-card mt-5">
-            <div class="content">
-                <div class="job-image">
-                    <a routerLink="/job-details">
-                        <img src="assets/images/job/job1.jpg" alt="job-image">
-                    </a>
-                </div>
-                <div class="px-5">
-                    <h4 class=""><a routerLink="/job-details">Company Name - A</a></h4>
-
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-4 dot-fail"></div>
-                            <div class="col-sm-8"><strong>Not-Selected</strong></div>
-                        </div>
-                    </div>
-                    <!-- <span class="dot-success mt-4"></span> -->
-                    <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
-                    <br>
-
-                    <div style="font-size:20px">
-                        <ul class="job-list1">
-                            <li><i class=""></i> Product Design Job</li>
-                            <li><i class=""></i> Applied On -
-                                <span class="date_of_appy">10 Dec 2022</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="container px-5">
-                    <div class="row">
-
-                        <!-- <div class="col-sm-12" style="font-size: 18px">
-                            <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
-                        </div> -->
-
-                    </div>
-                </div>
-
-                <div class="job-sub-content px-5">
-                    <div class="job-list">
-                        <a href="">
-                            <li class="time" style="font-size:larger">Review Application</li>
-                        </a>
-                        <!-- <li class="freelance">Freelance</li> -->
-                        <!-- <li class="urgent">Urgent</li> -->
-                    </div>
-                    <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
-                </div>
-
-                <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
-            </div>
-        </div>
-
-
-
-        <div class="job-card mt-5">
-            <div class="content">
-                <div class="job-image">
-                    <a routerLink="/job-details">
-                        <img src="assets/images/job/job1.jpg" alt="job-image">
-                    </a>
-                </div>
-                <div class="px-5">
-                    <h4 class=""><a routerLink="/job-details">Company Name - A</a></h4>
+                    <h4 class=""><a (click)="idPass(ad.id)" routerLink="/jobs/details">{{ad.job_title}}</a></h4>
 
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-4 dot-inTouch"></div>
-                            <div class="col-sm-8"><strong>In-Touch</strong></div>
+                            <div class="col-sm-8"><strong>Intouch</strong></div>
                         </div>
                     </div>
                     <!-- <span class="dot-success mt-4"></span> -->
                     <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
                     <br>
 
-                    <div style="font-size:20px">
+                    <!-- <div style="font-size:20px">
                         <ul class="job-list1">
                             <li><i class=""></i> Product Design Job</li>
                             <li><i class=""></i> Applied On -
                                 <span class="date_of_appy">10 Dec 2022</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
+
+                    <!-- <ul class="job-list1" style="font-size: medium;">
+
+                        <li><i class="ri-briefcase-line"></i> {{ad.career_level}}</li>
+                        <li><i class="ri-time-line"></i> {{ad.deadline}}</li>
+                        <li><i class="ri-award-line"></i> {{ad.experience}} Years</li>
+                    
+                        <li><i class="ri-profile-line"></i> {{ad.ad_type}} </li>
+                    
+                        <li><i class="ri-medal-2-line"></i> {{ad.ad_category}} </li>
+                        <li><i class="ri-video-line"></i> <a href="{{ad.introduction_video_url}}">Video Url</a> </li>
+                        <li><i class="ri-hashtag"></i> {{ad.job_tags}} </li>
+                        <li style="text-align:right;"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li>
+                        
+                       
+                    
+                    </ul>        -->
+
+                    <ul class="list-group list-group-flush" style="font-size: large;">
+                        <li  class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-briefcase-line"></i> {{ad.career_level}}</li>
+                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-profile-line"></i> {{ad.job_type}} </li>
+                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-award-line"></i> {{ad.experience}} Years</li>
+                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li>
+        
+                        <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                        <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                    </ul>
 
                 </div>
 
-                <div class="container px-5">
-                    <div class="row">
-
-                        <!-- <div class="col-sm-12" style="font-size: 18px">
-                            <i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY
-                        </div> -->
-
-                    </div>
-                </div>
-
-                <div class="job-sub-content px-5">
+                <!-- <div class="ad-sub-content px-5">
                     <div class="job-list">
                         <a href="">
                             <li class="time" style="font-size:larger">Review Application</li>
                         </a>
-                        <!-- <li class="freelance">Freelance</li> -->
-                        <!-- <li class="urgent">Urgent</li> -->
+                        <li class="freelance">Freelance</li>
+                        <li class="urgent">Urgent</li>
                     </div>
-                    <!-- <div class="price">$150 - $180 <span>/Per Week</span></div> -->
-                </div>
+                    <div class="price">$150 - $180 <span>/Per Week</span></div>
+                </div> -->
 
-                <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+                <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
             </div>
         </div>
 
+
+        <!-- <div class="job-card mt-5"> -->
         <!-- Jobs Details -->
         <!-- <div class="job-details-area ptb-100">
     <div class="container">

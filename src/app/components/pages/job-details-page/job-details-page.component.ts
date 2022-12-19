@@ -16,6 +16,9 @@ export class JobDetailsPageComponent implements OnInit {
     public id: any;
     public jobToArray: any;
     public postajob = false;
+    public user_id: any;
+    public applyArray:any[] = [];
+
 
     // public job_listing_data!: string;
 
@@ -81,5 +84,63 @@ export class JobDetailsPageComponent implements OnInit {
         } else {
             return false;
         }
+    }
+
+    applyNow(data: any){
+        this.user_id = sessionStorage.getItem('userId');
+        this.user_id = this.user_id.replace('"', '');
+        this.user_id = this.user_id.replace('"', '');
+        console.log(data);
+        console.log(this.user_id);
+
+        this.http
+            .get(
+                'https://workfromhome.world/api/job/apply?candidate_id='+this.user_id+'&job_id='+data
+            )
+            .subscribe((response: any) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    // data: Object;
+                    // session_id: string;
+                }
+
+                // interface DataArrayObject {
+                //     // job_title: string;
+                //     array: Object;
+                // }
+
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+
+                // let dataJson: DataArrayObject = JSON.parse(
+                //     JSON.stringify(responseObj.data)
+                // );
+
+                // this.jobToArray = Object.entries(dataJson);
+                
+                responseObj.status = JSON.stringify(responseObj.status);
+                console.log(responseObj.status);
+                responseObj.status = responseObj.status.replace('"', '');
+                responseObj.status = responseObj.status.replace('"', '');
+                
+                if(responseObj.status === "success"){
+                    
+                    this.applyArray.push(data);
+                    localStorage.setItem('applied_job_id', JSON.stringify(this.applyArray));
+
+                    // localStorage.setItem('applied_job_id',data);
+                    window.alert("Job Applied Successfully");
+
+                }
+                else{
+                    window.alert("Invalid Job");
+                }
+            });
+
+
+
+
     }
 }

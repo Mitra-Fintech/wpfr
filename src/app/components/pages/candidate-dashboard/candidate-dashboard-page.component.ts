@@ -10,11 +10,18 @@ import { Router } from '@angular/router';
 export class CandidateDashboardPageComponent implements OnInit {
     public objToArray: any;
     public arraySize: any;
+    public applyDetails: any;
+    public applyArrayLen: any;
+    public finalArray: any[] = [];
+
+
 
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
         this.checkIsLoggedIn()
+        this.getJobListing();
+        this.getAppliedJobListing();
     }
     private async checkIsLoggedIn() {
         let isUserLoggedIn = sessionStorage.getItem('session_id');
@@ -118,6 +125,53 @@ export class CandidateDashboardPageComponent implements OnInit {
         console.log(data);
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
+    }
+
+    getAppliedJobListing()  {
+        
+        this.applyDetails = localStorage.getItem('applied_job_id');
+        this.applyDetails = JSON.parse(this.applyDetails);
+        this.applyArrayLen = this.applyDetails.length;
+        console.log(this.applyDetails);
+        
+        for(let ad of this.applyDetails)  
+        {
+            this.http
+            .get('https://workfromhome.world/api/job/details?job_id='+ad)
+            .subscribe((response) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    data: Object;
+                    // session_id: string;
+                }
+
+                interface DataArrayObject {
+                    // job_title: string;
+                    array: Object;
+                }
+
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+
+                let dataJson: DataArrayObject = JSON.parse(
+                    JSON.stringify(responseObj.data)
+                );
+
+                // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+
+                this.objToArray = Object.entries(dataJson);
+                
+                this.finalArray.push(this.objToArray[0][1]);
+
+                // console.log(this.objToArray[0][1]);
+
+                // console.log(responseObj.status);
+            });
+
+        }
+        console.log(this.finalArray);
     }
 
 }
