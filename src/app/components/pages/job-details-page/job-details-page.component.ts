@@ -69,4 +69,17 @@ export class JobDetailsPageComponent implements OnInit {
                 console.log(this.jobToArray[0][1]);
             });
     }
+
+    showApplyNowButton() {
+        let str = sessionStorage.getItem('userType') || 'not-set';
+        str = str.replace('"', '');
+        str = str.replace('"', '');
+        console.log(str);
+
+        if (str == 'candidate') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
