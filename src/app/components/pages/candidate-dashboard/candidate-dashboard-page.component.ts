@@ -20,7 +20,7 @@ export class CandidateDashboardPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.checkIsLoggedIn()
-        this.getJobListing();
+        this.getUserDetails();
         this.getAppliedJobListing();
     }
     private async checkIsLoggedIn() {
