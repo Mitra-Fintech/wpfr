@@ -1,5 +1,5 @@
 import { TabsModule } from 'ngx-tabset';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { NgxEditorModule } from 'ngx-editor';
 import { AccordionModule } from "ngx-accordion";
 import { StickyNavModule } from 'ng2-sticky-nav';
@@ -8,6 +8,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,6 +52,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CommonModule } from '@angular/common'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component';
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
+import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
+import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
 
 @NgModule({
     declarations: [
@@ -91,8 +95,12 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
         CandidateDetailsPageComponent,
         MyProfileCandidatesComponent,
         EmployerDashboardPageComponent,
-        CompanyJobListingsPageComponent
+        CompanyJobListingsPageComponent,
+        CandidateDashboardPageComponent,
+        CandidateMyProfileEdit,
+        PostAJobPageEditComponent,
     ],
+    // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
         CommonModule,
         BrowserModule,
@@ -107,7 +115,9 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
         NgxEditorModule,
         HttpClientModule
     ],
-    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    providers: [{provide: APP_BASE_HREF, useValue: ''}],
+    
     bootstrap: [AppComponent]
 })
 export class AppModule { }

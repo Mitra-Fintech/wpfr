@@ -41,8 +41,7 @@ export class JobDetailsPageComponent implements OnInit {
 
         this.http
             .get(
-                'https://workfromhome.world/api/job/details?job_id=' +
-                    this.job_details
+                'https://workfromhome.world/api/job/details?job_id=' +this.job_details
             )
             .subscribe((response: any) => {
                 interface ResponseObject {
@@ -69,5 +68,18 @@ export class JobDetailsPageComponent implements OnInit {
 
                 console.log(this.jobToArray[0][1]);
             });
+    }
+
+    showApplyNowButton() {
+        let str = sessionStorage.getItem('userType') || 'not-set';
+        str = str.replace('"', '');
+        str = str.replace('"', '');
+        console.log(str);
+
+        if (str == 'candidate') {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

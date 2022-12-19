@@ -2,14 +2,14 @@
 <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
-            <h3>Candidate Details</h3>
+            <h3>My Profile</h3>
             <ul>
                 <li>
                     <a routerLink="/">
                         Home
                     </a>
                 </li>
-                <li>Candidate Details</li>
+                <li>My Details</li>
             </ul>
         </div>
     </div>
@@ -24,7 +24,7 @@
                     <div class="profile">
                         <img src="assets/images/candidates/candidate7.jpg" class="main-image" alt="candidates-image">
                         <div class="title">
-                            <h3>Henry Alexander</h3>
+                            <h3>{{objToArray[0][1].name}}</h3>
                             <img src="assets/images/flags/switzerland.svg" alt="flag">
                         </div>
                         <p>Web Developer</p>
@@ -67,14 +67,15 @@
                             </li>
                             <li>
                                 <span>Email</span>
-                                <a href="mailto:hello@henry.com">hello@henry.com</a>
+                                <a href="mailto:{{objToArray[0][1].email}}">{{objToArray[0][1].email_id}}</a>
                             </li>
                             <li>
                                 <span>Phone</span>
-                                <a href="tel:+4471234567890">+44 7123 456 7890</a>
+                                <a href="tel:{{objToArray[0][1].mobile_number}}">{{objToArray[0][1].mobile_number}}</a>
                             </li>
                         </ul>
                     </div>
+                    
                     <div class="download-resume">
                         <h3>Download Resume</h3>
                         <a href="javascript:void(0)" class="download-btn">PDF Formate CV <i class="ri-file-download-line"></i></a>

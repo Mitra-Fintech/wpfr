@@ -21,29 +21,31 @@ import { PrivacyPolicyPageComponent } from './components/pages/privacy-policy-pa
 import { TermsConditionsPageComponent } from './components/pages/terms-conditions-page/terms-conditions-page.component';
 import { EmployLoginComponent } from './components/pages/emp-account/emp-account';
 import { MyProfileCandidatesComponent } from './components/pages/my-profile-candidate/candidate-details-page.component';
-import { MyCompanyDetailsPageComponent } from './components/pages/my-details/company-details-page.component';
+import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-employer/company-details-page.component';
 
 import { CandidateVerifyOtp} from './components/pages/candidate-verify-otp-page/candidate-page.component';
 import {VerifyOtpComponent} from './components/pages/verify-otp/emp-account'
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component'
 import { EmployerDashboardPageComponent } from './components/pages/employer-dashboard/employer-dashboard-page.component'
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
+import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
+import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
 
 
 const routes: Routes = [
     {path: '', component: MainHomeComponent},
     {path: 'about', component: AboutPageComponent},
-    {path: 'job-listings', component: JobListingsPageComponent},
-    {path: 'job-details', component: JobDetailsPageComponent},
+    {path: 'jobs/listings', component: JobListingsPageComponent},
+    {path: 'jobs/details', component: JobDetailsPageComponent},
     {path: 'post-a-job', component: PostAJobPageComponent},
     {path: 'companies', component: CompaniesPageComponent},
     {path: 'company-details', component: CompanyDetailsPageComponent},
     {path: 'pricing', component: PricingPageComponent},
     {path: 'categories', component: CategoriesPageComponent},
     {path: 'candidates', component: CandidatesPageComponent},
-    {path: 'candidate-details', component: CandidateDetailsPageComponent},
-    {path: 'candidate-dashboard', component: CandidateDashboardPageComponent},
-    {path: 'employer-dashboard', component: EmployerDashboardPageComponent},
+    // {path: 'candidate/details', component: CandidateDetailsPageComponent},
+    {path: 'candidate/dashboard', component: CandidateDashboardPageComponent},
+    {path: 'employer/dashboard', component: EmployerDashboardPageComponent},
     {path: 'faq', component: FaqPageComponent},
     {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
     {path: 'terms-conditions', component: TermsConditionsPageComponent},
@@ -51,12 +53,17 @@ const routes: Routes = [
     {path: 'blog', component: BlogPageComponent},
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
-    {path: 'company', component: EmployLoginComponent},
-    {path: 'my-profile', component: MyProfileCandidatesComponent},
-    {path: 'candidate-verify-otp', component: CandidateVerifyOtp},
+    {path: 'employer', component: EmployLoginComponent},
+    {path: 'jobs/edit', component: PostAJobPageEditComponent},
+    {path: 'candidate/verify-otp', component: CandidateVerifyOtp},
     {path: 'my-details', component: MyCompanyDetailsPageComponent},
     {path: 'verify-otp', component: VerifyOtpComponent},
-    {path: 'jobs-posted', component: CompanyJobListingsPageComponent},
+    {path: 'jobs/posted', component: CompanyJobListingsPageComponent},
+
+    {path: 'candidate/my-profile/edit', component: CandidateMyProfileEdit},
+    {path: 'candidate/my-profile', component: CandidateDetailsPageComponent},
+    
+    {path: 'employer/my-profile', component: MyCompanyDetailsPageComponent},
 
 
     // Here add new pages component

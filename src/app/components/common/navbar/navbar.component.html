@@ -19,14 +19,20 @@
                             Home
                         </a>
                     </li>
+                    <li class="nav-item" *ngIf="isAccountLoggedIn;">
+                        <a (click)="openDashboard()" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">
+                            Dashboard
+                        </a>
+                    </li>
                     <li class="nav-item" *ngIf="!postajob;">
-                        <a routerLink="/job-listings" class="nav-link" routerLinkActive="active"
+                        <a routerLink="/jobs/listings" class="nav-link" routerLinkActive="active"
                             [routerLinkActiveOptions]="{exact: true}">
                             Find Jobs
                         </a>
                     </li>
                     <li class="nav-item" *ngIf="postajob;">
-                        <a routerLink="/job-listings" class="nav-link" routerLinkActive="active"
+                        <a routerLink="/jobs/posted" class="nav-link" routerLinkActive="active"
                             [routerLinkActiveOptions]="{exact: true}">
                             Jobs Posted
                         </a>
@@ -159,7 +165,7 @@
                         </a>
                     </li>
                     <li class="nav-item" *ngIf="!postajob;">
-                        <a routerLink="/job-listings" class="nav-link" routerLinkActive="active"
+                        <a routerLink="/job/listings" class="nav-link" routerLinkActive="active"
                             [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">
                             Find Jobs
                         </a>
@@ -296,7 +302,7 @@
                             <i class="ri-user-3-line"></i> Candidate
                         </a>
 
-                        <a *ngIf="!isUserLoggedIn;" routerLink="/company" class="default-btn" style="margin-left:10px;">
+                        <a *ngIf="!isUserLoggedIn;" routerLink="/employer" class="default-btn" style="margin-left:10px;">
                             <i class="ri-user-3-line"></i> Employer
                         </a>
 
@@ -307,9 +313,10 @@
                         <a *ngIf="isUserLoggedIn;" (click)="logout()" class="default-btn" style="margin-left: 10px;">
                             <i class="ri-user-3-line"></i> Logout
                         </a>
-                        <a *ngIf="isUserLoggedIn;" class="" style="margin-left: 10px; width: fit-content;">
+                        <a *ngIf="isUserLoggedIn;" class="" style="margin-left: 10px; width: fit-content;" (click)="openMyProfile()">
                             <img src="https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur-vert.png" alt="" srcset="" style="max-height: 50px;">
                         </a>
+                        
                     </div>
                 </div>
             </div>
