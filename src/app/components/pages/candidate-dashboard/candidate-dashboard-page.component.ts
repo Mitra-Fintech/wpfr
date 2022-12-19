@@ -15,7 +15,6 @@ export class CandidateDashboardPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.checkIsLoggedIn()
-        this.getJobListing();
     }
     private async checkIsLoggedIn() {
         let isUserLoggedIn = sessionStorage.getItem('session_id');
@@ -41,7 +40,9 @@ export class CandidateDashboardPageComponent implements OnInit {
                     // sessionStorage.setItem('session_id', JSON.stringify(json.session_id));
     
                     if((json.isUserLoggedIn == true ) && json.userType == "candidate")
-                    {}else{
+                    {
+                        this.getUserDetails();
+                    }else{
                         this.router.navigateByUrl('/candidate');
                     }
     
@@ -64,13 +65,14 @@ export class CandidateDashboardPageComponent implements OnInit {
                     );
                     // console.log(json);
                     if((json.isUserLoggedIn == true ) && json.userType == "candidate") {
+                        this.getUserDetails();
                     }else{
                         this.router.navigateByUrl('/candidate');
                     }
                 });
         }
     }
-    getJobListing() {
+    getUserDetails() {
         // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
         let user_id = sessionStorage.getItem('userId') || 'no-user-id';
