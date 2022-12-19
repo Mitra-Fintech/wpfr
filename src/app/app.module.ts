@@ -1,5 +1,5 @@
 import { TabsModule } from 'ngx-tabset';
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { NgxEditorModule } from 'ngx-editor';
 import { AccordionModule } from "ngx-accordion";
 import { StickyNavModule } from 'ng2-sticky-nav';
@@ -115,8 +115,8 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-pa
         NgxEditorModule,
         HttpClientModule
     ],
-    // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-    providers: [{provide: APP_BASE_HREF, useValue: ''}],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    // providers: [{provide: APP_BASE_HREF, useValue: ''}],
     
     bootstrap: [AppComponent]
 })
