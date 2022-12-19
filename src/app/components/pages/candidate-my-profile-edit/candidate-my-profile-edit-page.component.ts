@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Editor, Toolbar } from 'ngx-editor';
 
 @Component({
@@ -8,28 +8,35 @@ import { Editor, Toolbar } from 'ngx-editor';
     templateUrl: './candidate-my-profile-edit-page.component.html',
     styleUrls: ['./candidate-my-profile-edit-page.component.scss']
 })
-export class CandidateMyProfileEdit implements OnInit, OnDestroy {
+export class CandidateMyProfileEdit implements OnInit {
     public isUserLoggedIn = false;
     // public dataFromEdit: any;
     // public empDashArray: any;
     public objToArray: any;
+    // objToArray: any[] = [];
     values_exp : any[] = [];
     values_edu : any[] = [];
     
+    public count=0;
 
-    editor: any;
-    html: any;
+    addEdu(){
+        this.values_edu.push(this.count++);
+        console.log(this.count);
+    }
 
-    toolbar: Toolbar = [
-        ['bold', 'italic'],
-        ['underline', 'strike'],
-        ['code', 'blockquote'],
-        ['ordered_list', 'bullet_list'],
-        [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
-        ['link', 'image'],
-        ['text_color', 'background_color'],
-        ['align_left', 'align_center', 'align_right', 'align_justify'],
-    ];
+    // editor: any;
+    // html: any;
+
+    // toolbar: Toolbar = [
+    //     ['bold', 'italic'],
+    //     ['underline', 'strike'],
+    //     ['code', 'blockquote'],
+    //     ['ordered_list', 'bullet_list'],
+    //     [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+    //     ['link', 'image'],
+    //     ['text_color', 'background_color'],
+    //     ['align_left', 'align_center', 'align_right', '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        '],
+    // ];
 
 
 
@@ -37,108 +44,112 @@ export class CandidateMyProfileEdit implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.candidateDetailsValue();
-        this.editor = new Editor();
-        let postajobstatus = sessionStorage.getItem('post-a-job');
+        // this.editor = new Editor();
+        // let postajobstatus = sessionStorage.getItem('post-a-job');
 
-        if(postajobstatus == "true"){
-            this.router.navigate(['/company'], {
-                skipLocationChange: false,
-            });
-        }
+        // if(postajobstatus == "true"){
+        //     this.router.navigate(['/company'], {
+        //         skipLocationChange: false,
+        //     });
+        // }
     }
 
     // make sure to destory the editor
-    ngOnDestroy(): void {
-        this.editor.destroy();
-    }
+    // ngOnDestroy(): void {
+    //     // this.editor.destroy();
+    // }
 
     
 
-    createJob(){
+    // createJob(){
 
-        let title = (<HTMLInputElement>document.getElementById('title')).value;
-        let description = (<HTMLInputElement>document.getElementById('description')).value;
-        let category_id = (<HTMLInputElement>document.getElementById('category_id')).value;
-        let type_id = (<HTMLInputElement>document.getElementById('type_id')).value;
-        let tags = (<HTMLInputElement>document.getElementById('tags')).value;
-        let gender = (<HTMLInputElement>document.getElementById('gender')).value;
-        let salary_type = (<HTMLInputElement>document.getElementById('salary_type')).value;
-        let minimum_salary = (<HTMLInputElement>document.getElementById('minimum_salary')).value;
-        let maximum_salary = (<HTMLInputElement>document.getElementById('maximum_salary')).value;
-        let experience = (<HTMLInputElement>document.getElementById('experience')).value;
-        let career_level = (<HTMLInputElement>document.getElementById('career_level')).value;
-        let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
-        let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
-        let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
-        // let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
-        // let location = (<HTMLInputElement>document.getElementById('location')).value;
+    //     let title = (<HTMLInputElement>document.getElementById('title')).value;
+    //     let description = (<HTMLInputElement>document.getElementById('description')).value;
+    //     let category_id = (<HTMLInputElement>document.getElementById('category_id')).value;
+    //     let type_id = (<HTMLInputElement>document.getElementById('type_id')).value;
+    //     let tags = (<HTMLInputElement>document.getElementById('tags')).value;
+    //     let gender = (<HTMLInputElement>document.getElementById('gender')).value;
+    //     let salary_type = (<HTMLInputElement>document.getElementById('salary_type')).value;
+    //     let minimum_salary = (<HTMLInputElement>document.getElementById('minimum_salary')).value;
+    //     let maximum_salary = (<HTMLInputElement>document.getElementById('maximum_salary')).value;
+    //     let experience = (<HTMLInputElement>document.getElementById('experience')).value;
+    //     let career_level = (<HTMLInputElement>document.getElementById('career_level')).value;
+    //     let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
+    //     let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
+    //     let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
+    //     // let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
+    //     // let location = (<HTMLInputElement>document.getElementById('location')).value;
        
-        // let otp = (<HTMLInputElement>document.getElementById('otp')).value;
+    //     // let otp = (<HTMLInputElement>document.getElementById('otp')).value;
 
-        let session_id =
-        sessionStorage.getItem('session_id') || 'no-session';
-    session_id = session_id.replace('"', '');
+    //     let session_id =
+    //     sessionStorage.getItem('session_id') || 'no-session';
+    // session_id = session_id.replace('"', '');
         
-        let body = new URLSearchParams();
+    //     let body = new URLSearchParams();
 
-        body.set('title', title);
-        body.set('description', description);
-        body.set('category_id', category_id)
-        body.set('type_id',type_id)
-        body.set('tags', tags)
-        body.set('gender', gender)
-        body.set('salary_type', salary_type)
-        body.set('minimum_salary', minimum_salary)
-        body.set('maximum_salary', maximum_salary)
-        body.set('experience', experience)
-        body.set('career_level', career_level)
-        body.set('qualification', qualification)
-        body.set('introduction_video_url', introduction_video_url)
-        body.set('deadline', deadline)
-        body.set('friendly_address', "null")
-        body.set('location', "null")
-        body.set('session_id', session_id.replace('"', ''));
+    //     body.set('title', title);
+    //     body.set('description', description);
+    //     body.set('category_id', category_id)
+    //     body.set('type_id',type_id)
+    //     body.set('tags', tags)
+    //     body.set('gender', gender)
+    //     body.set('salary_type', salary_type)
+    //     body.set('minimum_salary', minimum_salary)
+    //     body.set('maximum_salary', maximum_salary)
+    //     body.set('experience', experience)
+    //     body.set('career_level', career_level)
+    //     body.set('qualification', qualification)
+    //     body.set('introduction_video_url', introduction_video_url)
+    //     body.set('deadline', deadline)
+    //     body.set('friendly_address', "null")
+    //     body.set('location', "null")
+    //     body.set('session_id', session_id.replace('"', ''));
     
 
-        this.http
-        .get('https://workfromhome.world/api/job/post?' + body)
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                status_code: any;
-                data: object;
-            }  
-            interface DataObject {
-                job_created: boolean
-            }
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            let DataJson: DataObject = JSON.parse(JSON.stringify(json.data));
-            // console.log(json.isUserLoggedIn);
-            console.log(DataJson.job_created);
+    //     this.http
+    //     .get('https://workfromhome.world/api/job/post?' + body)
+    //     .subscribe((response) => {
+    //         interface ReposnseObject {
+    //             status: string;
+    //             status_code: any;
+    //             data: object;
+    //         }  
+    //         interface DataObject {
+    //             job_created: boolean
+    //         }
+    //         let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+    //         let DataJson: DataObject = JSON.parse(JSON.stringify(json.data));
+    //         // console.log(json.isUserLoggedIn);
+    //         console.log(DataJson.job_created);
 
-            if(DataJson.job_created){
-                alert('Job Posted successfully')
-                this.router.navigate(['/job-listings'], {
-                                    skipLocationChange: false,})
-            }
-            else{
-                alert('Something went wrong')
-            }
-        })
+    //         if(DataJson.job_created){
+    //             alert('Job Posted successfully')
+    //             this.router.navigate(['/job-listings'], {
+    //                                 skipLocationChange: false,})
+    //         }
+    //         else{
+    //             alert('Something went wrong')
+    //         }
+    //     })
 
-    }
+    // }
 
     addExp(){
         this.values_exp.push({value: ""});
     }
+
     remExp(i:any){
         this.values_exp.splice(i,1);
     }
 
     
-    addEdu(){
-        this.values_edu.push({value: ""});
-    }
+    // addEdu(){
+    //     this.values_edu.push({value: ""});
+    // }
+    
+   
+
     remEdu(i:any){
         this.values_edu.splice(i,1);
     }
@@ -149,7 +160,7 @@ export class CandidateMyProfileEdit implements OnInit, OnDestroy {
         user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/candidate/details?id=7')
+            .get('https://workfromhome.world/api/candidate/details?id='+user_id)
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;
@@ -177,7 +188,7 @@ export class CandidateMyProfileEdit implements OnInit, OnDestroy {
 
                 // this.arraySize = this.objToArray.length;
 
-                console.log(this.objToArray[0][1]);
+                console.log(this.objToArray);
                 // console.log("hello");
 
                 // console.log(responseObj.status);
