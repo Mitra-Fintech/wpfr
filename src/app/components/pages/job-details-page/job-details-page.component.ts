@@ -16,17 +16,37 @@ export class JobDetailsPageComponent implements OnInit {
     public id: any;
     public jobToArray: any;
     public postajob = false;
-
+    public user_type: any;
     // public job_listing_data!: string;
 
     constructor(private http: HttpClient, private router: Router) {}
     // constructor(private _Activatedroute:ActivatedRoute) { }
 
     ngOnInit(): void {
+        // let user_type = sessionStorage.getItem('userType');
+        // // console.log(typeof user_type);
+        // // console.log("hrllo");
+        // if (user_type === "candidate") {
+        //     this.postajob = true;
+        //     console.log("this is exe");
+        // }
+        this.checkCanApply();
         this.getJobDetails();
-        let postajobstatus = sessionStorage.getItem('post-a-job');
-        if (postajobstatus == 'true') {
+    }
+    checkCanApply(){
+        this.user_type = sessionStorage.getItem('userType');
+        // console.log(typeof user_type);
+        // console.log("hrllo");
+        
+        this.user_type = this.user_type.replace('"', '');
+        this.user_type = this.user_type.replace('"', '');
+
+        if (this.user_type == "candidate") {
             this.postajob = true;
+            
+        }
+        else{
+            console.log(this.user_type);
         }
     }
 

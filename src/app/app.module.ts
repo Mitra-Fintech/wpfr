@@ -55,6 +55,7 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
 import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
 import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
+import { CandidateBookmarkPage } from './components/pages/candidate-bookmark-page/candidate-bookmark-page.component';
 
 @NgModule({
     declarations: [
@@ -99,6 +100,7 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-pa
         CandidateDashboardPageComponent,
         CandidateMyProfileEdit,
         PostAJobPageEditComponent,
+        CandidateBookmarkPage,
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
