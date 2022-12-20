@@ -237,6 +237,7 @@ export class MyAccountPageComponent implements OnInit {
         body.set('session_id', session_id);
 
         console.log('Api Call : ' + body);
+        sessionStorage.setItem('mobile_number', mobile_number);
 
         this.http
             .get('https://workfromhome.world/api/candidate/login?' + body)

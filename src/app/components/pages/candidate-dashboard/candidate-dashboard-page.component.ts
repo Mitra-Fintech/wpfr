@@ -10,15 +10,51 @@ import { Router } from '@angular/router';
 export class CandidateDashboardPageComponent implements OnInit {
     public objToArray: any;
     public arraySize: any;
+    public applyDetails: any;
+    public applyArrayLen: any;
+    public finalArray: any[] = [];
 
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
-        this.checkIsLoggedIn()
+        this.checkIsLoggedIn();
+        // this.getJobListing();
+        this.getAppliedJobListing();
+    }
+    isMobileVerified() {
+        // throw new Error('Method not implemented.');
+
+        let mobile_number = sessionStorage.getItem('mobile_number') || '';
+        mobile_number = mobile_number.replace('"', '').replace('"', '');
+
+        let usertype = sessionStorage.getItem('userType') || '';
+        usertype = usertype.replace('"', '').replace('"', '');
+
+        this.http
+            .get(
+                'https://workfromhome.world/api/account/verify-status?user_type=' +
+                    usertype +
+                    '&mobile_number=' +
+                    mobile_number
+            )
+            .subscribe((response) => {
+                interface ReposnseObject {
+                    status: any;
+                    code: any;
+                    data: any;
+                }
+                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+                // console.log(json);
+                if (json.data == 1 || json.data == '1') {
+                    this.getUserDetails();
+                } else {
+                    this.router.navigateByUrl('/verify-otp');
+                }
+            });
     }
     private async checkIsLoggedIn() {
         let isUserLoggedIn = sessionStorage.getItem('session_id');
-    
+
         if (isUserLoggedIn == null) {
             console.log('No Session ID');
             this.http
@@ -27,7 +63,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                     interface ReposnseObject {
                         userType: string;
                         isUserLoggedIn: boolean;
-                        userId : string;
+                        userId: string;
                         session_id: string;
                     }
                     let json: ReposnseObject = JSON.parse(
@@ -38,35 +74,42 @@ export class CandidateDashboardPageComponent implements OnInit {
                     // sessionStorage.setItem('userType', JSON.stringify(json.userType));
                     // sessionStorage.setItem('userId', JSON.stringify(json.userId));
                     // sessionStorage.setItem('session_id', JSON.stringify(json.session_id));
-    
-                    if((json.isUserLoggedIn == true ) && json.userType == "candidate")
-                    {
+
+                    if (
+                        json.isUserLoggedIn == true &&
+                        json.userType == 'candidate'
+                    ) {
                         this.getUserDetails();
-                    }else{
+                    } else {
                         this.router.navigateByUrl('/candidate');
                     }
-    
                 });
         } else {
             let session_id = sessionStorage.getItem('session_id') || '';
-            session_id = session_id.replace('"','');
-    
-    
+            session_id = session_id.replace('"', '');
+
             this.http
-                .get('https://workfromhome.world/api/session/get?session_id=' + session_id?.replace('"',''))
+                .get(
+                    'https://workfromhome.world/api/session/get?session_id=' +
+                        session_id?.replace('"', '')
+                )
                 .subscribe((response) => {
                     interface ReposnseObject {
                         userType: string;
                         isUserLoggedIn: boolean;
-                        userId : string;
+                        userId: string;
                     }
                     let json: ReposnseObject = JSON.parse(
                         JSON.stringify(response)
                     );
                     // console.log(json);
-                    if((json.isUserLoggedIn == true ) && json.userType == "candidate") {
-                        this.getUserDetails();
-                    }else{
+                    if (
+                        json.isUserLoggedIn == true &&
+                        json.userType == 'candidate'
+                    ) {
+                        this.isMobileVerified();
+                        // this.getUserDetails();
+                    } else {
                         this.router.navigateByUrl('/candidate');
                     }
                 });
@@ -80,7 +123,9 @@ export class CandidateDashboardPageComponent implements OnInit {
         user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/candidate/details?id='+user_id)
+            .get(
+                'https://workfromhome.world/api/candidate/details?id=' + user_id
+            )
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;
@@ -120,4 +165,47 @@ export class CandidateDashboardPageComponent implements OnInit {
         localStorage.setItem('job_id', JSON.stringify(data));
     }
 
+    getAppliedJobListing() {
+        this.applyDetails = localStorage.getItem('applied_job_id');
+        this.applyDetails = JSON.parse(this.applyDetails);
+        this.applyArrayLen = this.applyDetails.length;
+        console.log(this.applyDetails);
+
+        for (let ad of this.applyDetails) {
+            this.http
+                .get('https://workfromhome.world/api/job/details?job_id=' + ad)
+                .subscribe((response) => {
+                    interface ResponseObject {
+                        status: string;
+                        code: any;
+                        data: Object;
+                        // session_id: string;
+                    }
+
+                    interface DataArrayObject {
+                        // job_title: string;
+                        array: Object;
+                    }
+
+                    let responseObj: ResponseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+
+                    let dataJson: DataArrayObject = JSON.parse(
+                        JSON.stringify(responseObj.data)
+                    );
+
+                    // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+
+                    this.objToArray = Object.entries(dataJson);
+
+                    this.finalArray.push(this.objToArray[0][1]);
+
+                    // console.log(this.objToArray[0][1]);
+
+                    // console.log(responseObj.status);
+                });
+        }
+        console.log(this.finalArray);
+    }
 }
