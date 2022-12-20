@@ -82,8 +82,9 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                        <a routerLink="/profile-authentication" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
                     </div>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
