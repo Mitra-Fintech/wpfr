@@ -30,6 +30,7 @@ import { EmployerDashboardPageComponent } from './components/pages/employer-dash
 import { CompanyJobListingsPageComponent } from './components/pages/company-jobs-posted/company-jobs-posted-page.component';
 import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
 import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
+import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/forgot-password-page.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,7 @@ const routes: Routes = [
     {path: 'candidate/my-profile', component: CandidateDetailsPageComponent},
     
     {path: 'employer/my-profile', component: MyCompanyDetailsPageComponent},
+    {path: 'forgot-password', component: ForgotPasswordComponent},
 
 
     // Here add new pages component
