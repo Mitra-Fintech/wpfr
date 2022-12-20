@@ -129,49 +129,47 @@ export class CandidateDashboardPageComponent implements OnInit {
 
     getAppliedJobListing()  {
         
-        this.applyDetails = localStorage.getItem('applied_job_id');
-        this.applyDetails = JSON.parse(this.applyDetails);
-        this.applyArrayLen = this.applyDetails.length;
-        console.log(this.applyDetails);
+        // this.applyDetails = localStorage.getItem('applied_job_id');
+        // this.applyDetails = JSON.parse(this.applyDetails);
+        // this.applyArrayLen = this.applyDetails.length;
+        // console.log(this.applyDetails);
+        var data = localStorage.getItem('applied_job_id');
         
-        for(let ad of this.applyDetails)  
-        {
-            this.http
-            .get('https://workfromhome.world/api/job/details?job_id='+ad)
-            .subscribe((response) => {
-                interface ResponseObject {
-                    status: string;
-                    code: any;
-                    data: Object;
-                    // session_id: string;
-                }
+        this.http
+        .get('https://workfromhome.world/api/job/details?job_id=1')
+        .subscribe((response) => {
+            interface ResponseObject {
+                status: string;
+                code: any;
+                data: Object;
+                // session_id: string;
+            }
 
-                interface DataArrayObject {
-                    // job_title: string;
-                    array: Object;
-                }
+            interface DataArrayObject {
+                // job_title: string;
+                array: Object;
+            }
 
-                let responseObj: ResponseObject = JSON.parse(
-                    JSON.stringify(response)
-                );
+            let responseObj: ResponseObject = JSON.parse(
+                JSON.stringify(response)
+            );
 
-                let dataJson: DataArrayObject = JSON.parse(
-                    JSON.stringify(responseObj.data)
-                );
+            let dataJson: DataArrayObject = JSON.parse(
+                JSON.stringify(responseObj.data)
+            );
 
-                // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+            // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
 
-                this.objToArray = Object.entries(dataJson);
-                
-                this.finalArray.push(this.objToArray[0][1]);
+            this.objToArray = Object.entries(dataJson);
+            
+            this.finalArray.push(this.objToArray[0][1]);
 
-                // console.log(this.objToArray[0][1]);
+            // console.log(this.objToArray[0][1]);
 
-                // console.log(responseObj.status);
-            });
+            // console.log(responseObj.status);
+        });
 
-        }
-        console.log(this.finalArray);
+        // console.log(this.finalArray);
     }
 
 }

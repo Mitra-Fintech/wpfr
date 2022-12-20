@@ -127,8 +127,8 @@ export class JobDetailsPageComponent implements OnInit {
                 
                 if(responseObj.status === "success"){
                     
-                    this.applyArray.push(data);
-                    localStorage.setItem('applied_job_id', JSON.stringify(this.applyArray));
+                    // this.applyArray.push(data);
+                    localStorage.setItem('applied_job_id', JSON.stringify(data));
 
                     // localStorage.setItem('applied_job_id',data);
                     window.alert("Job Applied Successfully");
