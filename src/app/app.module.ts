@@ -115,8 +115,8 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-pa
         NgxEditorModule,
         HttpClientModule
     ],
-    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-    // providers: [{provide: APP_BASE_HREF, useValue: ''}],
+    // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    providers: [{provide: APP_BASE_HREF, useValue: ''}],
     
     bootstrap: [AppComponent]
 })
