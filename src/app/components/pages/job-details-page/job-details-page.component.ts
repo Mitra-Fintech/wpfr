@@ -98,7 +98,7 @@ export class JobDetailsPageComponent implements OnInit {
                 'https://workfromhome.world/api/job/apply?candidate_id='+this.user_id+'&job_id='+data
             )
             .subscribe((response: any) => {
-                interface ResponseObject {
+                interface ResponseObject {  
                     status: string;
                     code: any;
                     // data: Object;
