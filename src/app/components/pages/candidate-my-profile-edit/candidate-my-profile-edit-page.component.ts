@@ -44,6 +44,7 @@ export class CandidateMyProfileEdit implements OnInit {
 
     ngOnInit(): void {
         this.candidateDetailsValue();
+        // this.autoCapitalize();
         // this.editor = new Editor();
         // let postajobstatus = sessionStorage.getItem('post-a-job');
 
@@ -53,6 +54,8 @@ export class CandidateMyProfileEdit implements OnInit {
         //     });
         // }
     }
+
+  
 
     // make sure to destory the editor
     // ngOnDestroy(): void {
@@ -194,6 +197,8 @@ export class CandidateMyProfileEdit implements OnInit {
                 // console.log(responseObj.status);
             });
     }
+    
+
 
 
 }
