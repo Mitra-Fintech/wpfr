@@ -117,8 +117,8 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/f
         NgxEditorModule,
         HttpClientModule
     ],
-    // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-    providers: [{provide: APP_BASE_HREF, useValue: ''}],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    // providers: [{provide: APP_BASE_HREF, useValue: ''}],
     
     bootstrap: [AppComponent]
 })
