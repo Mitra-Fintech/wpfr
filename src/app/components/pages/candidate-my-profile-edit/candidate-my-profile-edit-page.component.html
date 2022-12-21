@@ -199,22 +199,23 @@
                             
                             
                             <div *ngFor="let value of values_exp; let i = index">
-                                    <br>
-
-                                    <div style="font-size: large; font-weight: 400;">Experience:{{i+1}}</div>
-                                    <br>
-
-                                    <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expRole{{i}}" placeholder="Role">
-                                    <br>
-                                    <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expCompanyName{{i}}" placeholder="Company Name">
-                                    <br>
-                                    Start Date:
-                                    <input type="date" class="form-control" name="value{(i)}" id="expDateStart{{i}}">
-                                    <br>
-                                    End Date:
-                                    <input type="date" class="form-control" name="value{(i)}" id="expDateEnd{{i}}">
-                                    <br>
-                                    <button class="default-btn p-2" style = "font-size: small;"type="button" (click)="remExp(i)">Remove Experience</button>
+                                <br>
+                                
+                                <div style="font-size: large; font-weight: 400;">Experience:{{i+1}}</div>
+                                <br>
+                                
+                                <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expRole{{i}}" placeholder="Role">
+                                <br>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expCompanyName{{i}}" placeholder="Company Name">
+                                <br>
+                                Start Date:
+                                <input type="date" class="form-control" name="value{(i)}" id="expDateStart{{i}}">
+                                <br>
+                                End Date:
+                                <input type="date" class="form-control" name="value{(i)}" id="expDateEnd{{i}}">
+                                <br>
+                                <button class="default-btn p-2" style = "font-size: small;"type="button" (click)="remExp(i)">Remove Experience</button>
+                                <button class="default-btn p-2 mx-2" (click)="addExp()" type="button" style="font-size: small;">Add Experience</button>
                             </div>
                         </div>
                     </div>
@@ -264,7 +265,9 @@
                                     <br>
 
                                     <button (click)="remEdu(i)"class="default-btn p-2" type="button" style = "font-size: small;">Remove Education</button>
-                                    </div>
+                                    <button (click)="addEdu()" class="default-btn p-2 mx-2" type="button" style="font-size: small;">Add Education</button>
+
+                                </div>
                                 </div>
 
                             </form>
