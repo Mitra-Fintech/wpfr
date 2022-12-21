@@ -113,9 +113,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         console.log(str);
 
         if (str == 'company') {
-            this.router.navigate(['/employer/dashboard']);
+            this.router.navigate(['/employer/my-dashboard']);
         } else if (str == 'candidate') {
-            this.router.navigate(['/candidate/dashboard']);
+            this.router.navigate(['/candidate/my-dashboard']);
         }
     }
     isAccountLoggedIn() {
