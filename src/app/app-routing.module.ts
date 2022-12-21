@@ -31,6 +31,8 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
 import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
 import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
 import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/forgot-password-page.component';
+import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post-a-job-preview-page.component';
+import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
 
 
 const routes: Routes = [
@@ -66,6 +68,11 @@ const routes: Routes = [
     
     {path: 'employer/my-profile', component: MyCompanyDetailsPageComponent},
     {path: 'forgot-password', component: ForgotPasswordComponent},
+    {path: 'post-a-job/preview', component: PostAJobPreview},
+    
+    {path: 'candidate/my-profile/preview', component: CandidatePreviewPageComponent},
+
+
 
 
     // Here add new pages component

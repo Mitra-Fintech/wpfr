@@ -12,6 +12,8 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
     public isUserLoggedIn = false;
     public dataFromEdit: any;
     public empDashArray: any;
+    public previewObj: any;
+    public getPrevJobDetail: any;
     
     
 
@@ -33,6 +35,9 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
     constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
+        this.previewObj = localStorage.getItem('previewObj');
+        this.previewObj = JSON.parse(this.previewObj);
+
         this.editor = new Editor();
         let postajobstatus = sessionStorage.getItem('post-a-job');
 
@@ -122,6 +127,49 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
             }
         })
 
+    }
+
+    previewJob(){
+
+        let title = (<HTMLInputElement>document.getElementById('title')).value;
+        let description = (<HTMLInputElement>document.getElementById('description')).value;
+        let category_id = (<HTMLInputElement>document.getElementById('category_id')).value;
+        let type_id = (<HTMLInputElement>document.getElementById('type_id')).value;
+        let tags = (<HTMLInputElement>document.getElementById('tags')).value;
+        let gender = (<HTMLInputElement>document.getElementById('gender')).value;
+        let salary_type = (<HTMLInputElement>document.getElementById('salary_type')).value;
+        let minimum_salary = (<HTMLInputElement>document.getElementById('minimum_salary')).value;
+        let maximum_salary = (<HTMLInputElement>document.getElementById('maximum_salary')).value;
+        let experience = (<HTMLInputElement>document.getElementById('experience')).value;
+        let career_level = (<HTMLInputElement>document.getElementById('career_level')).value;
+        let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
+        let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
+        let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
+        
+        if(title == "" || description == "" || category_id == "" || type_id == ""  || gender == "" || salary_type == "" || experience == "" || career_level == "" || qualification == "" || deadline == ""){
+            alert('Please fill all the fields')
+        }
+        else{
+        this.previewObj = {
+            'job_title': title,
+            'job_description': description,
+            'category_id': category_id,
+            'type_id': type_id,
+            'tags': tags,
+            'gender': gender,
+            'salary_type': salary_type,
+            'minimum_salary': minimum_salary,
+            'maximum_salary': maximum_salary,
+            'experience': experience,
+            'career_level': career_level,
+            'qualification': qualification,
+            'introduction_video_url': introduction_video_url,
+            'deadline': deadline,
+
+        }
+
+        localStorage.setItem('previewObj', JSON.stringify(this.previewObj));
+        }
     }
 
 }
