@@ -13,6 +13,9 @@ export class CandidateMyProfileEdit implements OnInit {
     // public dataFromEdit: any;
     // public empDashArray: any;
     public objToArray: any;
+
+    public previewObj: any;
+
     // objToArray: any[] = [];
     values_exp : any[] = [];
     values_edu : any[] = [];
@@ -43,6 +46,10 @@ export class CandidateMyProfileEdit implements OnInit {
     constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit(): void {
+        
+        this.previewObj = localStorage.getItem('previewObj');
+        this.previewObj = JSON.parse(this.previewObj);
+
         this.candidateDetailsValue();
         // this.editor = new Editor();
         // let postajobstatus = sessionStorage.getItem('post-a-job');
@@ -193,6 +200,36 @@ export class CandidateMyProfileEdit implements OnInit {
 
                 // console.log(responseObj.status);
             });
+    }
+
+    candidateProfilePrev(){
+        let full_name = (<HTMLInputElement>document.getElementById('candidate_name')).value;
+        let headline = (<HTMLInputElement>document.getElementById('candidate_headline')).value;
+        let about_me = (<HTMLInputElement>document.getElementById('candidate_about_me')).value;
+        let location = (<HTMLInputElement>document.getElementById('candidate_location')).value;
+        let email = (<HTMLInputElement>document.getElementById('candidate_email')).value;
+        let phone = (<HTMLInputElement>document.getElementById('candidate_phone_number')).value;
+        let gender = (<HTMLInputElement>document.getElementById('candidate_gender')).value;
+
+        if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == ""){
+            alert('Please fill all the fields')
+        }
+        else{
+        this.previewObj = {
+            'full_name': full_name,
+            'headline': headline,
+            'about_me': about_me,
+            'location': location,
+            'email': email,
+            'phone': phone,
+            'gender': gender,
+        }
+
+        localStorage.setItem('previewObj_candidate', JSON.stringify(this.previewObj));
+        }
+
+        
+
     }
 
 

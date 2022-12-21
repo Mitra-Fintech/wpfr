@@ -145,6 +145,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         let qualification = (<HTMLInputElement>document.getElementById('qualification')).value;
         let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
         let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
+        
         if(title == "" || description == "" || category_id == "" || type_id == ""  || gender == "" || salary_type == "" || experience == "" || career_level == "" || qualification == "" || deadline == ""){
             alert('Please fill all the fields')
         }
