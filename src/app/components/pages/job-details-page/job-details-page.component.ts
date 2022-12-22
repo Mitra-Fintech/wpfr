@@ -98,7 +98,7 @@ export class JobDetailsPageComponent implements OnInit {
                 'https://workfromhome.world/api/job/apply?candidate_id='+this.user_id+'&job_id='+data
             )
             .subscribe((response: any) => {
-                interface ResponseObject {
+                interface ResponseObject {  
                     status: string;
                     code: any;
                     // data: Object;
@@ -127,11 +127,11 @@ export class JobDetailsPageComponent implements OnInit {
                 
                 if(responseObj.status === "success"){
                     
-                    this.applyArray.push(data);
-                    localStorage.setItem('applied_job_id', JSON.stringify(this.applyArray));
+                    // this.applyArray.push(data);
+                    localStorage.setItem('applied_job_id', JSON.stringify(data));
 
                     // localStorage.setItem('applied_job_id',data);
-                    window.alert("Job Applied Successfully");
+                    window.alert("Job Applied Successfully and saved in dashboard");
 
                 }
                 else{

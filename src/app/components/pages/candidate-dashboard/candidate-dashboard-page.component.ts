@@ -10,9 +10,17 @@ import { Router } from '@angular/router';
 export class CandidateDashboardPageComponent implements OnInit {
     public objToArray: any;
     public arraySize: any;
+    public statArray: any;
+
     public applyDetails: any;
-    public applyArrayLen: any;
+    public applyJobId: any;
+    public user_id: any;
+    public idArray: any[] = [];
+    public jobToArray: any;
     public finalArray: any[] = [];
+    public dummyArray: any[] = [];
+    public ids: any;
+    public jobId: any;
 
     public facebookImg: boolean = true;
     public linkedinImg: boolean = true;
@@ -56,6 +64,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                 }
             });
     }
+
     private async checkIsLoggedIn() {
         let isUserLoggedIn = sessionStorage.getItem('session_id');
 
@@ -119,6 +128,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                 });
         }
     }
+    
     getUserDetails() {
         // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
@@ -187,5 +197,3 @@ export class CandidateDashboardPageComponent implements OnInit {
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
     }
-
-}
