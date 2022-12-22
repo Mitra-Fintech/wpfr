@@ -14,6 +14,12 @@ export class CandidateDashboardPageComponent implements OnInit {
     public applyArrayLen: any;
     public finalArray: any[] = [];
 
+    public facebookImg: boolean = true;
+    public linkedinImg: boolean = true;
+    public instaImg: boolean = true;
+    public twitterImg: boolean = true;
+    public behanceImg: boolean = true;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
@@ -152,6 +158,26 @@ export class CandidateDashboardPageComponent implements OnInit {
                 this.arraySize = this.objToArray.length;
 
                 console.log(this.objToArray[0][1]);
+
+                if(this.objToArray[0][1].facebook == null){
+                    this.facebookImg = false;
+                }
+
+                if(this.objToArray[0][1].linkedin == null){
+                    this.linkedinImg = false;
+                }
+
+                if(this.objToArray[0][1].behance == null){
+                    this.behanceImg = false;
+                }
+
+                if(this.objToArray[0][1].twitter == null){
+                    this.twitterImg = false;
+                }
+
+                if(this.objToArray[0][1].instagram == null){
+                    this.instaImg = false;
+                }
 
                 // console.log(responseObj.status);
             });
