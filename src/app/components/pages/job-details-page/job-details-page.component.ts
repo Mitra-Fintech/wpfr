@@ -131,7 +131,7 @@ export class JobDetailsPageComponent implements OnInit {
                     localStorage.setItem('applied_job_id', JSON.stringify(data));
 
                     // localStorage.setItem('applied_job_id',data);
-                    window.alert("Job Applied Successfully");
+                    window.alert("Job Applied Successfully and saved in dashboard");
 
                 }
                 else{

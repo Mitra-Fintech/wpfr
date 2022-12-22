@@ -22,7 +22,7 @@
             
             <div class="d-md-flex align-items-center justify-content-between">
                 <div class="last-date" style="font-size: larger;">Last Date: {{ jobToArray[0][1].deadline }}</div>
-                <a routerLink="/jobs/details" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/jobs/details" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
             </div>
             
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
@@ -82,7 +82,7 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                        <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/profile-authentication" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
                     </div>
                 </div>
             </div>
