@@ -157,8 +157,7 @@ export class CandidateDashboardPageComponent implements OnInit {
 
                 this.arraySize = this.objToArray.length;
 
-                console.log(this.objToArray[0][1]);
-
+                console.log(this.objToArray[0][1]);          
                 if(this.objToArray[0][1].facebook == null){
                     this.facebookImg = false;
                 }
