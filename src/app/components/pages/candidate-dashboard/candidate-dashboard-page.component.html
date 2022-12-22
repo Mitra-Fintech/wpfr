@@ -10,11 +10,11 @@
             <!-- <span class="location">by <a routerLink="/">Python Developer</a> in Brooklyn, NY</span> -->
             <ul class="job-sub-content">
 
-                <a href=""><img src="assets/images/facebook.png" alt="" width="35" *ngIf="facebookImg" style="padding: 5px"></a>
-                <a href=""><img src="assets/images/linkedin.png" alt="" width="35" *ngIf="linkedinImg" style="padding: 5px"></a>
-                <a href=""><img src="assets/images/instagram.png" alt="" width="35" *ngIf="instaImg" style="padding: 5px"></a>
-                <a href=""><img src="assets/images/behance.png" alt="" width="35" *ngIf="behanceImg" style="padding: 5px"></a>
-                <a href=""><img src="assets/images/twitter.png" alt="" width="35" *ngIf="twitterImg" style="padding: 5px"></a>
+                <a href="{{objToArray[0][1].facebook}}"><img src="assets/images/facebook.png" alt="" width="35" *ngIf="facebookImg" style="padding: 5px"></a>
+                <a href="{{objToArray[0][1].linkedin}}"><img src="assets/images/linkedin.png" alt="" width="35" *ngIf="linkedinImg" style="padding: 5px"></a>
+                <a href="{{objToArray[0][1].instagram}}"><img src="assets/images/instagram.png" alt="" width="35" *ngIf="instaImg" style="padding: 5px"></a>
+                <a href="{{objToArray[0][1].behance}}"><img src="assets/images/behance.png" alt="" width="35" *ngIf="behanceImg" style="padding: 5px"></a>
+                <a href="{{objToArray[0][1].twitter}}"><img src="assets/images/twitter.png" alt="" width="35" *ngIf="twitterImg" style="padding: 5px"></a>
 
                 <!-- <li class="freelance">Freelance</li>
                 <li class="urgent">Urgent</li> -->
