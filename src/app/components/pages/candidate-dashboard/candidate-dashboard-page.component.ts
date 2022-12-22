@@ -197,3 +197,4 @@ export class CandidateDashboardPageComponent implements OnInit {
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
     }
+}
