@@ -235,12 +235,12 @@
 .banner-shapes .shape4 {
   position: absolute;
   z-index: -1;
-  bottom: 10%;
+  bottom: 30%;
   left: 8.5%;
 }
 
 .banner-shapes .shape4 img {
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .banner-shapes .shape5 {

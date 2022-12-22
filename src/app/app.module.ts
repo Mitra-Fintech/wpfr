@@ -55,6 +55,9 @@ import { CompanyJobListingsPageComponent } from './components/pages/company-jobs
 import { CandidateDashboardPageComponent } from './components/pages/candidate-dashboard/candidate-dashboard-page.component';
 import { CandidateMyProfileEdit } from './components/pages/candidate-my-profile-edit/candidate-my-profile-edit-page.component';
 import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-page/post-a-job-edit-page.component';
+import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/forgot-password-page.component';
+import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post-a-job-preview-page.component';
+import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
 
 @NgModule({
     declarations: [
@@ -99,6 +102,9 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-pa
         CandidateDashboardPageComponent,
         CandidateMyProfileEdit,
         PostAJobPageEditComponent,
+        ForgotPasswordComponent,
+        PostAJobPreview,
+        CandidatePreviewPageComponent
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [

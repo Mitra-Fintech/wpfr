@@ -44,10 +44,10 @@ export class MyAccountPageComponent implements OnInit {
     
                     if((json.isUserLoggedIn == true ) && json.userType == "candidate")
                     {
-                        this.router.navigateByUrl('/candidate/dashboard');
+                        this.router.navigateByUrl('/candidate/my-dashboard');
                     }else if((json.isUserLoggedIn == true ) && json.userType == "company")
                     {
-                        this.router.navigateByUrl('/emoployer/dashboard');
+                        this.router.navigateByUrl('/employer/my-dashboard');
                     }
     
                 });
@@ -70,10 +70,10 @@ export class MyAccountPageComponent implements OnInit {
                     // console.log(json);
                     if((json.isUserLoggedIn == true ) && json.userType == "candidate")
                     {
-                        this.router.navigateByUrl('/candidate/dashboard');
+                        this.router.navigateByUrl('/candidate/my-dashboard');
                     }else if((json.isUserLoggedIn == true ) && json.userType == "company")
                     {
-                        this.router.navigateByUrl('/employer/dashboard');
+                        this.router.navigateByUrl('/employer/my-dashboard');
                     }
                 });
         }
@@ -237,6 +237,7 @@ export class MyAccountPageComponent implements OnInit {
         body.set('session_id', session_id);
 
         console.log('Api Call : ' + body);
+        sessionStorage.setItem('mobile_number', mobile_number);
 
         this.http
             .get('https://workfromhome.world/api/candidate/login?' + body)
@@ -281,7 +282,7 @@ export class MyAccountPageComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
-                        this.router.navigate(['/candidate/dashboard']);
+                        this.router.navigate(['/candidate/my-dashboard']);
                         // window.location.reload();
                 } else {
                     alert(json.message);

@@ -19,8 +19,8 @@
                             Home
                         </a>
                     </li>
-                    <li class="nav-item" *ngIf="isAccountLoggedIn;">
-                        <a (click)="openDashboard()" class="nav-link" routerLinkActive="active"
+                    <li class="nav-item" *ngIf="isUserLoggedIn;">
+                        <a (click)="openDashboard()" id="dashboard_component" class="nav-link" routerLinkActive="active"
                             [routerLinkActiveOptions]="{exact: true}">
                             Dashboard
                         </a>

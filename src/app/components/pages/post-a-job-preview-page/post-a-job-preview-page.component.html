@@ -1,5 +1,13 @@
 <!-- Page Title -->
 <div class="inner-banner">
+    
+    <div class="mb-3 d-flex align-items-center"> 
+
+        <i style="color: green; font-size: 30px; margin-left: 410px;"class="ri-arrow-left-line"></i> 
+        <a  style="text-align: center; margin-right: 500px; font-size: large;"routerLink="/post-a-job">Go Back and Edit</a>
+        <!-- <a  style="text-align: center;"routerLink="/post-a-job" class="default-btn mx-2 p-2">Submit</a> -->
+    </div>
+
     <div class="container">
         <div class="job-card" style="width: 670px; height: 220px;">
 
@@ -7,22 +15,22 @@
                 <img src="assets/images/job/job1.jpg" alt="job-image" style="width: 100px;">
             </div>
             
-            <h3>{{ jobToArray[0][1].job_title }}</h3>
+            <h3>{{ previewJobDetails.job_title }}</h3>
 
             <ul class="list-group list-group-flush" style="font-size: large;">
-                <li  class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-briefcase-line"></i> {{jobToArray[0][1].career_level}}</li>
-                <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-profile-line"></i> {{jobToArray[0][1].job_type}} </li>
-                <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-award-line"></i> {{jobToArray[0][1].experience}} Years</li>
+                <li  class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-briefcase-line"></i> {{previewJobDetails.career_level}}</li>
+                <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-profile-line"></i> {{previewJobDetails.type_id}} </li>
+                <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-award-line"></i> {{previewJobDetails.experience}} Years</li>
 
-                <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
-                <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                <!-- <li class="list-group-item">{{ previewJobDetails.job_title }}</li> -->
+                <!-- <li class="list-group-item">{{ previewJobDetails.job_title }}</li> -->
             </ul>
             <br>
             
             
-            <div class="d-md-flex align-items-center justify-content-between">
-                <div class="last-date" style="font-size: larger;">Last Date: {{ jobToArray[0][1].deadline }}</div>
-                <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/jobs/details" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+            <div class="d-md-flex align-items-center justify-content-between mt-5">
+                <div class="last-date" style="font-size: larger;">Last Date: {{ previewJobDetails.deadline }}</div>
+                <!-- <a routerLink="/post-a-job" class="default-btn">Apply Now</a> -->
             </div>
             
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
@@ -39,7 +47,7 @@
             <div class="col-lg-8 col-md-12">
                 <div class="job-details-desc">
                     <h4>Job Description:</h4>
-                    <p style="font-size: larger;">{{ jobToArray[0][1].job_description }}</p>
+                    <p style="font-size: larger;">{{ previewJobDetails.job_description }}</p>
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate <strong>elementum</strong>. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus ands placerat
                         maecenas egestas <a routerLink="/">ullamcorper</a> sed nunc. Vitae egestas tellus amet nulla something loss pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare <strong>venenatis</strong> proin ac varius ut. Vitae egestas tellus amet nulla cursus in that. Pellentesque
@@ -82,7 +90,7 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                        <!-- <a routerLink="/profile-authentication" (click)="applyNow(previewJobDetails.id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a> -->
                     </div>
 
                 </div>
@@ -92,36 +100,36 @@
                     <div class="widget-item">
                         <ul class="features-list">
                             <li>
-                                <span>Experience</span> {{ jobToArray[0][1].experience }} Years
+                                <span>Experience</span> {{ previewJobDetails.experience }} Years
                             </li>
                             <li>
-                                <span>Work Level</span> {{ jobToArray[0][1].career_level }}
+                                <span>Work Level</span> {{ previewJobDetails.career_level }}
                             </li>
                             <li>
                                 <span>Employment Type</span> Part Time
                             </li>
                             
                             <li>
-                                <span>Allowed Genders</span> {{ jobToArray[0][1].allowed_genders }}
+                                <span>Allowed Genders</span> {{ previewJobDetails.gender }}
                             </li>
 
                             <li>
-                                <span>Video Url</span> <a href="{{ jobToArray[0][1].introduction_video_url}}">URL</a>
-                            </li>
-
-                            
-                            <li>
-                                <span>Required Qualification</span> {{ jobToArray[0][1].qualification }}
+                                <span>Video Url</span> <a href="{{ previewJobDetails.introduction_video_url}}">URL</a>
                             </li>
 
                             
+                            <li>
+                                <span>Required Qualification</span> {{ previewJobDetails.qualification }}
+                            </li>
+
+                            
 
                             <li>
-                                <span>Job Posting Tags</span> {{ jobToArray[0][1].job_tags }}
+                                <span>Job Posting Tags</span> {{ previewJobDetails.tags }}
                             </li>
 
                             <li>
-                                <span>Salary</span> {{ jobToArray[0][1].salary_minimum }} - {{ jobToArray[0][1].salary_maximum }} / {{ jobToArray[0][1].salary_type }}
+                                <span>Salary</span> {{ previewJobDetails.minimum_salary }} - {{ previewJobDetails.maximum_salary }} / {{ previewJobDetails.salary_type }}
                             </li>
                         </ul>
                     </div>
@@ -185,6 +193,12 @@
                             </li>
                         </ul>
                     </div> -->
+                </div>
+                <div class="mt-3 mx-2">
+                    
+                    <!-- <a  style="text-align: center;"routerLink="/post-a-job" class="default-btn p-2">Go Back To Edit</a> -->
+                    <a  style="text-align: center;" (click)="createJob()" class="default-btn mx-2 p-2">Post Job</a>
+
                 </div>
             </div>
         </div>

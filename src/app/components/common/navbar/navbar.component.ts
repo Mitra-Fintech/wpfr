@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.isAccountLoggedIn();
         this.subscription = this.everyFiveSeconds.subscribe(() => {
             this.checkUserType();
         });
@@ -113,9 +114,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         console.log(str);
 
         if (str == 'company') {
-            this.router.navigate(['/employer/dashboard']);
+            this.router.navigate(['/employer/my-dashboard']);
         } else if (str == 'candidate') {
-            this.router.navigate(['/candidate/dashboard']);
+            this.router.navigate(['/candidate/my-dashboard']);
         }
     }
     isAccountLoggedIn() {
@@ -125,8 +126,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         console.log(str);
 
         if (str == 'company' || str == 'candidate') {
+            this.isUserLoggedIn =  true;
             return true;
         } else {
+            this.isUserLoggedIn = false;
             return false;
         }
     }

@@ -22,7 +22,7 @@ jobs:
       - name: 🏗️ Build
         run: npm run build -- --configuration production
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server:  ftp.workfromhome.world
           username: ${{ secrets.WFH_PRD_USERNAME_PUBLIC }}
