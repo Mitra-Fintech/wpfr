@@ -80,7 +80,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-3">
-                                    <h2>07</h2>
+                                    <h2>{{empDasharraySize}}</h2>
                                     <p>Active Jobs</p>
                                 </div>
                                 <div class="col-3 border-success border-right">
@@ -313,7 +313,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-sm-6 col-md-6">
-                <div class="job-card" *ngFor="let empjob of empDashArray">
+                <div class="job-card" *ngFor="let empjob of empDashArray" style="padding-bottom: 2px;">
                     <div class="content">
                         <div class="job-image">
                             <a
@@ -428,7 +428,7 @@
                     <i class="ri-bookmark-line"></i>
                 </button> -->
                 </div>
-                <a routerLink="/jobs-posted"
+                <a routerLink="/jobs/posted"
                     ><div
                         style="
                             font-size: larger;
@@ -476,12 +476,12 @@
             </div>
             </div> -->
             </div>
-            <div class="col-lg-4 col-md-12 m-0">
-                <div class="company-details-sidebar">
+            <!-- <div class="col-lg-4 col-md-12 m-0"> -->
+                <!-- <div class="company-details-sidebar"> -->
                     <!-- <h4 class="mb-5 mt-0">Personal Details</h4> -->
 
-                    <div class="widget-item rounded">
-                        <div>Other Important Stats</div>
+                    <!-- <div class="widget-item rounded"> -->
+                        <!-- <div>Other Important Stats</div> -->
                         <!--                     
                     <div class="job-company">
                         <img src="assets/images/job/job1.jpg" alt="job-image">
@@ -549,9 +549,9 @@
                     </ul>
                     <a href="#" class="default-btn">View Your Profile</a>
                 </div> -->
-                    </div>
-                </div>
-            </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
 
             <!-- <canvas id="lineChart"></canvas> -->
 
@@ -620,34 +620,34 @@
                                             class="list-group list-group-flush"
                                         >
                                             <a href="#" class="list-group-item"
-                                                >First item</a
+                                                >First cadidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Second item</a
+                                                >Second candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Third item</a
+                                                >Third candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Fourth item</a
+                                                >Fourth candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Fifth item</a
+                                                >Fifth candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Sixth item</a
+                                                >Sixth candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Seventh item</a
+                                                >Seventh candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Eighth item</a
+                                                >Eighth candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Nineth item</a
+                                                >Nineth candidate</a
                                             >
                                             <a href="#" class="list-group-item"
-                                                >Texth item</a
+                                                >Tenth candidate</a
                                             >
                                         </div>
                                     </div>
@@ -673,7 +673,7 @@
 
                         <div class="col-lg-6 col-sm-6 col-md-6">
                             <div class="mb-4 mt-5">
-                                <h4>Additional Cards</h4>
+                                <h4>Employer Convience Cards</h4>
                             </div>
 
                             <div class="job-card">
@@ -705,7 +705,7 @@
                                                 class="col-lg-12 col-sm-12 col-md-12"
                                                 style="font-size: 25px"
                                             >
-                                                Smart AI Tools
+                                                Booster Candidates
                                             </div>
                                             <div
                                                 class="col-lg-12 col-sm-12 col-md-12 mt-2"
@@ -713,23 +713,23 @@
                                             >
                                                 <ul>
                                                     <li>
-                                                        Feature-1 Description
+                                                        <a href="">Candidate-1 Profile</a>
                                                     </li>
                                                     <li>
-                                                        Feature-2 Description
+                                                        <a href="">Candidate-2 Profile</a>
                                                     </li>
                                                     <li>
-                                                        Feature-3 Description
+                                                        <a href="">Candidate-3 Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
 
                                             <div>
                                                 <button
-                                                    class="btn btn-outline-primary"
+                                                    class="btn btn-outline-primary w-25 p-1"
                                                     style="font-size: larger"
                                                 >
-                                                    Know More
+                                                    More
                                                 </button>
                                             </div>
                                         </div>
@@ -755,6 +755,58 @@
                                 <li> 2 Hour Ago</li>
                             </ul> -->
                                     <!-- <span> 105 San Antonio, TX</span> -->
+
+                                    <div
+                                        class="container"
+                                        style="font-weight: 500"
+                                    >
+                                        <div class="row">
+                                            <div
+                                                class="col-lg-12 col-sm-12 col-md-12"
+                                                style="font-size: 25px"
+                                            >
+                                                Shortlisted Candidates
+                                            </div>
+                                            <div
+                                                class="col-lg-12 col-sm-12 col-md-12 mt-2"
+                                                style="font-size: 20px"
+                                            >
+                                            <ul>
+                                                <li>
+                                                    <a href="">Candidate-1 Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Candidate-2 Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Candidate-3 Profile</a>
+                                                </li>
+                                            </ul>
+                                            </div>
+
+                                            <div>
+                                                <button
+                                                    class="btn btn-outline-primary w-25 p-1"
+                                                    style="font-size: larger"
+                                                >
+                                                    More
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-card">
+                                <div class="content">
+                                    <div class="job-image">
+                                        <a routerLink="/jobs/details">
+                                            <img
+                                                src="assets/images/job/job2.jpg"
+                                                alt="job-image"
+                                            />
+                                        </a>
+                                    </div>
 
                                     <div
                                         class="container"
@@ -771,77 +823,25 @@
                                                 class="col-lg-12 col-sm-12 col-md-12 mt-2"
                                                 style="font-size: 20px"
                                             >
-                                                <ul>
-                                                    <li>
-                                                        Feature-1 Description
-                                                    </li>
-                                                    <li>
-                                                        Feature-2 Description
-                                                    </li>
-                                                    <li>
-                                                        Feature-3 Description
-                                                    </li>
-                                                </ul>
+                                            <ul>
+                                                <li>
+                                                    <a href="">Candidate-1 Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Candidate-2 Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Candidate-3 Profile</a>
+                                                </li>
+                                            </ul>
                                             </div>
 
                                             <div>
                                                 <button
-                                                    class="btn btn-outline-primary"
+                                                    class="btn btn-outline-primary w-25 p-1"
                                                     style="font-size: larger"
                                                 >
-                                                    Know More
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="job-card">
-                                <div class="content">
-                                    <div class="job-image">
-                                        <a routerLink="/jobs/details">
-                                            <img
-                                                src="assets/images/job/job2.jpg"
-                                                alt="job-image"
-                                            />
-                                        </a>
-                                    </div>
-
-                                    <div
-                                        class="container"
-                                        style="font-weight: 500"
-                                    >
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-12 col-sm-12 col-md-12"
-                                                style="font-size: 25px"
-                                            >
-                                                Buisness Intelligence
-                                            </div>
-                                            <div
-                                                class="col-lg-12 col-sm-12 col-md-12 mt-2"
-                                                style="font-size: 20px"
-                                            >
-                                                <ul>
-                                                    <li>
-                                                        Feature-1 Description
-                                                    </li>
-                                                    <li>
-                                                        Feature-2 Description
-                                                    </li>
-                                                    <li>
-                                                        Feature-3 Description
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <button
-                                                    class="btn btn-outline-primary"
-                                                    style="font-size: larger"
-                                                >
-                                                    Know More
+                                                    More
                                                 </button>
                                             </div>
                                         </div>
