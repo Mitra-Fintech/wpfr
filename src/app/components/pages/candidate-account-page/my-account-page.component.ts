@@ -282,7 +282,16 @@ export class MyAccountPageComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
+                        if(localStorage.getItem('fromLogin') == 'true'){
+                            this.router.navigate(['jobs/details'])
+                                        .then(() => {
+                                            window.location.reload();
+                                        });
+                            localStorage.setItem('fromLogin', 'false');
+                        }
+                        else{
                         this.router.navigate(['/candidate/my-dashboard']);
+                        }
                         // window.location.reload();
                 } else {
                     alert(json.message);

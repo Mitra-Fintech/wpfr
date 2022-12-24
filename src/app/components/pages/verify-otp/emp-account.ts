@@ -126,7 +126,16 @@ export class VerifyOtpComponent implements OnInit {
                                 JSON.stringify(json.userId)
                             );
                         });
-                    this.router.navigate(['/']);
+                        if(localStorage.getItem('fromLogin') == 'true'){
+                            this.router.navigate(['jobs/details'])
+                                        .then(() => {
+                                            window.location.reload();
+                                        });
+                            localStorage.setItem('fromLogin', 'false');
+                        }
+                        else{
+                            this.router.navigate(['/']);
+                        }
                     // window.location.reload();
                 } else {
                     alert(json.message);

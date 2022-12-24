@@ -28,8 +28,15 @@ export class JobDetailsPageComponent implements OnInit {
     // constructor(private _Activatedroute:ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.getJobDetails();
         this.showApplyNowButton();
+        this.getJobDetails();
+
+        if(localStorage.getItem('fromLogin') == 'false'){
+            // location.reload();
+            window.location.href;
+            // this.showApplyNow = true;
+            // this.showApplyNow2 = false;
+        }
 
         let postajobstatus = sessionStorage.getItem('post-a-job');
         if (postajobstatus == 'true') {
@@ -75,6 +82,13 @@ export class JobDetailsPageComponent implements OnInit {
 
                 console.log(this.jobToArray[0][1]);
             });
+    }
+
+    fromLogin() {
+        console.log('from login');
+        localStorage.setItem('fromLogin', 'true');
+        localStorage.setItem('fromLoginJobUrl', window.location.href);
+        this.router.navigate(['/candidate']);
     }
 
     showApplyNowButton() {
