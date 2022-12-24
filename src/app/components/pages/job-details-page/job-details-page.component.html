@@ -22,7 +22,8 @@
             
             <div class="d-md-flex align-items-center justify-content-between">
                 <div class="last-date" style="font-size: larger;">Last Date: {{ jobToArray[0][1].deadline }}</div>
-                <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/jobs/details" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/jobs/details" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
+                <a  routerLink="/candidate" class="default-btn" *ngIf="showApplyNow2;">Login to apply</a>
             </div>
             
             <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
@@ -82,7 +83,10 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a>
+                        <a routerLink="/profile-authentication" id = "applyNow2" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
+                        <!-- <a routerLink="/profile-authentication" id = "applyNow2" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="isApplyEmployer();">Apply Now</a> -->
+                        <a  routerLink="/candidate" class="default-btn" *ngIf="showApplyNow2;">Login to apply</a>
+
                     </div>
 
                 </div>
@@ -98,7 +102,7 @@
                                 <span>Work Level</span> {{ jobToArray[0][1].career_level }}
                             </li>
                             <li>
-                                <span>Employment Type</span> Part Time
+                                <span>Employment Type</span> {{ jobToArray[0][1].job_type }}
                             </li>
                             
                             <li>
