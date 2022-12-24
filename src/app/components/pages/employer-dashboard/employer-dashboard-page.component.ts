@@ -128,7 +128,8 @@ export class EmployerDashboardPageComponent implements OnInit {
                 this.empDashArray = Object.entries(dataJson);
 
                 this.empDasharraySize = localStorage.getItem('active_jobs');
-
+                
+                // this.empDasharraySize = this.empDashArray.length;
                 console.log(this.empDashArray[2][1]);
 
                 // console.log(responseObj.status);

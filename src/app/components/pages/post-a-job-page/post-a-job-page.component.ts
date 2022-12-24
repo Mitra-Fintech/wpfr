@@ -14,6 +14,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
     public empDashArray: any;
     public previewObj: any;
     public getPrevJobDetail: any;
+    public previewObjValCheck: boolean = false;
     
     
 
@@ -36,7 +37,15 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.previewObj = localStorage.getItem('previewObj');
-        this.previewObj = JSON.parse(this.previewObj);
+        // this.previewObj = JSON.parse(this.previewObj);
+        if(this.previewObj === ""){
+            this.previewObjValCheck = false;
+
+        }
+        else{
+            this.previewObjValCheck = true;
+            this.previewObj = JSON.parse(this.previewObj);
+        }
 
         this.editor = new Editor();
         let postajobstatus = sessionStorage.getItem('post-a-job');
@@ -146,9 +155,12 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
         let introduction_video_url = (<HTMLInputElement>document.getElementById('introduction_video_url')).value || "null";
         let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
         
-        if(title == "" || description == "" || category_id == "" || type_id == ""  || gender == "" || salary_type == "" || experience == "" || career_level == "" || qualification == "" || deadline == ""){
-            alert('Please fill all the fields')
+        if(title == "" || description == "" || category_id == "" || type_id == ""  || gender == "" || experience == "" || career_level == "" || qualification == "" || deadline == ""){
+            alert('Please fill all the required fields')
+            this.router.navigate(['/post-a-job'], {
+                skipLocationChange: false,})
         }
+
         else{
         this.previewObj = {
             'job_title': title,
@@ -170,6 +182,7 @@ export class PostAJobPageComponent implements OnInit, OnDestroy {
 
         localStorage.setItem('previewObj', JSON.stringify(this.previewObj));
         }
+        // return true;
     }
 
 }

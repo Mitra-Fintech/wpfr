@@ -22,41 +22,55 @@
             <div class="col-lg-3 col-md-12">
                 <div class="candidate-details-sidebar">
                     <div class="profile">
-                        <img src="assets/images/candidates/candidate7.jpg" class="main-image" alt="candidates-image">
+                        <img src="assets\images\users\default.png" class="main-image" alt="candidates-image">
                         <div class="title">
                             <h3>{{objToArray[0][1].name}}</h3>
-                            <img src="assets/images/flags/switzerland.svg" alt="flag">
+                            <!-- <img src="assets/images/flags/switzerland.svg" alt="flag"> -->
                         </div>
                         <p>Web Developer</p>
-                        <div class="rating">
+                        <!-- <div class="rating">
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
-                        </div>
+                        </div> -->
                         <ul class="social-icon">
                             <li>
-                                <a href="https://www.facebook.com/" target="_blank">
+                                <a href="{{objToArray[0][1].facebook}}" target="_blank" *ngIf="facebookImg">
                                     <i class="ri-facebook-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/" target="_blank">
+                                <a href="{{objToArray[0][1].instagram}}" target="_blank" *ngIf="instaImg">
                                     <i class="ri-instagram-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/" target="_blank">
+                                <a href="{{objToArray[0][1].twitter}}" target="_blank" *ngIf="twitterImg">
                                     <i class="ri-twitter-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/" target="_blank">
+                                <a href="{{objToArray[0][1].linkedin}}" target="_blank" *ngIf="linkedinImg">
                                     <i class="ri-linkedin-fill"></i>
                                 </a>
                             </li>
+                            
+                            <li>
+                                <a href="{{objToArray[0][1].behance}}" target="_blank" *ngIf="behanceImg">
+                                    <i class="ri-behance-line"></i>
+                                </a>
+                            </li>
                         </ul>
+                    <br>
+                    <div style="text-align: center;">
+                    <a routerLink="/candidate/my-profile/edit" class="default-btn rounded-pill px-4">
+                        Edit Profile</a>
+                    </div>
+                    <div>
+
+                    </div>
                     </div>
                     <div class="info">
                         <h3>Contact Info</h3>
@@ -84,7 +98,7 @@
             </div>
             <div class="col-lg-9 col-md-12">
                 <div class="candidate-details-desc">
-                    <h3>About Henry</h3>
+                    <h3>About {{objToArray[0][1].name}}</h3>
                     <div class="bar"></div>
                     <p>A talented professional with an academic <strong>background</strong> in IT and proven commercial development experience as C++ developer since 1999. Has a sound knowledge of the software development life cycle. Was involved in more than 140 software development outsourcing projects.</p>
                     <p>Programming Languages: C/C++, .NET C++, Python, Bash, Shell, PERL, Regular expressions, Python, Active-script.</p>

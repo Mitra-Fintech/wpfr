@@ -6,14 +6,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./main-banner.component.scss'],
 })
 export class MainBannerComponent implements OnInit {
-    public postajob = false;
+    public postajob = true;
 
     constructor() {}
 
     ngOnInit(): void {
         let postajobstatus = sessionStorage.getItem('post-a-job');
+
         if (postajobstatus == 'true') {
-            this.postajob = true;
+            this.postajob = false;
         }
     }
 }

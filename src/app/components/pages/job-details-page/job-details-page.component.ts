@@ -18,6 +18,8 @@ export class JobDetailsPageComponent implements OnInit {
     public postajob = false;
     public user_id: any;
     public applyArray:any[] = [];
+    public showApplyNow:boolean = false;
+    public showApplyNow2:boolean = false;
 
 
     // public job_listing_data!: string;
@@ -27,6 +29,8 @@ export class JobDetailsPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.getJobDetails();
+        this.showApplyNowButton();
+
         let postajobstatus = sessionStorage.getItem('post-a-job');
         if (postajobstatus == 'true') {
             this.postajob = true;
@@ -80,12 +84,31 @@ export class JobDetailsPageComponent implements OnInit {
         console.log(str);
 
         if (str == 'candidate') {
-            return true;
-        } else {
-            return false;
+            // this.showApplyNow = true;
+            // (<HTMLInputElement>document.getElementById('applyNow')).disabled = false;
+            // return true;
+            this.showApplyNow2 = false;
+            this.showApplyNow = true;
+        }
+
+        else if (str == 'company') {
+            // this.showApplyNow = true;
+            // (<HTMLInputElement>document.getElementById('applyNow')).disabled = false;
+            // return true;
+            this.showApplyNow2 = false;
+            this.showApplyNow = false;
+        } 
+        
+        else {
+            // this.showApplyNow = false;
+            // (<HTMLInputElement>document.getElementById('applyNow2')).innerHTML = "login to apply";
+            // return false;
+            this.showApplyNow2 = true;
+            this.showApplyNow = false;
         }
     }
 
+  
     applyNow(data: any){
         this.user_id = sessionStorage.getItem('userId');
         this.user_id = this.user_id.replace('"', '');
@@ -98,7 +121,7 @@ export class JobDetailsPageComponent implements OnInit {
                 'https://workfromhome.world/api/job/apply?candidate_id='+this.user_id+'&job_id='+data
             )
             .subscribe((response: any) => {
-                interface ResponseObject {
+                interface ResponseObject {  
                     status: string;
                     code: any;
                     // data: Object;
@@ -127,11 +150,11 @@ export class JobDetailsPageComponent implements OnInit {
                 
                 if(responseObj.status === "success"){
                     
-                    this.applyArray.push(data);
-                    localStorage.setItem('applied_job_id', JSON.stringify(this.applyArray));
+                    // this.applyArray.push(data);
+                    localStorage.setItem('applied_job_id', JSON.stringify(data));
 
                     // localStorage.setItem('applied_job_id',data);
-                    window.alert("Job Applied Successfully");
+                    window.alert("Job Applied Successfully and saved in dashboard");
 
                 }
                 else{

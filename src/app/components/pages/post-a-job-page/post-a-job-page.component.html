@@ -45,8 +45,10 @@
                             <label>Category <span>*</span></label>
                             <select class="form-select" id="category_id" required>
                                 
-                                <option selected>{{previewObj.category_id}}</option>
-                                <option value="Accounting / Finance">Accounting / Finance</option>
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.category_id}}"> {{previewObj.category_id}} </option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Accounting / Finance">Accounting / Finance</option>
+
                                 <option value="Automotive Jobs">Automotive Jobs</option>
                                 <option value="Customer Service">Customer Service</option>
                                 <option value="Development">Development</option>
@@ -61,18 +63,20 @@
                         <div class="form-group">
                             <label>Type <span>*</span></label>
                             <select class="form-select" id="type_id" required>
-                                <option selected>{{previewObj.type_id}}</option>
-                                <option value="Freelance">Freelance</option>
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.type_id}}">{{previewObj.type_id}}</option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Freelance">Freelance</option>
+
+                                <option value="Part Time">Part Time</option>
                                 <option value="Full Time">Full Time</option>
                                 <option value="Internship">Internship</option>
-                                <option value="Part Time">Part Time</option>
-                                <option value="Temporary">Temporary</option>
+                                <option value="Moonlighter">Moonlighter</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Tag</label>
+                            <label>Job Tags</label>
                             <input type="text" class="form-control" id="tags" value="{{previewObj.tags}}">
                         </div>
                     </div>
@@ -80,8 +84,10 @@
                         <div class="form-group">
                             <label>Gender <span>*</span></label>
                             <select class="form-select" id="gender" required>
-                                <option selected>{{previewObj.gender}}</option>
-                                <option value="Both">Both</option>
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.gender}}">{{previewObj.gender}}</option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Both">Both (M/F)</option>
+
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
                             </select>
@@ -102,12 +108,16 @@
                         <div class="form-group">
                             <label>Salary Type <span></span></label>
                             <select class="form-select" id="salary_type">
-                                <option selected>{{previewObj.salary_type}}</option>
-                                <option value="Monthly">Monthly</option>
+                                
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.salary_type}}">{{previewObj.salary_type}}</option>
+                                <hr>
+                                <option selected value="Monthly" *ngIf="!previewObjValCheck">Monthly</option>
+                                
+                                <option value="Yearly">Yearly</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Daily">Daily</option>
                                 <option value="Hourly">Hourly</option>
-                                <option value="Yearly">Yearly</option>
+                                <option value="Task basis">Task Basis</option>
                             </select>
                         </div>
                     </div>
@@ -127,8 +137,11 @@
                         <div class="form-group">
                             <label>Experience <span>*</span></label>
                             <select class="form-select" id="experience" required>
-                                <option selected>{{previewObj.experience}}</option>
-                                <option value="Fresh">Fresher</option>
+
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.experience}}">{{previewObj.experience}}</option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Fresh">Fresher</option>
+                                
                                 <option value="1">1 Year</option>
                                 <option value="2">2 Year</option>
                                 <option value="3">3 Year</option>
@@ -143,8 +156,10 @@
                         <div class="form-group">
                             <label>Career Level <span>*</span></label>
                             <select class="form-select" id="career_level" value = "sd" required>
-                                <option selected>{{previewObj.career_level}}</option>
-                                <option value="Manager">Manager</option>
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.career_level}}">{{previewObj.career_level}}</option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Manager">Manager</option>
+                                
                                 <option value="Officer">Officer</option>
                                 <option value="Student">Student</option>
                                 <option value="Executive">Executive</option>
@@ -156,12 +171,16 @@
                         <div class="form-group">
                             <label>Qualification <span>*</span></label>
                             <select class="form-select" id="qualification" required>
-                                <option selected>{{previewObj.qualification}}</option>
-                                <option value="Certification">Certification/option>
+                                
+                                <option selected *ngIf="previewObjValCheck" value="{{previewObj.qualification}}">{{previewObj.qualification}}</option>
+                                <hr>
+                                <option selected *ngIf="!previewObjValCheck" value="Certification">Certification</option>
+                                
                                 <option value="Associate Degree">Associate Degree</option>
                                 <option value="Bachelor Degree">Bachelor Degree</option>
                                 <option value="Master Degree">Master Degree</option>
                                 <option value="Doctorate Degree">Doctorate Degree</option>
+
                             </select>
                         </div>
                     </div>
@@ -206,7 +225,7 @@
                         </div>
                     </div> -->
                     <div class="col-lg-12 col-md-12">
-                        <button type="button" (click)="createJob()" class="default-btn">Post Job</button>
+                        <!-- <button type="button" (click)="createJob()" class="default-btn">Post Job</button> -->
                         <button type="button" (click)="previewJob()" routerLink="/post-a-job/preview" class="default-btn mx-3">Preview</button>
                     </div>
                 </div>

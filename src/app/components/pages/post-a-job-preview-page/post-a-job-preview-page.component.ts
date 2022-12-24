@@ -131,7 +131,7 @@ export class PostAJobPreview implements OnInit {
                 alert('Something went wrong')
             }
         })
-
+        localStorage.setItem('previewObj',"");
     }
 
     getJobDetails() {
