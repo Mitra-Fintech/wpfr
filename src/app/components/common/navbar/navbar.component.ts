@@ -94,6 +94,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
     }
 
+    formClear() {
+        localStorage.setItem('previewObj', "");
+    }
+
     openMyProfile() {
         let str = sessionStorage.getItem('userType') || 'not-set';
         str = str.replace('"', '');
