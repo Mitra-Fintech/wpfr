@@ -151,12 +151,12 @@
             <div class="content">
 
                 <div class="job-image">
-                    <a (click)="idPass(ad.id)" routerLink="/jobs/details">
+                    <a (click)="idPass(jobId[1].job_id)" routerLink="/jobs/details">
                         <img src="assets/images/job/job1.jpg" alt="job-image">
                     </a>
                 </div>
                 <div class="px-5">
-                    <h4 class=""><a (click)="idPass(ad.id)" routerLink="/jobs/details">{{ad.job_title}}</a></h4>
+                    <h4 class=""><a (click)="idPass(jobId[1].job_id)" routerLink="/jobs/details">{{ad.job_title}}</a></h4>
 
                     <div class="container-fluid">
                         <div class="row">
@@ -198,8 +198,10 @@
                         <li  class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-briefcase-line"></i> {{ad.career_level}}</li>
                         <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-profile-line"></i> {{ad.job_type}} </li>
                         <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-award-line"></i> {{ad.experience}} Years</li>
-                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{ad.apply_date_time}}</li>
+                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].apply_date_time}}</li>
+                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].job_id}}</li>
                         <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li>
+                        <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li> -->
         
                         <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
                         <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
