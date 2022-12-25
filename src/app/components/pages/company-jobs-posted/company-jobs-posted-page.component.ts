@@ -73,9 +73,19 @@ export class CompanyJobListingsPageComponent implements OnInit {
     // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
     let user_id = sessionStorage.getItem('userId') || 'no-user-id';
+    let user_type = sessionStorage.getItem('userType') || 'no-user-type';
+
+    user_type = user_type.replace('"', '').replace('"', '');
+    user_type = user_type.replace('"', '').replace('"', '');
 
     user_id = user_id.replace('"', '').replace('"', '');
+    user_id = user_id.replace('"', '').replace('"', '');
 
+    if(user_type == 'not-set'){
+      this.router.navigate(['/employer']);
+    }
+
+    else{
     this.http
                 .get('https://workfromhome.world/api/job/list' + '?company_id=' + user_id)
                 .subscribe((response) => {
@@ -109,9 +119,13 @@ export class CompanyJobListingsPageComponent implements OnInit {
                     this.arraySize = this.objToArray.length;
 
                     // console.log(this.objToArray[2][1]);
+                    
+                    
                     localStorage.setItem('active_jobs', JSON.stringify(this.arraySize));
                   
+                  
                 });
+              }
 
               }
               
