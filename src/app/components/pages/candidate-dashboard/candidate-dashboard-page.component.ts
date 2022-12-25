@@ -24,6 +24,8 @@ export class CandidateDashboardPageComponent implements OnInit {
     public jobId: any;
     public i:number=0;
 
+    public finalArraySize: any;
+
     public job_det: any;
     public facebookImg: boolean = true;
     public linkedinImg: boolean = true;
@@ -263,9 +265,9 @@ export class CandidateDashboardPageComponent implements OnInit {
             for (this.jobId of detailArray) {
                 // console.log(parseInt(this.jobId[1].job_id, 10));
 
-                for(this.jobId[1] of detailArray){
+                // for(this.jobId[1] of detailArray){
 
-                }
+                
                 
                 this.http
                 .get('https://workfromhome.world/api/job/details?job_id='+parseInt(this.jobId[1].job_id, 10))
@@ -300,10 +302,11 @@ export class CandidateDashboardPageComponent implements OnInit {
                     this.finalArray.push(this.statArray[0][1]);
 
                     // console.log(this.jobId[1]);
+                    this.finalArraySize = this.finalArray.length;
                 });
                 // console.log(this.jobId[1]);
             }
-            // console.log(this.finalArray);
+            console.log(this.finalArray)
         }
         
         
