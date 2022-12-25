@@ -6,20 +6,20 @@
             <div class="banner-form">
                 <form>
                     <div class="row">
-                        <div class="col-lg-5 col-md-5">
+                        <div class="col-lg-9 col-md-9">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Keywords / Job Title">
+                                <input class="form-control" type="text" id="search_bar" placeholder="Keywords / Job Title">
                                 <i class="ri-search-line"></i>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
+                        <!-- <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="City or Postcode">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-lg-3 col-md-3">
-                            <button type="submit" class="submit-btn">Find Jobs</button>
+                            <button (click)= "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
                         </div>
                     </div>
                 </form>

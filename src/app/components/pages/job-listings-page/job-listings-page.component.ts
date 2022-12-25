@@ -67,4 +67,17 @@ export class JobListingsPageComponent implements OnInit {
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
     }
+
+    searchTerm() {
+        let search_var = (<HTMLInputElement>document.getElementById('search_bar')).value;
+        
+        if(search_var == ''){
+            alert('Please enter a search term');
+            this.router.navigate(['/jobs/listings']);
+        }
+        else{
+            localStorage.setItem('search_term', search_var);
+            this.router.navigate(['/search-result']);
+        }
+    }
 }
