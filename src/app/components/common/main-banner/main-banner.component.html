@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-lg-9 col-md-9">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Keywords / Job Title">
+                                <input id="search_bar" class="form-control" type="text" placeholder="Keywords / Job Title">
                                 <i class="ri-search-line"></i>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             </div>
                         </div> -->
                         <div class="col-lg-3 col-md-3">
-                            <button type="submit" class="submit-btn">Find Jobs</button>
+                            <button (click) = "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
                         </div>
                     </div>
                 </form>
