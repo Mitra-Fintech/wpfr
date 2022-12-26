@@ -218,6 +218,7 @@ export class CandidateMyProfileEdit implements OnInit {
 
         if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == ""){
             alert('Please fill all the fields')
+            this.router.navigate(['/candidate/my-profile/edit'])
         }
         else{
         this.previewObj = {
