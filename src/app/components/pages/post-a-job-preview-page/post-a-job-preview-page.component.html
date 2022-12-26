@@ -89,8 +89,11 @@
                     </ul> -->
 
 
-                    <div class="btn-box">
+                    <div class="btn-box d-flex align-items-center">
                         <!-- <a routerLink="/profile-authentication" (click)="applyNow(previewJobDetails.id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a> -->
+                        <!-- <i style="color: green; font-size: 30px;" class="ri-arrow-left-line"></i>  -->
+                        <!-- <a  style="text-align: center; margin-right: 500px; font-size: large;"routerLink="/post-a-job">Go Back and Edit</a> -->
+
                     </div>
 
                 </div>
@@ -194,9 +197,17 @@
                         </ul>
                     </div> -->
                 </div>
-                <div class="mt-3" style="margin-left: 310px">
+                <div class="btn-box d-flex align-items-center">
+                    <!-- <a routerLink="/profile-authentication" (click)="applyNow(previewJobDetails.id)" class="default-btn" *ngIf="showApplyNowButton;">Apply Now</a> -->
+                    <i style="color: green; font-size: 30px;" class="ri-arrow-left-line"></i> 
+                    <a  style="text-align: center; font-size: large;"routerLink="/post-a-job">Go Back and Edit</a>
+
+                
+
+                <div class="mt-3" style="margin-left: 110px">
                     
                     <!-- <a  style="text-align: center;"routerLink="/post-a-job" class="default-btn p-2">Go Back To Edit</a> -->
+                    
                     <a  style="text-align: center;" (click)="createJob()" class="default-btn mx-2 p-2">Post Job</a>
 
                 </div>

@@ -12,6 +12,7 @@ export class EmployLoginComponent implements OnInit {
     @ViewChild(NavbarComponent) navabar: any;
     public getJsonValue: any;
     public postJsonvalue: any;
+    public checkForError: any;
     constructor(private http: HttpClient, private router: Router) {}
     // ngAfterViewInit(): void {
     //     // throw new Error('Method not implemented.');
@@ -169,7 +170,16 @@ export class EmployLoginComponent implements OnInit {
                         JSON.stringify(response)
                     );
                     // console.log(json.isUserLoggedIn);
+                    console.log("hello");
                     console.log(response);
+                    
+                    this.checkForError = Object.entries(response);
+                    console.log(this.checkForError);
+
+                    if(this.checkForError[1][1] == 1300){
+                        window.alert(this.checkForError[2][1]);
+                    }
+
                     if (json.status == 'success') {
                         let session_id =
                             sessionStorage.getItem('session_id') || '';
