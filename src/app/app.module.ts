@@ -59,6 +59,7 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/f
 import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post-a-job-preview-page.component';
 import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
 import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
+import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-employer/company-details-page.component';
 
 @NgModule({
     declarations: [
@@ -106,7 +107,8 @@ import { SearchResultPageComponent } from './components/pages/search-resule-page
         ForgotPasswordComponent,
         PostAJobPreview,
         CandidatePreviewPageComponent,
-        SearchResultPageComponent
+        SearchResultPageComponent,
+        MyCompanyDetailsPageComponent
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
