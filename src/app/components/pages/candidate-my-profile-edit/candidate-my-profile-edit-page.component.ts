@@ -14,7 +14,10 @@ export class CandidateMyProfileEdit implements OnInit {
     // public empDashArray: any;
     public objToArray: any;
 
+    public previewObjCandidate: any;
     public previewObj: any;
+
+    public skillArray: any[] = [];
 
     // objToArray: any[] = [];
     values_exp : any[] = [];
@@ -47,10 +50,10 @@ export class CandidateMyProfileEdit implements OnInit {
 
     ngOnInit(): void {
         
-        this.previewObj = localStorage.getItem('previewObj');
-        this.previewObj = JSON.parse(this.previewObj);
-
         this.candidateDetailsValue();
+        this.previewObjCandidate = localStorage.getItem('previewObj_candidate');
+        this.previewObjCandidate = JSON.parse(this.previewObjCandidate);
+
         // this.autoCapitalize();
         // this.editor = new Editor();
         // let postajobstatus = sessionStorage.getItem('post-a-job');
@@ -168,6 +171,7 @@ export class CandidateMyProfileEdit implements OnInit {
         let user_id = sessionStorage.getItem('userId') || 'no-user-id';
 
         user_id = user_id.replace('"', '').replace('"', '');
+        user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
             .get('https://workfromhome.world/api/candidate/details?id='+user_id)
@@ -210,26 +214,48 @@ export class CandidateMyProfileEdit implements OnInit {
     candidateProfilePrev(){
         let full_name = (<HTMLInputElement>document.getElementById('candidate_name')).value;
         let headline = (<HTMLInputElement>document.getElementById('candidate_headline')).value;
+        let role = (<HTMLInputElement>document.getElementById('candidate_role')).value;
         let about_me = (<HTMLInputElement>document.getElementById('candidate_about_me')).value;
         let location = (<HTMLInputElement>document.getElementById('candidate_location')).value;
         let email = (<HTMLInputElement>document.getElementById('candidate_email')).value;
         let phone = (<HTMLInputElement>document.getElementById('candidate_phone_number')).value;
         let gender = (<HTMLInputElement>document.getElementById('candidate_gender')).value;
+        let skills = (<HTMLInputElement>document.getElementById('CandidateSkills')).value;
+        
+        let fb = (<HTMLInputElement>document.getElementById('fbProfile')).value;
+        let twitter = (<HTMLInputElement>document.getElementById('tweetProfile')).value;
+        let linkedin = (<HTMLInputElement>document.getElementById('linkedinProfile')).value;
+        let insta = (<HTMLInputElement>document.getElementById('instaProfile')).value;
+        let behance = (<HTMLInputElement>document.getElementById('behanceProfile')).value;
 
-        if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == ""){
+        
+
+        if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == "" || role==""){
             alert('Please fill all the fields')
             this.router.navigate(['/candidate/my-profile/edit'])
         }
+
         else{
         this.previewObj = {
             'full_name': full_name,
             'headline': headline,
+            'role': role,
             'about_me': about_me,
             'location': location,
             'email': email,
             'phone': phone,
             'gender': gender,
+            'skills': skills,
+            'fb': fb,
+            'twitter': twitter,
+            'linkedin': linkedin,
+            'insta': insta,
+            'behance': behance
+
         }
+        
+        this.skillArray = this.previewObj.skills.split(',');
+        this.previewObj.skills = this.skillArray;
 
         localStorage.setItem('previewObj_candidate', JSON.stringify(this.previewObj));
         }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CandidatePreviewPageComponent implements OnInit {
 
-  public objToArray: any;
+    public objToArray: any;
     public arraySize: any;
 
     public facebookImg: boolean = true;
@@ -18,9 +18,16 @@ export class CandidatePreviewPageComponent implements OnInit {
     public twitterImg: boolean = true;
     public behanceImg: boolean = true;
 
+    public previewObjCandidate: any;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
+        
+        this.previewObjCandidate = localStorage.getItem('previewObj_candidate');
+        this.previewObjCandidate = JSON.parse(this.previewObjCandidate);
+        console.log(this.previewObjCandidate);
+        
         this.getJobListing();
     }
 
@@ -62,23 +69,23 @@ export class CandidatePreviewPageComponent implements OnInit {
 
                 console.log(this.objToArray[0][1]);
 
-                if(this.objToArray[0][1].facebook == null){
+                if(this.objToArray[0][1].facebook == null && this.previewObjCandidate.fb == ""){
                     this.facebookImg = false;
                 }
 
-                if(this.objToArray[0][1].linkedin == null){
+                if(this.objToArray[0][1].linkedin == null && this.previewObjCandidate.linkedin == ""){
                     this.linkedinImg = false;
                 }
 
-                if(this.objToArray[0][1].behance == null){
+                if(this.objToArray[0][1].behance == null && this.previewObjCandidate.behance == ""){
                     this.behanceImg = false;
                 }
 
-                if(this.objToArray[0][1].twitter == null){
+                if(this.objToArray[0][1].twitter == null && this.previewObjCandidate.twitter == ""){
                     this.twitterImg = false;
                 }
 
-                if(this.objToArray[0][1].instagram == null){
+                if(this.objToArray[0][1].instagram == null && this.previewObjCandidate.insta == ""){
                     this.instaImg = false;
                 }
 
