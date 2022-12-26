@@ -21,16 +21,19 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="company-details-desc">
-                    <h4>My Company</h4>
+                    <h4>About Company</h4>
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus.ands Pellentesque placerat
                         maecenas egestas ullamcorper sed nunc. Vitae egestas tellus amet nulla something loss Pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius.</p> -->
                     
-                    <textarea name="about" id="" class="form-control" cols="30" rows="10">
+                    <!-- <textarea name="about" id="" class="form-control" cols="30" rows="10">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, magni temporibus laudantium unde hic voluptates ducimus laborum, id tempore in nostrum velit, debitis dolore necessitatibus at consectetur maxime quisquam sit?
-                    </textarea>
-                    <h4>Overview</h4>
-                    <textarea name="about" id="" class="form-control" cols="30" rows="10">
+                    </textarea> -->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem quisquam, impedit dolor delectus explicabo nam cumque tempora laudantium! Nulla molestiae dicta consequuntur fugit voluptas dolore doloremque voluptate tempore, qui cumque iusto magni eum velit deserunt? Eaque perferendis aliquam suscipit facere incidunt consequuntur, error blanditiis?
+                    </p>
+                    <h4>Work Life Balance</h4>
+                    <!-- <textarea name="about" id="" class="form-control" cols="30" rows="10">
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus.ands Pellentesque placerat
                         maecenas egestas ullamcorper sed nunc. Vitae egestas tellus amet nulla something loss Pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
@@ -41,8 +44,10 @@
                         </li>
                         <li>You are familiar using Jira and Confluence in your workflow</li>
                     </ul>
-                    </textarea>
-                    <h4>Our Achivments</h4>
+                    </textarea> -->
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus placeat hic voluptates error quis aliquid, debitis quasi minima cumque. Qui voluptatem similique aspernatur rem possimus odio, in explicabo nisi totam sapiente animi perferendis hic amet reprehenderit! Alias odio quidem architecto deleniti, neque eligendi dolor quo nemo temporibus excepturi similique obcaecati, nihil optio quis soluta culpa atque. Provident ipsa expedita assumenda sed et odit, omnis doloremque voluptatem quo possimus accusantium eos ex esse sequi, quos unde. Nulla voluptatem quis at molestiae ut vitae, est cum quidem facere dicta earum reiciendis aut facilis itaque magni amet, laborum adipisci, voluptas ipsa. Vitae, quidem?</p>
+                    <h4>Achievement</h4>
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-6 col-md-4">
                             <div class="counter-item">
@@ -65,7 +70,7 @@
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus in that. Pellentesque
                         placerat maecenas egestas ullamcorper sed sarinto.</p>
-                    <h4>Our Gallery</h4>
+                    <h4>Gallery</h4>
                     <div class="row">
                         <div class="col-lg-4 col-sm-4 col-md-4">
                             <div class="image">
@@ -148,7 +153,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" class="default-btn">Claim This Company</a>
+                        <!-- <a href="#" class="default-btn">Claim This Company</a> -->
                     </div>
                 </div>
             </div>
@@ -160,27 +165,32 @@
 <div class="jobs-area pb-75">
     <div class="container">
         <div class="section-title">
-            <h2>Available Jobs</h2>
+            <h2>Recent Jobs Posted</h2>
             <div class="bar ms-auto me-auto"></div>
-            <p class="ms-auto me-auto">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</p>
+            <p class="ms-auto me-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ex minus corrupti obcaecati consectetur nisi quod dolores nihil assumenda nemo!</p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-sm-6 col-md-6">
+            <div class="col-lg-6 col-sm-6 col-md-6" *ngFor = "let rjob of recentJobs">
                 <div class="job-card">
                     <div class="content">
-                        <div class="job-image">
-                            <a routerLink="/job-details">
+                        <div class="job-image" >
+                            <a (click)="rJobidPass(rjob[1].id)" routerLink="/jobs/details">
                                 <img src="assets/images/job/job1.jpg" alt="job-image">
                             </a>
                         </div>
-                        <h3><a routerLink="/job-details">Product Designer</a></h3>
+
+                        <h3><a (click)="rJobidPass(rjob[1].id)" routerLink="/jobs/details">{{ rjob[1].job_title }}</a></h3>
                         <ul class="job-list1">
-                            <li><i class="ri-briefcase-line"></i> Design</li>
-                            <li><i class="ri-time-line"></i> 2 Week Ago</li>
+                            <li><i class="ri-briefcase-line"></i> {{rjob[1].career_level}}</li>
+                            <li><i class="ri-time-line"></i> {{rjob[1].deadline}}</li>
+                            <li><i class="ri-profile-line"></i> {{rjob[1].job_type}}</li>
+                            <hr>
+                            <li style="text-align:right;"><i class="ri-wallet-line"></i> {{rjob[1].salary_minimum}} - {{rjob[1].salary_maximum}} / {{rjob[1].salary_type}} </li>
+
                         </ul>
-                        <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
+                        <!-- <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span> -->
                     </div>
-                    <div class="job-sub-content">
+                    <!-- <div class="job-sub-content">
                         <ul class="job-list2">
                             <li class="time">Full Time</li>
                             <li class="freelance">Freelance</li>
@@ -188,10 +198,11 @@
                         </ul>
                         <div class="price">$150 - $180 <span>/Per Week</span></div>
                     </div>
-                    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+                    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-6 col-md-6">
+            <a href="#/jobs/posted" style="text-align: center;">Browse All Jobs Posted</a>
+            <!-- <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="job-card">
                     <div class="content">
                         <div class="job-image">
@@ -215,7 +226,7 @@
                     </div>
                     <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
