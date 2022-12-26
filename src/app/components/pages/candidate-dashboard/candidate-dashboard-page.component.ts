@@ -303,10 +303,16 @@ export class CandidateDashboardPageComponent implements OnInit {
 
                     // console.log(this.jobId[1]);
                     this.finalArraySize = this.finalArray.length;
+                    
                 });
                 // console.log(this.jobId[1]);
             }
             console.log(this.finalArray)
+            console.log("this.finalArraySize");
+            if(this.finalArraySize == undefined){
+                this.finalArraySize = 0;
+            }
+            console.log(this.finalArraySize);
         }
         
         
