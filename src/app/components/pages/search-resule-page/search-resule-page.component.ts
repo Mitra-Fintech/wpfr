@@ -3,31 +3,32 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-job-listings-page',
-    templateUrl: './job-listings-page.component.html',
-    styleUrls: ['./job-listings-page.component.scss'],
+    selector: 'app-search-resule-page',
+    templateUrl: './search-resule-page.component.html',
+    styleUrls: ['./search-resule-page.component.scss'],
 })
-export class JobListingsPageComponent implements OnInit {
+export class SearchResultPageComponent implements OnInit {
     public getJsonValue: any;
     public postJsonValue: any;
     public objToArray: any;
     public arraySize: any;
+    public search_item: any;
 
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
-        this.getJobListing();
+        this.getSearchResult();
     }
 
-    getJobListing() {
+    getSearchResult() {
         // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
-        let user_id = sessionStorage.getItem('userId') || 'no-user-id';
+        this.search_item = localStorage.getItem('search_term') || 'no-seach-term';
 
-        user_id = user_id.replace('"', '').replace('"', '');
+        this.search_item = this.search_item.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/job/recent' + '?limit=10')
+            .get('https://workfromhome.world/api/job/search?term=' + this.search_item)
             
             .subscribe((response) => {
                 interface ResponseObject {
@@ -66,18 +67,5 @@ export class JobListingsPageComponent implements OnInit {
         console.log(data);
         // localStorage.clear();
         localStorage.setItem('job_id', JSON.stringify(data));
-    }
-
-    searchTerm() {
-        let search_var = (<HTMLInputElement>document.getElementById('search_bar')).value;
-        
-        if(search_var == ''){
-            alert('Please enter a search term');
-            this.router.navigate(['/jobs/listings']);
-        }
-        else{
-            localStorage.setItem('search_term', search_var);
-            this.router.navigate(['/search-result']);
-        }
     }
 }

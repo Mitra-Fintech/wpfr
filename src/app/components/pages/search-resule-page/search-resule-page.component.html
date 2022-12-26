@@ -2,29 +2,30 @@
 <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
-            <h3>World's Biggest Database of Work from home Jobs !</h3>
+            <h3>Searched Results for the searched Term - "{{search_item}}"</h3>
             <div class="banner-form">
-                <form>
+                <!-- <form>
                     <div class="row">
-                        <div class="col-lg-9 col-md-9">
+                        <div class="col-lg-5 col-md-5">
                             <div class="form-group">
-                                <input class="form-control" type="text" id="search_bar" placeholder="Keywords / Job Title">
+                                <input class="form-control" type="text" placeholder="Keywords / Job Title">
                                 <i class="ri-search-line"></i>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="City or Postcode">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-lg-3 col-md-3">
-                            <button (click)= "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
+                            <button type="submit" class="submit-btn">Find Jobs</button>
                         </div>
                     </div>
-                </form>
+                </form> -->
+                <p style="font-size: x-large;">{{arraySize}} job searches found</p>
             </div>
-            <div class="popular-search">
+            <!-- <div class="popular-search">
                 <span class="title">Popular Search: </span>
                 <a routerLink="/job-listing">Designer</a>
                 <a routerLink="/job-listing">Developer</a>
@@ -33,7 +34,7 @@
                 <a routerLink="/job-listing">PHP</a>
                 <a routerLink="/job-listing">Senior</a>
                 <a routerLink="/job-listing">Engineer</a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -47,7 +48,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-5 result-count">
                         <p>Showing 1 – 10 of {{arraySize}} results</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-7 ordering">
+                    <!-- <div class="col-lg-6 col-md-6 col-sm-7 ordering">
                         <div class="select-box">
                             <label>Sort By:</label>
                             <select>
@@ -58,7 +59,7 @@
                                 <option>Price: high to low</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -74,7 +75,7 @@
                                     </a>
                                 </div>
                                 
-                                <h3> <a (click)="idPass(job[1].id)" routerLink="/jobs/details"> {{ job[1].job_title }}</a></h3>
+                                <h3> <a (click)="idPass(job[1].id)" routerLink="/jobs/details"  > {{ job[1].job_title }}</a></h3>
                                 <ul class="job-list1" style="font-size: medium;">
 
                                     <li><i class="ri-briefcase-line"></i> {{job[1].career_level}}</li>
@@ -90,17 +91,8 @@
                                     <li><i class="ri-hashtag"></i> {{job[1].job_tags}} </li>
                                     <!-- <li><i class="ri-map-pin-line"></i> {{job[1].office_address}}, {{job[1].location}}</li> -->
                                     <hr style="display:flex;">
-                                    <li style="text-align:right;margin-right: 400px"><i class="ri-wallet-line"></i> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} / {{job[1].salary_type}} </li>
-                                    <a
-                                        (click)="idPass(job[1].id)"
-                                        routerLink="/jobs/edit"
-                                    >
-                                        <li>
-                                            <i class="ri-pencil-line"></i>Edit
-                                        </li></a
-                                    >
-                                </ul>
-
+                                    <li style="text-align:right;"><i class="ri-wallet-line"></i> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} / {{job[1].salary_type}} </li>
+                                </ul>          
 
                                 <!-- <div class="price" style="text-align: right;"> <i class="ri-wallet-line"></i> {{job[1].salary_minimum}} - {{job[1].salary_maximum}} / {{job[1].salary_type}}</div> -->
                             </div>
@@ -127,7 +119,7 @@
                         
                     </div>
                     
-                    <div class="col-lg-4 col-sm-6 col-md-6 px-0 mx-0" >
+                    <!-- <div class="col-lg-4 col-sm-6 col-md-6 px-0 mx-0" >
                     <div class="job-listings-sidebar" style="font-size: larger;">  
                         <div class="widget-item">
                             <h3>Type of Category</h3>
@@ -348,9 +340,9 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
-                    </div>    
+                    <!-- </div>     -->
                 </div>
     </div>
 </div>
@@ -360,11 +352,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job2.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">Creative Director</a></h3>
+                                <h3><a routerLink="/jobs/details">Creative Director</a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> Automotive Jobs</li>
                                     <li><i class="ri-time-line"></i> 2 Hour Ago</li>
@@ -385,11 +377,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job3.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">General Ledger Accountant</a></h3>
+                                <h3><a routerLink="/jobs/details">General Ledger Accountant</a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> Accounting  & Finance</li>
                                     <li><i class="ri-time-line"></i> 1 Day Ago</li>
@@ -411,11 +403,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job4.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">Finance Manager & Health </a></h3>
+                                <h3><a routerLink="/jobs/details">Finance Manager & Health </a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> Medical & Health</li>
                                     <li><i class="ri-time-line"></i> 5 Days Ago</li>
@@ -437,11 +429,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job5.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">Group Marketing Manager</a></h3>
+                                <h3><a routerLink="/jobs/details">Group Marketing Manager</a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> Customer</li>
                                     <li><i class="ri-time-line"></i> 3 Days Ago</li>
@@ -463,11 +455,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job6.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">iOS Developer</a></h3>
+                                <h3><a routerLink="/jobs/details">iOS Developer</a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> IT Agency</li>
                                     <li><i class="ri-time-line"></i> 1 Days Ago</li>
@@ -488,11 +480,11 @@
                         <div class="job-card">
                             <div class="content">
                                 <div class="job-image">
-                                    <a routerLink="/job-details">
+                                    <a routerLink="/jobs/details">
                                         <img src="assets/images/job/job7.jpg" alt="job-image">
                                     </a>
                                 </div>
-                                <h3><a routerLink="/job-details">Flutter Developer</a></h3>
+                                <h3><a routerLink="/jobs/details">Flutter Developer</a></h3>
                                 <ul class="job-list1">
                                     <li><i class="ri-briefcase-line"></i> HiboTheme</li>
                                     <li><i class="ri-time-line"></i> 2 Days Ago</li>

@@ -33,6 +33,7 @@ import { PostAJobPageEditComponent } from './components/pages/post-a-job-edit-pa
 import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/forgot-password-page.component';
 import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post-a-job-preview-page.component';
 import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
+import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
     {path: 'post-a-job/preview', component: PostAJobPreview},
     
     {path: 'candidate/my-profile/preview', component: CandidatePreviewPageComponent},
+    {path: 'search-result', component: SearchResultPageComponent},
 
 
 
