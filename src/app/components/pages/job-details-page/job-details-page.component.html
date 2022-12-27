@@ -1,7 +1,7 @@
 <!-- Page Title -->
 <div class="inner-banner">
     <div class="container">
-        <div class="job-card" style="width: 670px; height: 220px;">
+        <div class="job-card" style="width: 670px; height: fit-content;">
 
             <div class="job-image mx-3">
                 <img src="assets/images/job/job1.jpg" alt="job-image" style="width: 100px;">
@@ -17,16 +17,16 @@
                 <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
                 <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
             </ul>
-            <br>
+            <!-- <br> -->
             
             
             <div class="d-md-flex align-items-center justify-content-between">
                 <div class="last-date" style="font-size: larger;">Last Date: {{ jobToArray[0][1].deadline }}</div>
-                <a (click)="applyNow(jobToArray[0][1].id)" routerLink="/jobs/details" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
+                <a (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
                 <a  (click)="fromLogin()" class="default-btn" *ngIf="showApplyNow2;">Login to apply</a>
             </div>
             
-            <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+            <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
             
         </div>
 
@@ -83,7 +83,7 @@
 
 
                     <div class="btn-box">
-                        <a routerLink="/profile-authentication" id = "applyNow2" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
+                        <a id = "applyNow2" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="showApplyNow;">Apply Now</a>
                         <!-- <a routerLink="/profile-authentication" id = "applyNow2" (click)="applyNow(jobToArray[0][1].id)" class="default-btn" *ngIf="isApplyEmployer();">Apply Now</a> -->
                         <a  (click)="fromLogin()" class="default-btn" *ngIf="showApplyNow2;">Login to apply</a>
 
@@ -110,7 +110,7 @@
                             </li>
 
                             <li>
-                                <span>Video Url</span> <a href="{{ jobToArray[0][1].introduction_video_url}}">URL</a>
+                                <span>Video Url</span> <a href="{{ jobToArray[0][1].introduction_video_url}}">{{ jobToArray[0][1].url }}</a>
                             </li>
 
                             
