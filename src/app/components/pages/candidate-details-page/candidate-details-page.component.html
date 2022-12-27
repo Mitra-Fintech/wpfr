@@ -27,7 +27,7 @@
                             <h3>{{objToArray[0][1].name}}</h3>
                             <!-- <img src="assets/images/flags/switzerland.svg" alt="flag"> -->
                         </div>
-                        <!-- <p>Web Developer</p> -->
+                        <p style="text-transform: capitalize;">{{objToArray[0][1].current_role}}</p>
                         <!-- <div class="rating">
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
@@ -77,7 +77,7 @@
                         <ul>
                             <li>
                                 <span>Location</span>
-                                <a href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.6976637,-74.119764,11z/data=!3m1!4b1!4m5!3m4!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!8m2!3d40.7127753!4d-74.0059728" target="_blank">Melbourne, Australia</a>
+                                <a href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.6976637,-74.119764,11z/data=!3m1!4b1!4m5!3m4!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!8m2!3d40.7127753!4d-74.0059728" target="_blank">{{objToArray[0][1].location}}</a>
                             </li>
                             <li>
                                 <span>Email</span>
@@ -123,18 +123,19 @@
                     <div class="bar"></div>
                     <ul class="candidate-skills">
                         <li>Visual Design</li>
-                        <li>UI/UX Design</li>
+                        <!-- <li>UI/UX Design</li>
                         <li>Agile</li>
                         <li>Prototyping</li>
                         <li>New Layout</li>
-                        <li>Career</li>
+                        <li>Career</li> -->
                     </ul>
                     <hr>
                     <h3>Education & Training</h3>
                     <div class="bar"></div>
+
                     <ul class="candidate-education">
-                        <li>
-                            <img src="assets/images/icon1.jpg" alt="job-image">
+                        <li style="padding-left: 3px">
+                            <!-- <img src="assets/images/icon1.jpg" alt="job-image"> -->
                             <h3>Bachelor in Software Engineering</h3>
                             <span>Harvard University</span>
                             <ul>
@@ -142,16 +143,9 @@
                                 <li><i class="ri-map-pin-line"></i> Brylin, USA</li>
                             </ul>
                         </li>
-                        <li>
-                            <img src="assets/images/icon2.jpg" alt="job-image">
-                            <h3>Masters in Art Design</h3>
-                            <span>Harvard University</span>
-                            <ul>
-                                <li><i class="ri-time-line"></i> Jun 2020 - April 2021 - 1 Years</li>
-                                <li><i class="ri-map-pin-line"></i> Brylin, USA</li>
-                            </ul>
-                        </li>
                     </ul>
+
+
                 </div>
             </div>
       

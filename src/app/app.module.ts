@@ -60,6 +60,8 @@ import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post
 import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
 import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
 import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-employer/company-details-page.component';
+import { CompanyDetailEditComponent } from './components/pages/company-details-edit-page/company-details-edit-page.component';
+import { EmployerCandidateShortlisted } from './components/pages/employer-shortlist-page/employer-shortlist-page.component';
 
 @NgModule({
     declarations: [
@@ -108,7 +110,9 @@ import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-emp
         PostAJobPreview,
         CandidatePreviewPageComponent,
         SearchResultPageComponent,
-        MyCompanyDetailsPageComponent
+        MyCompanyDetailsPageComponent,
+        CompanyDetailEditComponent,
+        EmployerCandidateShortlisted
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
