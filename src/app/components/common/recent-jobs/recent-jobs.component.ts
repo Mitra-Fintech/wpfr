@@ -25,7 +25,7 @@ export class RecentJobsComponent implements OnInit {
     user_id = user_id.replace('"', '').replace('"', '');
 
     this.http
-                .get('https://workfromhome.world/api/job/recent' + '?limit=6')
+                .get('https://workfromhome.world/api/job/recent' + '?limit=4')
                 .subscribe((response) => {
 
                     interface ResponseObject {
