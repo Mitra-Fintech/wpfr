@@ -283,11 +283,9 @@ export class MyAccountPageComponent implements OnInit {
                             );
                         });
                         if(localStorage.getItem('fromLogin') == 'true'){
-                            this.router.navigate(['jobs/details'])
-                                        .then(() => {
-                                            window.location.reload();
-                                        });
                             localStorage.setItem('fromLogin', 'false');
+                          window.location.href = localStorage.getItem('fromLoginJobUrl') || '/candidate/my-dashboard';
+                          
                         }
                         else{
                         this.router.navigate(['/candidate/my-dashboard']);
