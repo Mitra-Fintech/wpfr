@@ -6,7 +6,7 @@ import { Editor, Toolbar } from 'ngx-editor';
 @Component({
     selector: 'app-candidate-my-profile-edit-page',
     templateUrl: './candidate-my-profile-edit-page.component.html',
-    styleUrls: ['./candidate-my-profile-edit-page.component.scss']
+    styleUrls: ['./candidate-my-profile-edit-page.component.scss'],
 })
 export class CandidateMyProfileEdit implements OnInit {
     public isUserLoggedIn = false;
@@ -20,12 +20,12 @@ export class CandidateMyProfileEdit implements OnInit {
     public skillArray: any[] = [];
 
     // objToArray: any[] = [];
-    values_exp : any[] = [];
-    values_edu : any[] = [];
-    
-    public count=0;
+    values_exp: any[] = [];
+    values_edu: any[] = [];
 
-    addEdu(){
+    public count = 0;
+
+    addEdu() {
         this.values_edu.push(this.count++);
         console.log(this.count);
     }
@@ -44,12 +44,9 @@ export class CandidateMyProfileEdit implements OnInit {
     //     ['align_left', 'align_center', 'align_right', '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        '],
     // ];
 
-
-
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
-        
         this.candidateDetailsValue();
         this.previewObjCandidate = localStorage.getItem('previewObj_candidate');
         this.previewObjCandidate = JSON.parse(this.previewObjCandidate);
@@ -65,14 +62,10 @@ export class CandidateMyProfileEdit implements OnInit {
         // }
     }
 
-  
-
     // make sure to destory the editor
     // ngOnDestroy(): void {
     //     // this.editor.destroy();
     // }
-
-    
 
     // createJob(){
 
@@ -92,13 +85,13 @@ export class CandidateMyProfileEdit implements OnInit {
     //     let deadline = (<HTMLInputElement>document.getElementById('deadline')).value;
     //     // let friendly_address = (<HTMLInputElement>document.getElementById('friendly_address')).value;
     //     // let location = (<HTMLInputElement>document.getElementById('location')).value;
-       
+
     //     // let otp = (<HTMLInputElement>document.getElementById('otp')).value;
 
     //     let session_id =
     //     sessionStorage.getItem('session_id') || 'no-session';
     // session_id = session_id.replace('"', '');
-        
+
     //     let body = new URLSearchParams();
 
     //     body.set('title', title);
@@ -118,7 +111,6 @@ export class CandidateMyProfileEdit implements OnInit {
     //     body.set('friendly_address', "null")
     //     body.set('location', "null")
     //     body.set('session_id', session_id.replace('"', ''));
-    
 
     //     this.http
     //     .get('https://workfromhome.world/api/job/post?' + body)
@@ -127,7 +119,7 @@ export class CandidateMyProfileEdit implements OnInit {
     //             status: string;
     //             status_code: any;
     //             data: object;
-    //         }  
+    //         }
     //         interface DataObject {
     //             job_created: boolean
     //         }
@@ -148,33 +140,32 @@ export class CandidateMyProfileEdit implements OnInit {
 
     // }
 
-    addExp(){
-        this.values_exp.push({value: ""});
+    addExp() {
+        this.values_exp.push({ value: '' });
     }
 
-    remExp(i:any){
-        this.values_exp.splice(i,1);
+    remExp(i: any) {
+        this.values_exp.splice(i, 1);
     }
 
-    
     // addEdu(){
     //     this.values_edu.push({value: ""});
     // }
-    
-   
 
-    remEdu(i:any){
-        this.values_edu.splice(i,1);
+    remEdu(i: any) {
+        this.values_edu.splice(i, 1);
     }
 
-    candidateDetailsValue(){
+    candidateDetailsValue() {
         let user_id = sessionStorage.getItem('userId') || 'no-user-id';
 
         user_id = user_id.replace('"', '').replace('"', '');
         user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/candidate/details?id='+user_id)
+            .get(
+                'https://workfromhome.world/api/candidate/details?id=' + user_id
+            )
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;
@@ -208,31 +199,51 @@ export class CandidateMyProfileEdit implements OnInit {
                 // console.log(responseObj.status);
             });
     }
-    
 
+    candidateProfilePrev() {
+        let full_name = (<HTMLInputElement>(
+            document.getElementById('candidate_name')
+        )).value;
+        let headline = (<HTMLInputElement>(
+            document.getElementById('candidate_headline')
+        )).value;
+        let role = (<HTMLInputElement>document.getElementById('candidate_role'))
+            .value;
+        let about_me = (<HTMLInputElement>(
+            document.getElementById('candidate_about_me')
+        )).value;
+        let location = (<HTMLInputElement>(
+            document.getElementById('candidate_location')
+        )).value;
+        let email = (<HTMLInputElement>(
+            document.getElementById('candidate_email')
+        )).value;
+        let phone = (<HTMLInputElement>(
+            document.getElementById('candidate_phone_number')
+        )).value;
+        let gender = "nda";
+        let skills = (<HTMLInputElement>(
+            document.getElementById('CandidateSkills')
+        )).value;
 
-    candidateProfilePrev(){
-        let full_name = (<HTMLInputElement>document.getElementById('candidate_name')).value;
-        let headline = (<HTMLInputElement>document.getElementById('candidate_headline')).value;
-        let role = (<HTMLInputElement>document.getElementById('candidate_role')).value;
-        let about_me = (<HTMLInputElement>document.getElementById('candidate_about_me')).value;
-        let location = (<HTMLInputElement>document.getElementById('candidate_location')).value;
-        let email = (<HTMLInputElement>document.getElementById('candidate_email')).value;
-        let phone = (<HTMLInputElement>document.getElementById('candidate_phone_number')).value;
-        let gender = (<HTMLInputElement>document.getElementById('candidate_gender')).value;
-        let skills = (<HTMLInputElement>document.getElementById('CandidateSkills')).value;
-        
         let fb = (<HTMLInputElement>document.getElementById('fbProfile')).value;
-        let twitter = (<HTMLInputElement>document.getElementById('tweetProfile')).value;
-        let linkedin = (<HTMLInputElement>document.getElementById('linkedinProfile')).value;
-        let insta = (<HTMLInputElement>document.getElementById('instaProfile')).value;
-        let behance = (<HTMLInputElement>document.getElementById('behanceProfile')).value;
+        let twitter = (<HTMLInputElement>(
+            document.getElementById('tweetProfile')
+        )).value;
+        let linkedin = (<HTMLInputElement>(
+            document.getElementById('linkedinProfile')
+        )).value;
+        let insta = (<HTMLInputElement>document.getElementById('instaProfile'))
+            .value;
+        let behance = (<HTMLInputElement>(
+            document.getElementById('behanceProfile')
+        )).value;
 
         let user_id = sessionStorage.getItem('userId') || 'no-user-id';
 
         user_id = user_id.replace('"', '').replace('"', '');
         user_id = user_id.replace('"', '').replace('"', '');
-        
+
         console.log(user_id);
 
         let user_type = sessionStorage.getItem('userType') || 'no-user-type';
@@ -242,227 +253,346 @@ export class CandidateMyProfileEdit implements OnInit {
 
         console.log(user_type);
 
-        if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == "" || role==""){
-            alert('Please fill all the fields')
-            this.router.navigate(['/candidate/my-profile/edit'])
-        }
-
-        else
-        
-        {
-        
+   
             this.previewObj = {
-            'full_name': full_name,
-            'headline': headline,
-            'role': role,
-            'about_me': about_me,
-            'location': location,
-            'email': email,
-            'phone': phone,
-            'gender': gender,
-            'skills': skills,
-            'fb': fb,
-            'twitter': twitter,
-            'linkedin': linkedin,
-            'insta': insta,
-            'behance': behance
+                full_name: full_name,
+                headline: headline,
+                role: role,
+                about_me: about_me,
+                location: location,
+                email: email,
+                phone: phone,
+                gender: gender,
+                skills: skills,
+                fb: fb,
+                twitter: twitter,
+                linkedin: linkedin,
+                insta: insta,
+                behance: behance,
+            };
 
-        }
+            this.skillArray = this.previewObj.skills.split(',');
+            this.previewObj.skills = this.skillArray;
+
+            localStorage.setItem(
+                'previewObj_candidate',
+                JSON.stringify(this.previewObj)
+            );
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=name&value=' +
+                        this.previewObj.full_name +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=mobile_number&value=' +
+                        this.previewObj.phone +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=email_id&value=' +
+                        this.previewObj.email +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=current_role&value=' +
+                        this.previewObj.role +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=location&value=' +
+                        this.previewObj.location +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=about&value=' +
+                        this.previewObj.headline +
+                        this.previewObj.about_me +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=linkedin&value=' +
+                        this.previewObj.linkedin +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=twitter&value=' +
+                        this.previewObj.twitter +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=behance&value=' +
+                        this.previewObj.behance +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=instagram&value=' +
+                        this.previewObj.insta +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=facebook&value=' +
+                        this.previewObj.fb +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+            this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=skills&value=' +
+                        this.previewObj.skills +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
+                this.router.navigate(['/candidate/my-profile'])
         
-        this.skillArray = this.previewObj.skills.split(',');
-        this.previewObj.skills = this.skillArray;
-
-        localStorage.setItem('previewObj_candidate', JSON.stringify(this.previewObj));
-        
-        this.http.get('https://workfromhome.world/api/account/update?field=name&value='+this.previewObj.full_name+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=mobile_number&value='+this.previewObj.phone+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=email_id&value='+this.previewObj.email+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=current_role&value='+this.previewObj.role+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=location&value='+this.previewObj.location+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=about&value='+this.previewObj.headline+this.previewObj.about_me+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=linkedin&value='+this.previewObj.linkedin+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=twitter&value='+this.previewObj.twitter+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=behance&value='+this.previewObj.behance+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=instagram&value='+this.previewObj.insta+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=facebook&value='+this.previewObj.fb+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-        this.http.get('https://workfromhome.world/api/account/update?field=skills&value='+this.previewObj.skills+ '&userId='+user_id + '&userIdType=id' + '&userType='+user_type)
-        
-        .subscribe((response) => {
-            interface ReposnseObject {
-                status: string;
-                code: any;
-                // data: object;
-            }  
-            
-            let json: ReposnseObject = JSON.parse(JSON.stringify(response));
-            // console.log(json.isUserLoggedIn);
-            // console.log(json.status_code);
-            console.log(json.code);
-        });
-
-
-        
-
-        }
-
-        
-        
-
     }
-
-
 }
