@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class EmployerDashboardPageComponent implements OnInit {
     public empDashArray: any;
     public empDasharraySize: any;
+    public empDashLimitArray: any[] = [];
 
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -101,7 +102,7 @@ export class EmployerDashboardPageComponent implements OnInit {
         user_id = user_id.replace('"', '').replace('"', '');
 
         this.http
-            .get('https://workfromhome.world/api/job/recent' + '?limit=2')
+            .get('https://workfromhome.world/api/job/list' + '?company_id=' + user_id)
             .subscribe((response) => {
                 interface ResponseObject {
                     status: string;
@@ -126,11 +127,25 @@ export class EmployerDashboardPageComponent implements OnInit {
                 // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
 
                 this.empDashArray = Object.entries(dataJson);
+                
+                if(this.empDashArray.length == 0) {
+                    this.empDasharraySize = 0;
+                }
+                
+                else if(this.empDashArray.length == 1) {
+                    this.empDashLimitArray.push(this.empDashArray[0]);
+                }
+                
+                else{
+                    for(let i = 0; i < 2; i++) {
+                        this.empDashLimitArray.push(this.empDashArray[i]);
+                    }
+                }
 
                 this.empDasharraySize = localStorage.getItem('active_jobs');
                 
                 // this.empDasharraySize = this.empDashArray.length;
-                console.log(this.empDashArray[2][1]);
+                // console.log(this.empDashArray[2][1]);
 
                 // console.log(responseObj.status);
             });

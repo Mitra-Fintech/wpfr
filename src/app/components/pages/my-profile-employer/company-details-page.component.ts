@@ -26,7 +26,7 @@ export class MyCompanyDetailsPageComponent implements OnInit {
     user_id = user_id.replace('"', '').replace('"', '');
 
     this.http
-                .get('https://workfromhome.world/api/job/recent' + '?limit=2')
+                .get('https://workfromhome.world/api/job/list' + '?company_id=' + user_id')
                 .subscribe((response) => {
 
                     interface ResponseObject {
