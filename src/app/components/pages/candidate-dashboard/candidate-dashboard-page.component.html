@@ -1,67 +1,131 @@
 <!-- Page Title -->
 <div class="inner-banner">
-
     <div class="container">
-        <div class="job-card" style="font-size: 95%;">
+        <div class="job-card" style="font-size: 95%">
             <div class="job-image">
-                <img src="assets/images/candidates/candidate1.jpg" alt="job-image">
+                <img
+                    src="assets/images/candidates/candidate1.jpg"
+                    alt="job-image"
+                />
             </div>
-            <h2>{{objToArray[0][1].name}}</h2>
+            <h2>{{ objToArray[0][1].name }}</h2>
             <!-- <span class="location">by <a routerLink="/">Python Developer</a> in Brooklyn, NY</span> -->
             <ul class="job-sub-content">
-
-                <a href="{{objToArray[0][1].facebook}}"><img src="assets/images/facebook.png" alt="" width="35" *ngIf="facebookImg" style="padding: 5px"></a>
-                <a href="{{objToArray[0][1].linkedin}}"><img src="assets/images/linkedin.png" alt="" width="35" *ngIf="linkedinImg" style="padding: 5px"></a>
-                <a href="{{objToArray[0][1].instagram}}"><img src="assets/images/instagram.png" alt="" width="35" *ngIf="instaImg" style="padding: 5px"></a>
-                <a href="{{objToArray[0][1].behance}}"><img src="assets/images/behance.png" alt="" width="35" *ngIf="behanceImg" style="padding: 5px"></a>
-                <a href="{{objToArray[0][1].twitter}}"><img src="assets/images/twitter.png" alt="" width="35" *ngIf="twitterImg" style="padding: 5px"></a>
+                <a href="{{ objToArray[0][1].facebook }}"
+                    ><img
+                        src="assets/images/facebook.png"
+                        alt=""
+                        width="35"
+                        *ngIf="facebookImg"
+                        style="padding: 5px"
+                /></a>
+                <a href="{{ objToArray[0][1].linkedin }}"
+                    ><img
+                        src="assets/images/linkedin.png"
+                        alt=""
+                        width="35"
+                        *ngIf="linkedinImg"
+                        style="padding: 5px"
+                /></a>
+                <a href="{{ objToArray[0][1].instagram }}"
+                    ><img
+                        src="assets/images/instagram.png"
+                        alt=""
+                        width="35"
+                        *ngIf="instaImg"
+                        style="padding: 5px"
+                /></a>
+                <a href="{{ objToArray[0][1].behance }}"
+                    ><img
+                        src="assets/images/behance.png"
+                        alt=""
+                        width="35"
+                        *ngIf="behanceImg"
+                        style="padding: 5px"
+                /></a>
+                <a href="{{ objToArray[0][1].twitter }}"
+                    ><img
+                        src="assets/images/twitter.png"
+                        alt=""
+                        width="35"
+                        *ngIf="twitterImg"
+                        style="padding: 5px"
+                /></a>
 
                 <!-- <li class="freelance">Freelance</li>
                 <li class="urgent">Urgent</li> -->
-
             </ul>
             <!-- <a routerLink="/candidate/my-profile/edit" class="default-btn">Edit profile</a> -->
             <div class="d-md-flex align-items-center justify-content-between">
-                <a href="mailto:{{objToArray[0][1].email_id}}">
-                    <div class="last-date">{{objToArray[0][1].email_id}}</div>
-                </a><br>
-                <a href="tel:{{objToArray[0][1].mobile_number}}">
-                    <div class="last-date">{{objToArray[0][1].mobile_number}}</div>
-                </a><br>
+                <a href="mailto:{{ objToArray[0][1].email_id }}">
+                    <div class="last-date">
+                        {{ objToArray[0][1].email_id }}
+                    </div> </a
+                ><br />
+                <a href="tel:{{ objToArray[0][1].mobile_number }}">
+                    <div class="last-date">
+                        {{ objToArray[0][1].mobile_number }}
+                    </div> </a
+                ><br />
 
-                <a routerLink="/candidate/my-profile" class="default-btn">View My Profile</a>
+                <a routerLink="/candidate/my-profile" class="default-btn"
+                    >View My Profile</a
+                >
             </div>
             <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
         </div>
     </div>
 
     <div class="container-fluid mt-5">
-        <div class="inner-title text-center " style="text-align: center;">
+        <div class="inner-title text-center" style="text-align: center">
             <!-- <h4>Job Application Stats</h4> -->
-           
+
             <div class="col-12 col-md-12 col-lg-12">
                 <div
                     class="col-10 col-md-10 col-lg-10 justify-content"
                     style="margin-left: 50%; transform: translateX(-50%)"
                 >
-                    <div class="job-card" style="padding-left: 2px;">
-                        
-                        <div class="card-body" style="padding: 0px;">
+                    <div class="job-card" style="padding-left: 2px">
+                        <div class="card-body" style="padding: 0px">
                             <div class="row">
-                                <div class="col-3">
-                                    <h2 style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'">{{finalArraySize}}</h2>
+                                <div class="col-3 border-success border-right">
+                                    <h2
+                                        style="cursor: default"
+                                        onMouseOver="this.style.color='#00CA99'"
+                                        onMouseOut="this.style.color='Black'"
+                                    >
+                                        {{ finalArraySize }}
+                                    </h2>
                                     <p>Applied</p>
                                 </div>
                                 <div class="col-3 border-success border-right">
-                                    <h2 style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'">07</h2>
+                                    <h2
+                                        style="cursor: default"
+                                        onMouseOver="this.style.color='#00CA99'"
+                                        onMouseOut="this.style.color='Black'"
+                                    >
+                                        07
+                                    </h2>
                                     <p>In-touch</p>
                                 </div>
                                 <div class="col-3 border-success border-right">
-                                    <h2 style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'">07</h2>
+                                    <h2
+                                        style="cursor: default"
+                                        onMouseOver="this.style.color='#00CA99'"
+                                        onMouseOut="this.style.color='Black'"
+                                    >
+                                        07
+                                    </h2>
                                     <p>Selected</p>
                                 </div>
                                 <div class="col-3">
-                                    <h2 style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'">07</h2>
+                                    <h2
+                                        style="cursor: default"
+                                        onMouseOver="this.style.color='#00CA99'"
+                                        onMouseOut="this.style.color='Black'"
+                                    >
+                                        07
+                                    </h2>
                                     <p>Shortlisted</p>
                                 </div>
                             </div>
@@ -71,30 +135,29 @@
             </div>
         </div>
     </div>
-    
-
-
-
 </div>
 
-
-
-
-<h3 style="text-align: center;" class="mt-5">Your Applications</h3>
+<h3 style="text-align: center" class="mt-5">Your Applications</h3>
 <div class="row p-5">
-
     <div class="col-lg-12 col-sm-6 col-md-6">
-
         <div class="job-card mb-5" *ngFor="let ad of finalArray">
             <div class="content">
-
                 <div class="job-image">
-                    <a (click)="idPass(jobId[1].job_id)" routerLink="/jobs/details">
-                        <img src="assets/images/job/job1.jpg" alt="job-image">
+                    <a
+                        (click)="idPass(jobId[1].job_id)"
+                        routerLink="/jobs/details"
+                    >
+                        <img src="assets/images/job/job1.jpg" alt="job-image" />
                     </a>
                 </div>
                 <div class="px-5">
-                    <h4 class=""><a (click)="idPass(jobId[1].job_id)" routerLink="/jobs/details">{{ad.job_title}}</a></h4>
+                    <h4 class="">
+                        <a
+                            (click)="idPass(jobId[1].job_id)"
+                            routerLink="/jobs/details"
+                            >{{ ad.job_title }}</a
+                        >
+                    </h4>
 
                     <div class="container-fluid">
                         <div class="row">
@@ -104,7 +167,7 @@
                     </div>
                     <!-- <span class="dot-success mt-4"></span> -->
                     <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
-                    <br>
+                    <br />
 
                     <!-- <div style="font-size:20px">
                         <ul class="job-list1">
@@ -133,18 +196,49 @@
                     </ul>        -->
 
                     <ul class="list-group list-group-flush">
-                        <li  class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-briefcase-line"></i> {{ad.career_level}}</li>
-                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-profile-line"></i> {{ad.job_type}} </li>
-                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-award-line"></i> {{ad.experience}} Years</li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-briefcase-line"></i>
+                            {{ ad.career_level }}
+                        </li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-profile-line"></i> {{ ad.job_type }}
+                        </li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-award-line"></i>
+                            {{ ad.experience }} Years
+                        </li>
                         <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].apply_date_time}}</li> -->
                         <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].job_id}}</li> -->
-                        <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-wallet-line"></i>
+                            {{ ad.salary_minimum }} - {{ ad.salary_maximum }} /
+                            {{ ad.salary_type }}
+                        </li>
                         <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li> -->
-        
+
                         <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
                         <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
                     </ul>
-
                 </div>
 
                 <!-- <div class="ad-sub-content px-5">
@@ -160,9 +254,7 @@
 
                 <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
             </div>
-            
         </div>
-
 
         <!-- <div class="job-card mt-5"> -->
         <!-- Jobs Details -->
@@ -299,3 +391,5 @@
         </div>
     </div>
 </div> -->
+    </div>
+</div>
