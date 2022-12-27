@@ -94,7 +94,7 @@
                                         onMouseOver="this.style.color='#00CA99'"
                                         onMouseOut="this.style.color='Black'"
                                     >
-                                        {{ finalArraySize }}
+                                        {{ total_applications }}
                                     </h2>
                                     <p>Applied</p>
                                 </div>
@@ -104,9 +104,9 @@
                                         onMouseOver="this.style.color='#00CA99'"
                                         onMouseOut="this.style.color='Black'"
                                     >
-                                        07
+                                    {{ shortlisted_applications }}
                                     </h2>
-                                    <p>In-touch</p>
+                                    <p>Applications Shortlisted</p>
                                 </div>
                                 <div class="col-3 border-success border-right">
                                     <h2
@@ -114,9 +114,9 @@
                                         onMouseOver="this.style.color='#00CA99'"
                                         onMouseOut="this.style.color='Black'"
                                     >
-                                        07
+                                        {{ interview_scheduled }}
                                     </h2>
-                                    <p>Selected</p>
+                                    <p>Interview Scheduled</p>
                                 </div>
                                 <div class="col-3">
                                     <h2
@@ -124,9 +124,9 @@
                                         onMouseOver="this.style.color='#00CA99'"
                                         onMouseOut="this.style.color='Black'"
                                     >
-                                        07
+                                        {{ selected }}
                                     </h2>
-                                    <p>Shortlisted</p>
+                                    <p>Selections</p>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                         (click)="idPass(jobId[1].job_id)"
                         routerLink="/jobs/details"
                     >
-                        <img src="assets/images/job/job1.jpg" alt="job-image" />
+                        <!-- <img src="assets/images/job/job1.jpg" alt="job-image" /> -->
                     </a>
                 </div>
                 <div class="px-5">
