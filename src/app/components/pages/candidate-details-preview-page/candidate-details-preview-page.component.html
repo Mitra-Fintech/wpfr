@@ -31,10 +31,10 @@
                     <div class="profile">
                         <img src="assets\images\users\default.png" class="main-image" alt="candidates-image">
                         <div class="title">
-                            <h3>{{objToArray[0][1].name}}</h3>
+                            <h3 style="text-transform:capitalize">{{objToArray[0][1].name}}</h3>
                             <!-- <img src="assets/images/flags/switzerland.svg" alt="flag"> -->
                         </div>
-                        <p style="text-transform: capitalize;">{{previewObjCandidate.role}}</p>
+                        <p style="text-transform: capitalize;">{{objToArray[0][1].current_role}}</p>
                         <!-- <div class="rating">
                             <i class="ri-star-fill"></i>
                             <i class="ri-star-fill"></i>
@@ -76,7 +76,7 @@
                         <ul>
                             <li>
                                 <span>Location</span>
-                                <a style="text-transform: capitalize;" target="_blank">{{previewObjCandidate.location}}</a>
+                                <a style="text-transform: capitalize;" target="_blank">{{objToArray[0][1].location}}</a>
                             </li>
                             <li>
                                 <span>Email</span>
@@ -109,14 +109,14 @@
             </div>
             <div class="col-lg-9 col-md-12">
                 <div class="candidate-details-desc">
-                    <h3>About {{objToArray[0][1].name}}</h3>
+                    <h3 style="text-transform: capitalize;">About {{objToArray[0][1].name}}</h3>
                     <div class="bar"></div>
-                    <p style="text-transform: capitalize;">{{previewObjCandidate.headline}}</p>
-                    <p>{{previewObjCandidate.about_me}}</p>
+                    <!-- <p style="text-transform: capitalize;">{{previewObjCandidate.headline}}</p> -->
+                    <p>{{objToArray[0][1].about}}</p>
                     <hr>
                     <h3>Work Experience</h3>
                     <div class="bar"></div>
-                    <ul class="experience-list">
+                    <ul class="experience-list" style="padding-left: 3px;">
                         <li>
                             <!-- <img src="assets/images/job/job1.jpg" alt="job-image"> -->
                             <h3>Product Designer</h3>
