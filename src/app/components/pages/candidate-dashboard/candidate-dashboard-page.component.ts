@@ -353,8 +353,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                     JSON.stringify(reposnseObject.data)
                 );
                 this.total_applications = dataObject.total_applications;
-                this.shortlisted_applications =
-                    dataObject.shortlisted_applications;
+                this.shortlisted_applications = dataObject.shortlisted_applications;
                     this.interview_scheduled = dataObject.interview_scheduled;
                     this.selected = dataObject.selected;
                 
