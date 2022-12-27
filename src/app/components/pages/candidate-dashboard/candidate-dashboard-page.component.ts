@@ -22,7 +22,7 @@ export class CandidateDashboardPageComponent implements OnInit {
     public dummyArray2: any[] = [];
     public ids: any;
     public jobId: any;
-    public i:number=0;
+    public i: number = 0;
 
     public finalArraySize: any;
 
@@ -33,12 +33,18 @@ export class CandidateDashboardPageComponent implements OnInit {
     public twitterImg: boolean = true;
     public behanceImg: boolean = true;
 
+    public shortlisted_applications: any = 0;
+    public total_applications: any = 0;
+    public interview_scheduled: any = 0;
+    public selected: any = 0;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void {
         this.checkIsLoggedIn();
         this.getUserDetails();
         this.getJobIdDetails();
+        this.getUserStats();
     }
     isMobileVerified() {
         // throw new Error('Method not implemented.');
@@ -135,7 +141,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                 });
         }
     }
-    
+
     getUserDetails() {
         // this.http.get('https://workfromhome.world/api/job/list?company_id=1').subscribe();
 
@@ -174,24 +180,24 @@ export class CandidateDashboardPageComponent implements OnInit {
 
                 this.arraySize = this.objToArray.length;
 
-                console.log(this.objToArray[0][1]);          
-                if(this.objToArray[0][1].facebook == null){
+                console.log(this.objToArray[0][1]);
+                if (this.objToArray[0][1].facebook == null) {
                     this.facebookImg = false;
                 }
 
-                if(this.objToArray[0][1].linkedin == null){
+                if (this.objToArray[0][1].linkedin == null) {
                     this.linkedinImg = false;
                 }
 
-                if(this.objToArray[0][1].behance == null){
+                if (this.objToArray[0][1].behance == null) {
                     this.behanceImg = false;
                 }
 
-                if(this.objToArray[0][1].twitter == null){
+                if (this.objToArray[0][1].twitter == null) {
                     this.twitterImg = false;
                 }
 
-                if(this.objToArray[0][1].instagram == null){
+                if (this.objToArray[0][1].instagram == null) {
                     this.instaImg = false;
                 }
 
@@ -199,79 +205,77 @@ export class CandidateDashboardPageComponent implements OnInit {
             });
     }
 
-    
-    getJobIdDetails()  {
-        
+    getJobIdDetails() {
         this.user_id = sessionStorage.getItem('userId') || 'no-user-id';
 
         this.user_id = this.user_id.replace('"', '').replace('"', '');
 
         this.http
-        .get('https://workfromhome.world/api/candidate/applications?candidate_id='+this.user_id)
+            .get(
+                'https://workfromhome.world/api/candidate/applications?candidate_id=' +
+                    this.user_id
+            )
 
-        .subscribe((response) => {
-            
-            interface ResponseObject {
-                status: string;
-                code: any;
-                search_length: any;
-                data: Object;
-                // session_id: string;
-            }
-            
-            interface DataArrayObject {
-                // job_title: string;
-                array: Object;
-            }
-            
-            let responseObj: ResponseObject = JSON.parse(
-                JSON.stringify(response)
+            .subscribe((response) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    search_length: any;
+                    data: Object;
+                    // session_id: string;
+                }
+
+                interface DataArrayObject {
+                    // job_title: string;
+                    array: Object;
+                }
+
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
                 );
-                
+
                 let dataJson: DataArrayObject = JSON.parse(
                     JSON.stringify(responseObj.data)
-                    );
-                    
-                    // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
+                );
 
-                    this.applyDetails = Object.entries(dataJson);
-                    // this.dummyArray.push(this.applyDetails);
-                    // console.log("hii");
-                    console.log(this.applyDetails);
-                    
-                    
-                    // this.finalArray.push(this.objToArray[0][1]);
+                // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
 
-                    // this.applyJobId = this.applyDetails[0][2].job_id;
-            
-            this.getJobDetails(this.applyDetails);
-             // console.log(this.applyDetails);
-            // this.getJobDetails(this.applyDetails[0][1]);
-            
+                this.applyDetails = Object.entries(dataJson);
+                // this.dummyArray.push(this.applyDetails);
+                // console.log("hii");
+                console.log(this.applyDetails);
+
+                // this.finalArray.push(this.objToArray[0][1]);
+
+                // this.applyJobId = this.applyDetails[0][2].job_id;
+
+                this.getJobDetails(this.applyDetails);
+                // console.log(this.applyDetails);
+                // this.getJobDetails(this.applyDetails[0][1]);
             });
-        }
+    }
 
-        getJobDetails(detailArray: any[]) {
-            // this.dummyArray = detailArray
-            console.log(detailArray);
-            // console.log(detailArray);
-            
-            // for (this.ids of detailArray) {
-            //     this.idArray.push(this.ids[1].job_id);
-            // }
-            // console.log(detailArray);
+    getJobDetails(detailArray: any[]) {
+        // this.dummyArray = detailArray
+        console.log(detailArray);
+        // console.log(detailArray);
 
+        // for (this.ids of detailArray) {
+        //     this.idArray.push(this.ids[1].job_id);
+        // }
+        // console.log(detailArray);
 
-            for (this.jobId of detailArray) {
-                // console.log(parseInt(this.jobId[1].job_id, 10));
+        for (this.jobId of detailArray) {
+            // console.log(parseInt(this.jobId[1].job_id, 10));
 
-                // for(this.jobId[1] of detailArray){
+            // for(this.jobId[1] of detailArray){
 
-                
-                
-                this.http
-                .get('https://workfromhome.world/api/job/details?job_id='+parseInt(this.jobId[1].job_id, 10))
-                
+            this.http
+                .get(
+                    'https://workfromhome.world/api/job/details?job_id=' +
+                        parseInt(this.jobId[1].job_id, 10)
+                )
+
                 .subscribe((response) => {
                     interface ResponseObject {
                         status: string;
@@ -279,46 +283,80 @@ export class CandidateDashboardPageComponent implements OnInit {
                         data: Object;
                         // session_id: string;
                     }
-                    
+
                     interface DataArrayObject {
                         // job_title: string;
                         array: Object;
                     }
-                    
+
                     let responseObj: ResponseObject = JSON.parse(
                         JSON.stringify(response)
-                        );
-                        
-                        let dataJson: DataArrayObject = JSON.parse(
-                            JSON.stringify(responseObj.data)
                     );
-                    
+
+                    let dataJson: DataArrayObject = JSON.parse(
+                        JSON.stringify(responseObj.data)
+                    );
+
                     // localStorage.setItem('job_listing_data',JSON.stringify(dataJson));
-                    
+
                     this.statArray = Object.entries(dataJson);
                     // console.log(this.statArray);
                     // this.dummyArray.push(this.statArray);
-                    // console.log(this.statArray[0][1]);x  
+                    // console.log(this.statArray[0][1]);x
                     this.finalArray.push(this.statArray[0][1]);
 
                     // console.log(this.jobId[1]);
                     this.finalArraySize = this.finalArray.length;
-                    
                 });
-                // console.log(this.jobId[1]);
-            }
-            console.log(this.finalArray)
-            console.log("this.finalArraySize");
-            if(this.finalArraySize == undefined){
-                this.finalArraySize = 0;
-            }
-            console.log(this.finalArraySize);
+            // console.log(this.jobId[1]);
         }
-        
-        
-        idPass(data: any) {
-            console.log(data);
-            // localStorage.clear();
-            localStorage.setItem('job_id', JSON.stringify(data));
+        console.log(this.finalArray);
+        console.log('this.finalArraySize');
+        if (this.finalArraySize == undefined) {
+            this.finalArraySize = 0;
         }
+        console.log(this.finalArraySize);
+    }
+
+    idPass(data: any) {
+        console.log(data);
+        // localStorage.clear();
+        localStorage.setItem('job_id', JSON.stringify(data));
+    }
+
+    getUserStats() {
+        let user_id = sessionStorage.getItem('userId') || 'no-user-id';
+
+        user_id = user_id.replace('"', '').replace('"', '');
+        this.http
+            .get('https://workfromhome.world/api/candidate/stats?id=' + user_id)
+
+            .subscribe((response) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    data: Object;
+                    // session_id: string;
+                }
+
+                interface DataObject {
+                    total_applications: any;
+                    shortlisted_applications: any;
+                    interview_scheduled: any;
+                    selected: any;
+                }
+                let reposnseObject: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+                let dataObject: DataObject = JSON.parse(
+                    JSON.stringify(reposnseObject.data)
+                );
+                this.total_applications = dataObject.total_applications;
+                this.shortlisted_applications =
+                    dataObject.shortlisted_applications;
+                    this.interview_scheduled = dataObject.interview_scheduled;
+                    this.selected = dataObject.selected;
+                
+            });
+    }
 }
