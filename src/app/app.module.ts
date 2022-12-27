@@ -61,6 +61,7 @@ import { CandidatePreviewPageComponent } from './components/pages/candidate-deta
 import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
 import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-employer/company-details-page.component';
 import { CompanyDetailEditComponent } from './components/pages/company-details-edit-page/company-details-edit-page.component';
+import { EmployerCandidateShortlisted } from './components/pages/employer-shortlist-page/employer-shortlist-page.component';
 
 @NgModule({
     declarations: [
@@ -110,7 +111,8 @@ import { CompanyDetailEditComponent } from './components/pages/company-details-e
         CandidatePreviewPageComponent,
         SearchResultPageComponent,
         MyCompanyDetailsPageComponent,
-        CompanyDetailEditComponent
+        CompanyDetailEditComponent,
+        EmployerCandidateShortlisted
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
