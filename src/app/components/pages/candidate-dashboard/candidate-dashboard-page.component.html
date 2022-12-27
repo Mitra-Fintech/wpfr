@@ -139,15 +139,273 @@
 
 <h3 style="text-align: center" class="mt-5">Your Applications</h3>
 <div class="row p-5">
-    <div class="col-lg-12 col-sm-6 col-md-6">
-        <div class="job-card mb-5" *ngFor="let ad of finalArray">
+    <div class="col-lg-4 col-sm-6 col-md-6" *ngFor="let ad of finalApplicationsArray">
+        <div class="job-card mb-5" >
             <div class="content">
                 <div class="job-image">
                     <a
                         (click)="idPass(jobId[1].job_id)"
                         routerLink="/jobs/details"
                     >
-                        <!-- <img src="assets/images/job/job1.jpg" alt="job-image" /> -->
+                        <img src="assets/images/job/job1.jpg" alt="job-image" />
+                    </a>
+                </div>
+                <div class="px-5">
+                    <h4 class="">
+                        <a
+                            (click)="idPass(jobId[1].job_id)"
+                            routerLink="/jobs/details"
+                            >{{ ad.job_title }}</a
+                        >
+                    </h4>
+
+                    <!-- <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-4 dot-inTouch"></div>
+                            <div class="col-sm-8"><strong>Intouch</strong></div>
+                        </div>
+                    </div> -->
+                    <!-- <span class="dot-success mt-4"></span> -->
+                    <!-- <div class="mt-0 mx-1"> <strong>Selected</strong> </div> -->
+                    <br />
+
+                    <!-- <div style="font-size:20px">
+                        <ul class="job-list1">
+                            <li><i class=""></i> Product Design Job</li>
+                            <li><i class=""></i> Applied On -
+                                <span class="date_of_appy">10 Dec 2022</span>
+                            </li>
+                        </ul>
+                    </div> -->
+
+                    <!-- <ul class="job-list1" style="font-size: medium;">
+
+                        <li><i class="ri-briefcase-line"></i> {{ad.career_level}}</li>
+                        <li><i class="ri-time-line"></i> {{ad.deadline}}</li>
+                        <li><i class="ri-award-line"></i> {{ad.experience}} Years</li>
+                    
+                        <li><i class="ri-profile-line"></i> {{ad.ad_type}} </li>
+                    
+                        <li><i class="ri-medal-2-line"></i> {{ad.ad_category}} </li>
+                        <li><i class="ri-video-line"></i> <a href="{{ad.introduction_video_url}}">Video Url</a> </li>
+                        <li><i class="ri-hashtag"></i> {{ad.job_tags}} </li>
+                        <li style="text-align:right;"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li>
+                        
+                       
+                    
+                    </ul>        -->
+
+                    <ul class="list-group list-group-flush">
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-briefcase-line"></i>
+                            {{ ad.career_level }}
+                        </li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-profile-line"></i> {{ ad.job_type }}
+                        </li>
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-award-line"></i>
+                            {{ ad.experience }} Years
+                        </li>
+                        <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].apply_date_time}}</li> -->
+                        <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-time-line"></i> {{dummyArray[1].job_id}}</li> -->
+                        <li
+                            class="list-group-item"
+                            style="cursor: default"
+                            onMouseOver="this.style.color='#00CA99'"
+                            onMouseOut="this.style.color='Black'"
+                        >
+                            <i class="ri-wallet-line"></i>
+                            {{ ad.salary_minimum }} - {{ ad.salary_maximum }} /
+                            {{ ad.salary_type }}
+                        </li>
+                        <!-- <li class="list-group-item" style="cursor: default;" onMouseOver="this.style.color='#00CA99'" onMouseOut="this.style.color='Black'"><i class="ri-wallet-line"></i> {{ad.salary_minimum}} - {{ad.salary_maximum}} / {{ad.salary_type}} </li> -->
+
+                        <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                        <!-- <li class="list-group-item">{{ jobToArray[0][1].job_title }}</li> -->
+                    </ul>
+                </div>
+
+                <!-- <div class="ad-sub-content px-5">
+                    <div class="job-list">
+                        <a href="">
+                            <li class="time" style="font-size:larger">Review Application</li>
+                        </a>
+                        <li class="freelance">Freelance</li>
+                        <li class="urgent">Urgent</li>
+                    </div>
+                    <div class="price">$150 - $180 <span>/Per Week</span></div>
+                </div> -->
+
+                <!-- <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button> -->
+            </div>
+        </div>
+
+        <!-- <div class="job-card mt-5"> -->
+        <!-- Jobs Details -->
+        <!-- <div class="job-details-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="job-details-desc">
+                    <h4>About Me:</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate <strong>elementum</strong>. Risus nec viverra ornare venenatis proin ac varius tristique ut. Vitae egestas tellus amet nulla cursus ands placerat
+                        maecenas egestas <a routerLink="/">ullamcorper</a> sed nunc. Vitae egestas tellus amet nulla something loss pellentesque placerat maecenas egestas ullamcorper sed nunc.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim a erat sit vulputate elementum orci. Risus nec viverra ornare <strong>venenatis</strong> proin ac varius ut. Vitae egestas tellus amet nulla cursus in that. Pellentesque
+                        placerat maecenas egestas ullamcorper sed sarinto.</p>
+                    <h4>Responsabilities</h4>
+                    <ul>
+                        <li>Capable to handle subordinates leading, monitoring, and reporting to the management.</li>
+                        <li>70% work time for marketing & sales.</li>
+                        <li>Energetic in search for new projects, and new channels to get sales orders.</li>
+                        <li>30% work time for project support and implementation.</li>
+                        <li>The candidate must have good computer literacy. (Microsoft Office Application)</li>
+                        <li>Satisfactory communications skills in English.</li>
+                        <li>Good manner, appearance, polite & capable of customer handling.</li>
+                        <li>Communication through e-mail, Fax, and other communication tools.</li>
+                        <li>Report to manager/ management.</li>
+                        <li>Other activities & tasks when required by the Manager/Management.</li>
+                    </ul>
+                    <h4>Requirements</h4>
+                    <ul>
+                        <li>Bachelor of Business Administration (BBA), Bachelor in Engineering (BEngg) in BSc Engineering (Electrical/Mechanical)</li>
+                        <li>From any public/ reputed private University/ College.</li>
+                        <li>Skills Required: Have good knowlede on using Microsoft Office</li>
+                        <li>Age 30 to 35 years</li>
+                        <li>Only males are allowed to apply</li>
+                        <li>7 to 10 years (s)</li>
+                    </ul>
+                    <h4>Skills</h4>
+                    <ul>
+                        <li>Programming experience developing web applications with the Microsoft .NET stack and a basic knowledge of SQL</li>
+                        <li>Development experience with Angular, Node.JS, or ColdFusion</li>
+                        <li>HTML, CSS, XHTML, XML</li>
+                        <li>Hypervisors, SAN’s, load balancers, firewalls, and Web Application Firewall (WAF)</li>
+                        <li>Experience with Higher Logic (a collaboration platform)</li>
+                        <li>MongoDB, Drupal</li>
+                        <li>Mobile App Development (iOS and Android)</li>
+                        <li>Episerver CMS</li>
+                        <li>Microsoft Team Foundation Server</li>
+                        <li>Speaker Management System (Planstone)</li>
+                    </ul>
+                    <div class="btn-box">
+                        <a routerLink="/profile-authentication" class="default-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="job-details-sidebar">
+                    <div class="widget-item">
+                        <ul class="features-list">
+                            <li>
+                                <span>Experience</span> Min 1 year
+                            </li>
+                            <li>
+                                <span>Work Level</span> Entry-Level
+                            </li>
+                            <li>
+                                <span>Employment Type</span> Part Time
+                            </li>
+                            <li>
+                                <span>Salary</span> 20k-40k / year
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-item">
+                        <div class="job-company">
+                            <img src="assets/images/job/job1.jpg" alt="job-image">
+                            <div class="title">
+                                <h4>Technology IT</h4>
+                                <a href="#">View profile</a>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li>
+                                <span>Industry</span> Customer Service
+                            </li>
+                            <li>
+                                <span>Company size</span> 178 employees
+                            </li>
+                            <li>
+                                <span>Founded in</span> 2011
+                            </li>
+                            <li>
+                                <span>Phone</span>
+                                <a href="tel:(123)4567890">(123) 456 7890</a>
+                            </li>
+                            <li>
+                                <span>Email</span>
+                                <a href="tel:workfromhome.com">workfromhome.com</a>
+                            </li>
+                            <li>
+                                <span>Location</span> Brooklyn, NY
+                            </li>
+                            <li>
+                                <span>Website</span>
+                                <a href="#" target="_blank">https://workfromhomecom</a>
+                            </li>
+                            <li>
+                                <span>Follow us</span>
+                                <ul class="social-link">
+                                    <li>
+                                        <a href="https://www.facebook.com/" target="_blank">
+                                            <i class="ri-facebook-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="ri-instagram-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <i class="ri-twitter-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/" target="_blank">
+                                            <i class="ri-linkedin-fill"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+    </div>
+</div>
+
+
+<h3 style="text-align: center" class="mt-5">Shortlisted</h3>
+<div class="row p-5">
+    <div class="col-lg-4 col-sm-6 col-md-6" *ngFor="let ad of finalShortlistedArray">
+        <div class="job-card mb-5" >
+            <div class="content">
+                <div class="job-image">
+                    <a
+                        (click)="idPass(jobId[1].job_id)"
+                        routerLink="/jobs/details"
+                    >
+                        <img src="assets/images/job/job1.jpg" alt="job-image" />
                     </a>
                 </div>
                 <div class="px-5">

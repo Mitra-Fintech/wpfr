@@ -34,6 +34,8 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password-ui/f
 import { PostAJobPreview } from './components/pages/post-a-job-preview-page/post-a-job-preview-page.component';
 import { CandidatePreviewPageComponent } from './components/pages/candidate-details-preview-page/candidate-details-preview-page.component';
 import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
+import { CompanyDetailEditComponent } from './components/pages/company-details-edit-page/company-details-edit-page.component';
+import { EmployerCandidateShortlisted } from './components/pages/employer-shortlist-page/employer-shortlist-page.component';
 
 
 const routes: Routes = [
@@ -73,6 +75,9 @@ const routes: Routes = [
     
     {path: 'candidate/my-profile/preview', component: CandidatePreviewPageComponent},
     {path: 'search-result', component: SearchResultPageComponent},
+    {path: 'employer/my-profile/edit', component: CompanyDetailEditComponent},
+    {path: 'employer/my-profile/edit', component: CompanyDetailEditComponent},
+    {path: 'employer/my-dashboard/shortlisted', component: EmployerCandidateShortlisted},
 
 
 

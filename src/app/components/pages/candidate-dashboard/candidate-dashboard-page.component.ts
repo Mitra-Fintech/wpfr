@@ -17,7 +17,8 @@ export class CandidateDashboardPageComponent implements OnInit {
     public user_id: any;
     public idArray: any[] = [];
     public jobToArray: any;
-    public finalArray: any[] = [];
+    public finalApplicationsArray: any[] = [];
+    public finalShortlistedArray: any[] = [];
     public dummyArray: any[] = [];
     public dummyArray2: any[] = [];
     public ids: any;
@@ -303,15 +304,15 @@ export class CandidateDashboardPageComponent implements OnInit {
                     // console.log(this.statArray);
                     // this.dummyArray.push(this.statArray);
                     // console.log(this.statArray[0][1]);x
-                    this.finalArray.push(this.statArray[0][1]);
+                    this.finalApplicationsArray.push(this.statArray[0][1]);
 
                     // console.log(this.jobId[1]);
-                    this.finalArraySize = this.finalArray.length;
+                    this.finalArraySize = this.finalApplicationsArray.length;
                 });
             // console.log(this.jobId[1]);
         }
-        console.log(this.finalArray);
-        console.log('this.finalArraySize');
+        console.log(this.finalApplicationsArray);
+        console.log('this.finalApplicationsArraySize');
         if (this.finalArraySize == undefined) {
             this.finalArraySize = 0;
         }
@@ -352,8 +353,7 @@ export class CandidateDashboardPageComponent implements OnInit {
                     JSON.stringify(reposnseObject.data)
                 );
                 this.total_applications = dataObject.total_applications;
-                this.shortlisted_applications =
-                    dataObject.shortlisted_applications;
+                this.shortlisted_applications = dataObject.shortlisted_applications;
                     this.interview_scheduled = dataObject.interview_scheduled;
                     this.selected = dataObject.selected;
                 
