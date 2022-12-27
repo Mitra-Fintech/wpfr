@@ -36,6 +36,7 @@ import { CandidatePreviewPageComponent } from './components/pages/candidate-deta
 import { SearchResultPageComponent } from './components/pages/search-resule-page/search-resule-page.component';
 import { CompanyDetailEditComponent } from './components/pages/company-details-edit-page/company-details-edit-page.component';
 import { EmployerCandidateShortlisted } from './components/pages/employer-shortlist-page/employer-shortlist-page.component';
+import { ApplicantsPageComponent } from './components/pages/candidates-list-jobs/job-details-page.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,7 @@ const routes: Routes = [
     {path: 'employer/my-profile/edit', component: CompanyDetailEditComponent},
     {path: 'employer/my-profile/edit', component: CompanyDetailEditComponent},
     {path: 'employer/my-dashboard/shortlisted', component: EmployerCandidateShortlisted},
+    {path: 'jobs/applicants' , component: ApplicantsPageComponent},
 
 
 
