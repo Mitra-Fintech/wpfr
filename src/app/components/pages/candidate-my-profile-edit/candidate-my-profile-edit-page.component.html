@@ -249,6 +249,13 @@
                                 <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expRole{{i}}" placeholder="Role">
                                 <br>
                                 <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expCompanyName{{i}}" placeholder="Company Name">
+                                
+                                <br>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expCompanyLoc{{i}}" placeholder="Location">
+                                
+                                <br>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" name="value{(i)}" id="expCompanyDet{{i}}" placeholder="About Experience">
+                                
                                 <br>
                                 Start Date:
                                 <input type="date" class="form-control" name="value{(i)}" id="expDateStart{{i}}">
@@ -256,8 +263,10 @@
                                 End Date:
                                 <input type="date" class="form-control" name="value{(i)}" id="expDateEnd{{i}}">
                                 <br>
-                                <button class="default-btn p-2" style = "font-size: small;"type="button" (click)="remExp(i)">Remove Experience-{{i+1}}</button>
-                                <button class="default-btn p-2 mx-2" (click)="addExp()" type="button" style="font-size: small;">Add Experience-{{i+2}}</button>
+                                <button class="default-btn p-2" style = "font-size: small;"type="button" (click)="remExp(i)">Remove</button>
+                                <!-- <button class="default-btn p-2 mx-2" (click)="addExp()" type="button" style="font-size: small;">Add Experience-{{i+2}}</button> -->
+                                <button class="default-btn p-2 mx-2" (click)="saveExp()" type="button" style="font-size: small;">Save</button>  
+                                <!-- <button class="default-btn p-2 mx-2" (click)="addExp()" type="button" style="font-size: small;">Add Experience-{{i+2}}</button> -->
                             </div>
                         </div>
                     </div>

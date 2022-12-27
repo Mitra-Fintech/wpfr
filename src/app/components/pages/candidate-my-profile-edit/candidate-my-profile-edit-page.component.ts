@@ -17,7 +17,13 @@ export class CandidateMyProfileEdit implements OnInit {
     public previewObjCandidate: any;
     public previewObj: any;
 
+    public expArray: any[] = [];
+    public expArrayValue: any[] = [];
+    public val: any;
+
     public skillArray: any[] = [];
+
+    public flag: boolean = true;
 
     // objToArray: any[] = [];
     values_exp : any[] = [];
@@ -148,12 +154,120 @@ export class CandidateMyProfileEdit implements OnInit {
 
     // }
 
-    addExp(){
+    addExp(){   
+        // console.log(this.flag);
+
         this.values_exp.push({value: ""});
+        
+        console.log(this.values_exp);
+
+        if(this.values_exp.length > 1) {
+        
+        console.log(this.values_exp.length);
+        let id_val = this.values_exp.length-2;
+
+        let exp_role = (<HTMLInputElement>document.getElementById('expRole'+id_val)).value;
+        let exp_comp_name = (<HTMLInputElement>document.getElementById('expCompanyName'+id_val)).value;
+        let exp_start_date = (<HTMLInputElement>document.getElementById('expDateStart'+id_val)).value;
+        let exp_end_date = (<HTMLInputElement>document.getElementById('expDateEnd'+id_val)).value;
+
+        if(exp_role == "" || exp_comp_name == "" || exp_start_date == "" || exp_end_date == ""){
+            alert('Please fill all the experience fields');
+            // this.flag = false;
+            this.values_exp.pop();
+            console.log(this.values_exp);
+            // this.router.navigate(['/candidate/my-profile/edit'])
+        }
+        else{
+            this.expArrayValue.push({exp_role, exp_comp_name, exp_start_date, exp_end_date});
+            // console.log(this.expArrayValue);
+            this.expArray = Array.from(new Set(this.expArrayValue));
+            console.log(this.expArray);
+            alert('Experience added successfully');
+            // this.expArray.push(this.expArrayValue);
+            // console.log(this.expArray);
+        }
+    
+}
+        // this.expArrayValue.push();
+
     }
 
+
+    saveExp(){
+
+        let exp_role = (<HTMLInputElement>document.getElementById('expRole'+(this.values_exp.length-1))).value;
+        let exp_comp_name = (<HTMLInputElement>document.getElementById('expCompanyName'+(this.values_exp.length-1))).value;
+        let exp_start_date = (<HTMLInputElement>document.getElementById('expDateStart'+(this.values_exp.length-1))).value;
+        let exp_end_date = (<HTMLInputElement>document.getElementById('expDateEnd'+(this.values_exp.length-1))).value;
+        let exp_comp_loc = (<HTMLInputElement>document.getElementById('expCompanyLoc'+(this.values_exp.length-1))).value;
+        let exp_abt = (<HTMLInputElement>document.getElementById('expCompanyDet'+(this.values_exp.length-1))).value;
+        
+        console.log(exp_role, exp_comp_name, exp_start_date, exp_end_date, exp_comp_loc, exp_abt);
+
+        if(exp_role == "" || exp_comp_name == "" || exp_start_date == "" || exp_end_date == "" || exp_comp_loc == "" || exp_abt == ""){
+            alert('Please fill all the experience fields');
+            this.router.navigate(['/candidate/my-profile/edit']); 
+        }
+        
+        else{
+
+            let user_id = sessionStorage.getItem('userId') || 'no-user';
+            user_id = user_id.replace('"', '');
+            user_id = user_id.replace('"', '');
+
+            let body = new URLSearchParams();
+            body.set('candidate_id', user_id);
+            body.set('role', exp_role);
+            body.set('start_date', exp_start_date);
+            body.set('end_date', exp_end_date);
+            body.set('company_name', exp_comp_name);
+            body.set('location', exp_comp_loc);
+            body.set('details', exp_abt);
+            // body.set('session_id', session_id.replace('"', ''));
+        
+            this.http.get('https://workfromhome.world/api/candidate/experience/create?' + body)
+            .subscribe((response) => {
+                
+                interface ReposnseObject {
+                    status: string;
+                    status_code: any;
+                    data: object;
+                } 
+                 
+                // interface DataObject {
+                //     job_created: boolean
+                // }
+                let json: ReposnseObject = JSON.parse(JSON.stringify(response));
+                // let DataJson: DataObject = JSON.parse(JSON.stringify(json.data));
+                // console.log(json.isUserLoggedIn);
+                // console.log(DataJson.job_created);
+        
+                // if(DataJson.job_created){
+                //     alert('Experience added successfully')
+                //     this.router.navigate(['/candidate/my-profile/edit'], {
+                //                         skipLocationChange: false,})
+                // }
+                // else{
+                //     alert('Something went wrong')
+                // }
+
+            }); 
+        }
+        
+
+     }
+
     remExp(i:any){
+        console.log(i);
         this.values_exp.splice(i,1);
+        this.expArrayValue.splice(i,1);
+        this.expArray = Array.from(new Set(this.expArrayValue));
+
+        // this.expArrayValue.splice(i,this.expArrayValue.length);
+        // console.log(this.expArrayValue);
+        console.log(this.expArray);
+
     }
 
     
@@ -228,7 +342,7 @@ export class CandidateMyProfileEdit implements OnInit {
         let insta = (<HTMLInputElement>document.getElementById('instaProfile')).value;
         let behance = (<HTMLInputElement>document.getElementById('behanceProfile')).value;
 
-        
+
 
         if(full_name == "" || headline == "" || about_me == "" || location == ""  || email == "" || phone == "" || gender == "" || role==""){
             alert('Please fill all the fields')
