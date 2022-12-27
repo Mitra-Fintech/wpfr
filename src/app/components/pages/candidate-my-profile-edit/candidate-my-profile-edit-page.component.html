@@ -46,7 +46,7 @@
                                 style="text-transform: capitalize"
                                 class="form-control"
                                 id="candidate_role"
-                                value="{{ objToArray[0][1].role }}"
+                                value="{{ objToArray[0][1].current_role }}"
                                 placeholder="Like Web developer, App developer, Finance consultant ..."
                             />
                         </div>
@@ -59,7 +59,7 @@
                                 style="text-transform: capitalize"
                                 class="form-control"
                                 id="candidate_headline"
-                                value="{{ objToArray[0][1].headline }}"
+                                value="{{ objToArray[0][1].resume }}"
                             />
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                     class="form-control"
                                     style="height: 300px"
                                     id="candidate_about_me"
-                                    value="{{ objToArray[0][1].about_me }}"
+                                    value="{{ objToArray[0][1].about }}"
                                 ></textarea>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                             <input
                                 type="text"
                                 id="fbProfile"
-                                value="{{ objToArray[0][1].fb }}"
+                                value="{{ objToArray[0][1].facebook }}"
                                 class="form-control"
                             />
                         </div>
@@ -243,7 +243,7 @@
                             <input
                                 type="text"
                                 id="instaProfile"
-                                value="{{ objToArray[0][1].insta }}"
+                                value="{{ objToArray[0][1].instagram }}"
                                 class="form-control"
                             />
                         </div>

@@ -488,6 +488,32 @@ export class CandidateMyProfileEdit implements OnInit {
                     console.log(json.code);
                 });
 
+                this.http
+                .get(
+                    'https://workfromhome.world/api/account/update?field=resume&value=' +
+                        this.previewObj.headline +
+                        '&userId=' +
+                        user_id +
+                        '&userIdType=id' +
+                        '&userType=' +
+                        user_type
+                )
+
+                .subscribe((response) => {
+                    interface ReposnseObject {
+                        status: string;
+                        code: any;
+                        // data: object;
+                    }
+
+                    let json: ReposnseObject = JSON.parse(
+                        JSON.stringify(response)
+                    );
+                    // console.log(json.isUserLoggedIn);
+                    // console.log(json.status_code);
+                    console.log(json.code);
+                });
+
             this.http
                 .get(
                     'https://workfromhome.world/api/account/update?field=behance&value=' +
