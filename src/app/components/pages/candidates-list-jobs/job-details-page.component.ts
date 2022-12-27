@@ -17,10 +17,9 @@ export class ApplicantsPageComponent implements OnInit {
     public jobToArray: any;
     public postajob = false;
     public user_id: any;
-    public applyArray:any[] = [];
-    public showApplyNow:boolean = false;
-    public showApplyNow2:boolean = false;
-
+    public applyArray: any[] = [];
+    public showApplyNow: boolean = false;
+    public showApplyNow2: boolean = false;
 
     // public job_listing_data!: string;
 
@@ -31,7 +30,7 @@ export class ApplicantsPageComponent implements OnInit {
         this.showApplyNowButton();
         this.getJobDetails();
 
-        if(localStorage.getItem('fromLogin') == 'false'){
+        if (localStorage.getItem('fromLogin') == 'false') {
             // location.reload();
             window.location.href;
             // this.showApplyNow = true;
@@ -55,7 +54,8 @@ export class ApplicantsPageComponent implements OnInit {
 
         this.http
             .get(
-                'https://workfromhome.world/api/job/details?job_id=' +this.job_details
+                'https://workfromhome.world/api/job/details?job_id=' +
+                    this.job_details
             )
             .subscribe((response: any) => {
                 interface ResponseObject {
@@ -103,17 +103,13 @@ export class ApplicantsPageComponent implements OnInit {
             // return true;
             this.showApplyNow2 = false;
             this.showApplyNow = true;
-        }
-
-        else if (str == 'company') {
+        } else if (str == 'company') {
             // this.showApplyNow = true;
             // (<HTMLInputElement>document.getElementById('applyNow')).disabled = false;
             // return true;
             this.showApplyNow2 = false;
             this.showApplyNow = false;
-        } 
-        
-        else {
+        } else {
             // this.showApplyNow = false;
             // (<HTMLInputElement>document.getElementById('applyNow2')).innerHTML = "login to apply";
             // return false;
@@ -122,8 +118,7 @@ export class ApplicantsPageComponent implements OnInit {
         }
     }
 
-  
-    applyNow(data: any){
+    applyNow(data: any) {
         this.user_id = sessionStorage.getItem('userId');
         this.user_id = this.user_id.replace('"', '');
         this.user_id = this.user_id.replace('"', '');
@@ -132,10 +127,13 @@ export class ApplicantsPageComponent implements OnInit {
 
         this.http
             .get(
-                'https://workfromhome.world/api/job/apply?candidate_id='+this.user_id+'&job_id='+data
+                'https://workfromhome.world/api/job/apply?candidate_id=' +
+                    this.user_id +
+                    '&job_id=' +
+                    data
             )
             .subscribe((response: any) => {
-                interface ResponseObject {  
+                interface ResponseObject {
                     status: string;
                     code: any;
                     // data: Object;
@@ -156,28 +154,76 @@ export class ApplicantsPageComponent implements OnInit {
                 // );
 
                 // this.jobToArray = Object.entries(dataJson);
-                
+
                 responseObj.status = JSON.stringify(responseObj.status);
                 console.log(responseObj.status);
                 responseObj.status = responseObj.status.replace('"', '');
                 responseObj.status = responseObj.status.replace('"', '');
-                
-                if(responseObj.status === "success"){
-                    
+
+                if (responseObj.status === 'success') {
                     // this.applyArray.push(data);
-                    localStorage.setItem('applied_job_id', JSON.stringify(data));
+                    localStorage.setItem(
+                        'applied_job_id',
+                        JSON.stringify(data)
+                    );
 
                     // localStorage.setItem('applied_job_id',data);
-                    window.alert("Job Applied Successfully and saved in dashboard");
-
-                }
-                else{
-                    window.alert("Invalid Job");
+                    window.alert(
+                        'Job Applied Successfully and saved in dashboard'
+                    );
+                } else {
+                    window.alert('Invalid Job');
                 }
             });
+    }
+    shortlist(candidate_id: any) {
+        this.http
+            .get(
+                'https://workfromhome.world/api/job/applicant/shortlist?candidate_id=' +
+                    candidate_id +
+                    '&job_id=' +
+                    localStorage.getItem('job_id')
+            )
+            .subscribe((response: any) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    // data: Object;
+                    // session_id: string;
+                }
 
+                // interface DataArrayObject {
+                //     // job_title: string;
+                //     array: Object;
+                // }
 
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
 
+                // let dataJson: DataArrayObject = JSON.parse(
+                //     JSON.stringify(responseObj.data)
+                // );
 
+                // this.jobToArray = Object.entries(dataJson);
+
+                responseObj.status = JSON.stringify(responseObj.status);
+                console.log(responseObj.status);
+                responseObj.status = responseObj.status.replace('"', '');
+                responseObj.status = responseObj.status.replace('"', '');
+
+                if (responseObj.status === 'success') {
+                    // // this.applyArray.push(data);
+                    // localStorage.setItem('applied_job_id', JSON.stringify(data));
+                    // // localStorage.setItem('applied_job_id',data);
+                    // window.alert("Job Applied Successfully and saved in dashboard");
+                } else {
+                    window.alert('Invalid Job');
+                }
+            });
+    }
+
+    listOfApplicants(){
+        
     }
 }
