@@ -31,7 +31,11 @@
             <div class="popular-search" *ngIf="postajob;" >
                 <span class="title">Popular Search: </span>
                 <label for=""></label>
-                <a routerLink="/job-listing" *ngFor="let latestTrendTerm of latestTrend">{{ latestTrendTerm }}</a>
+                <a  *ngFor="let latestTrendTerm of latestTrend">
+                    <a (click)="fillSearchBox(latestTrendTerm)" >
+                    {{ latestTrendTerm }}
+                    </a>
+                </a>
                 <!-- <a routerLink="/job-listing">Developer</a>
                 <a routerLink="/job-listing">Startups</a>
                 <a routerLink="/job-listing">Tech Jobs</a>

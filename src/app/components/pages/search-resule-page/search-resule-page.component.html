@@ -2,39 +2,34 @@
 <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
-            <h3>Searched Results for the searched Term - "{{search_item}}"</h3>
-            <div class="banner-form">
-                <!-- <form>
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Keywords / Job Title">
-                                <i class="ri-search-line"></i>
+            <!-- <h3>Searched Results for the searched Term - "{{search_item}}"</h3> -->
+         
+                <div class="banner-form">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="form-group">
+                                    <input id="search_bar" class="form-control" type="text" placeholder="Keywords / Job Title">
+                                    <i class="ri-search-line"></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <button (click) = "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="City or Postcode">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <button type="submit" class="submit-btn">Find Jobs</button>
-                        </div>
-                    </div>
-                </form> -->
-                <p style="font-size: x-large;">{{arraySize}} job searches found</p>
-            </div>
-            <!-- <div class="popular-search">
-                <span class="title">Popular Search: </span>
-                <a routerLink="/job-listing">Designer</a>
-                <a routerLink="/job-listing">Developer</a>
-                <a routerLink="/job-listing">Web</a>
-                <a routerLink="/job-listing">iOS</a>
-                <a routerLink="/job-listing">PHP</a>
-                <a routerLink="/job-listing">Senior</a>
-                <a routerLink="/job-listing">Engineer</a>
-            </div> -->
+                    </form>
+                </div>
+                <div class="popular-search"  >
+                    <span class="title">Popular Search: </span>
+                    <!-- <label for=""></label> -->
+                    <a  *ngFor="let latestTrendTerm of latestTrend">
+                        <a (click)="fillSearchBox(latestTrendTerm)" >
+                        {{ latestTrendTerm }}
+                        </a>
+                    </a>
+                </div>
+                <p style="font-size: x-large; align-self: left;" *ngIf="arraySize > 0;">{{arraySize}} job searches found</p>
+            <!-- </div>        -->
         </div>
     </div>
 </div>
@@ -46,7 +41,9 @@
             <div class="col-lg-8 col-md-12">
                 <div class="jend-grid-sorting row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-5 result-count">
-                        <p>Showing 1 – 10 of {{arraySize}} results</p>
+                        <p *ngIf="arraySize > 0;">Found {{arraySize}} results</p>
+                        <p *ngIf="arraySize == 0;">No Search results</p>
+
                     </div>
                     <!-- <div class="col-lg-6 col-md-6 col-sm-7 ordering">
                         <div class="select-box">
