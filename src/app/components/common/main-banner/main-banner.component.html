@@ -31,7 +31,7 @@
             <div class="popular-search" *ngIf="postajob;" >
                 <span class="title">Popular Search: </span>
                 <label for=""></label>
-                <a  *ngFor="let latestTrendTerm of latestTrend">
+                <a  *ngFor="let latestTrendTerm of latestTrend"  style="cursor: pointer;">
                     <a (click)="fillSearchBox(latestTrendTerm)" >
                     {{ latestTrendTerm }}
                     </a>

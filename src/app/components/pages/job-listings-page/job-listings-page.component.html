@@ -8,31 +8,24 @@
                     <div class="row">
                         <div class="col-lg-9 col-md-9">
                             <div class="form-group">
-                                <input class="form-control" id="search_bar" type="text" placeholder="Keywords / Job Title">
+                                <input id="search_bar" class="form-control" type="text" placeholder="Keywords / Job Title">
                                 <i class="ri-search-line"></i>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-4 col-md-4">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="City or Postcode">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                        </div> -->
                         <div class="col-lg-3 col-md-3">
-                            <button (click)= "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
+                            <button (click) = "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="popular-search">
+            <div class="popular-search"  >
                 <span class="title">Popular Search: </span>
-                <a routerLink="/job-listing">Designer</a>
-                <a routerLink="/job-listing">Developer</a>
-                <a routerLink="/job-listing">Web</a>
-                <a routerLink="/job-listing">iOS</a>
-                <a routerLink="/job-listing">PHP</a>
-                <a routerLink="/job-listing">Senior</a>
-                <a routerLink="/job-listing">Engineer</a>
+                <!-- <label for=""></label> -->
+                <a  *ngFor="let latestTrendTerm of latestTrend" style="cursor: pointer;">
+                    <a (click)="fillSearchBox(latestTrendTerm)" >
+                    {{ latestTrendTerm }}
+                    </a>
+                </a>
             </div>
         </div>
     </div>

@@ -77,7 +77,7 @@ export class MainBannerComponent implements OnInit {
     fillSearchBox(term:string) {
         // let term:string = "ok";
         (<HTMLInputElement>document.getElementById('search_bar')).value = term;
-
+        this.searchTerm();
     }
 
 }
