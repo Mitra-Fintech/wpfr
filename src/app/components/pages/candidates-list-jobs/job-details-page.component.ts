@@ -21,6 +21,7 @@ export class ApplicantsPageComponent implements OnInit {
     public showApplyNow: boolean = false;
     public showApplyNow2: boolean = false;
 
+    public applicantsList: any[] = [];
     // public job_listing_data!: string;
 
     constructor(private http: HttpClient, private router: Router) {}
@@ -29,7 +30,7 @@ export class ApplicantsPageComponent implements OnInit {
     ngOnInit(): void {
         this.showApplyNowButton();
         this.getJobDetails();
-
+        this.dataSheet('all');
         if (localStorage.getItem('fromLogin') == 'false') {
             // location.reload();
             window.location.href;
@@ -223,7 +224,63 @@ export class ApplicantsPageComponent implements OnInit {
             });
     }
 
-    listOfApplicants(){
-        
+    dataSheet(type: string) {
+        (<HTMLElement>document.getElementById('all')).classList.remove('active');
+        (<HTMLElement>document.getElementById('shortlisted')).classList.remove('active');
+        (<HTMLElement>document.getElementById('rejected')).classList.remove('active');
+
+        (<HTMLElement>document.getElementById(type)).classList.add('active');
+
+        this.http
+            .get(
+                'https://workfromhome.world/api/job/applicants/' +
+                    type +
+                    '?job_id=' +
+                    localStorage.getItem('job_id')
+            )
+            .subscribe((response: any) => {
+                interface ResponseObject {
+                    status: string;
+                    code: any;
+                    data: Object;
+                    // session_id: string;
+                }
+
+                interface DataObjects {
+                    [index: number]: {
+                        name: string;
+                        mobile_number: string;
+                        email_id: string;
+                        current_role: string;
+                        headline: string;
+                    };
+                }
+
+                let responseObj: ResponseObject = JSON.parse(
+                    JSON.stringify(response)
+                );
+
+                let dataJson: DataObjects = JSON.parse(
+                    JSON.stringify(responseObj.data)
+                );
+
+                if (Object.keys(responseObj.data).length > 0) {
+                    for (
+                        let index = 0;
+                        index < Object.keys(responseObj.data).length;
+                        index++
+                    ) {
+                        // const element = array[index];
+
+                        this.applicantsList[index] = dataJson[index];
+                    }
+                } else {
+                    this.applicantsList[0].name = '--';
+                    this.applicantsList[0].email_id = '--';
+                    this.applicantsList[0].mobile_number = '--';
+                    this.applicantsList[0].headline = '--';
+                    this.applicantsList[0].current_role = '--';
+                }
+            });
     }
 }
