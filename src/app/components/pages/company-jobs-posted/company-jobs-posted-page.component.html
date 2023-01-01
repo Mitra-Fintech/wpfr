@@ -3,37 +3,8 @@
     <div class="container">
         <div class="inner-title text-center">
             <h3>World's Biggest Database of Work from home Jobs !</h3>
-            <div class="banner-form">
-                <form>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                            <div class="form-group">
-                                <input class="form-control" type="text" id="search_bar" placeholder="Keywords / Job Title">
-                                <i class="ri-search-line"></i>
-                            </div>
-                        </div>
-                        <!-- <div class="col-lg-4 col-md-4">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="City or Postcode">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                        </div> -->
-                        <div class="col-lg-3 col-md-3">
-                            <button (click)= "searchTerm()" type="submit" class="submit-btn">Find Jobs</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="popular-search">
-                <span class="title">Popular Search: </span>
-                <a routerLink="/job-listing">Designer</a>
-                <a routerLink="/job-listing">Developer</a>
-                <a routerLink="/job-listing">Web</a>
-                <a routerLink="/job-listing">iOS</a>
-                <a routerLink="/job-listing">PHP</a>
-                <a routerLink="/job-listing">Senior</a>
-                <a routerLink="/job-listing">Engineer</a>
-            </div>
+            <!--  -->
+         
         </div>
     </div>
 </div>
@@ -74,7 +45,7 @@
                                     </a>
                                 </div>
                                 
-                                <h3> <a (click)="idPass(job[1].id)" routerLink="/jobs/details"> {{ job[1].job_title }}</a></h3>
+                                <h3> <a (click)="idPass(job[1].id)" routerLink="/jobs/applicants"> {{ job[1].job_title }}</a></h3>
                                 <ul class="job-list1" style="font-size: medium;">
 
                                     <li><i class="ri-briefcase-line"></i> {{job[1].career_level}}</li>

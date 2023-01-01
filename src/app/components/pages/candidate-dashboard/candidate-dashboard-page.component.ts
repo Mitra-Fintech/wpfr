@@ -359,4 +359,6 @@ export class CandidateDashboardPageComponent implements OnInit {
                 
             });
     }
+
+    getShortlistedApplications(){}
 }

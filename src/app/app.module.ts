@@ -62,6 +62,7 @@ import { SearchResultPageComponent } from './components/pages/search-resule-page
 import { MyCompanyDetailsPageComponent } from './components/pages/my-profile-employer/company-details-page.component';
 import { CompanyDetailEditComponent } from './components/pages/company-details-edit-page/company-details-edit-page.component';
 import { EmployerCandidateShortlisted } from './components/pages/employer-shortlist-page/employer-shortlist-page.component';
+import { ApplicantsPageComponent } from './components/pages/candidates-list-jobs/job-details-page.component';
 
 @NgModule({
     declarations: [
@@ -112,7 +113,8 @@ import { EmployerCandidateShortlisted } from './components/pages/employer-shortl
         SearchResultPageComponent,
         MyCompanyDetailsPageComponent,
         CompanyDetailEditComponent,
-        EmployerCandidateShortlisted
+        EmployerCandidateShortlisted,
+        ApplicantsPageComponent,
     ],
     // providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}],
     imports: [
