@@ -22,6 +22,9 @@ export class ApplicantsPageComponent implements OnInit {
     public showApplyNow2: boolean = false;
 
     public applicantsList: any[] = [];
+
+    public showShortlistButton: boolean = false;
+    public showRejectButton: boolean = false;
     // public job_listing_data!: string;
 
     constructor(private http: HttpClient, private router: Router) {}
@@ -177,59 +180,77 @@ export class ApplicantsPageComponent implements OnInit {
                 }
             });
     }
-    shortlist(candidate_id: any) {
-        this.http
-            .get(
-                'https://workfromhome.world/api/job/applicant/shortlist?candidate_id=' +
-                    candidate_id +
-                    '&job_id=' +
-                    localStorage.getItem('job_id')
-            )
-            .subscribe((response: any) => {
-                interface ResponseObject {
-                    status: string;
-                    code: any;
-                    // data: Object;
-                    // session_id: string;
-                }
+    // shortlist(candidate_id: any) {
+    //     this.http
+    //         .get(
+    //             'https://workfromhome.world/api/job/applicant/shortlist?candidate_id=' +
+    //                 candidate_id +
+    //                 '&job_id=' +
+    //                 localStorage.getItem('job_id')
+    //         )
+    //         .subscribe((response: any) => {
+    //             interface ResponseObject {
+    //                 status: string;
+    //                 code: any;
+    //                 // data: Object;
+    //                 // session_id: string;
+    //             }
 
-                // interface DataArrayObject {
-                //     // job_title: string;
-                //     array: Object;
-                // }
+    //             // interface DataArrayObject {
+    //             //     // job_title: string;
+    //             //     array: Object;
+    //             // }
 
-                let responseObj: ResponseObject = JSON.parse(
-                    JSON.stringify(response)
-                );
+    //             let responseObj: ResponseObject = JSON.parse(
+    //                 JSON.stringify(response)
+    //             );
 
-                // let dataJson: DataArrayObject = JSON.parse(
-                //     JSON.stringify(responseObj.data)
-                // );
+    //             // let dataJson: DataArrayObject = JSON.parse(
+    //             //     JSON.stringify(responseObj.data)
+    //             // );
 
-                // this.jobToArray = Object.entries(dataJson);
+    //             // this.jobToArray = Object.entries(dataJson);
 
-                responseObj.status = JSON.stringify(responseObj.status);
-                console.log(responseObj.status);
-                responseObj.status = responseObj.status.replace('"', '');
-                responseObj.status = responseObj.status.replace('"', '');
+    //             responseObj.status = JSON.stringify(responseObj.status);
+    //             console.log(responseObj.status);
+    //             responseObj.status = responseObj.status.replace('"', '');
+    //             responseObj.status = responseObj.status.replace('"', '');
 
-                if (responseObj.status === 'success') {
-                    // // this.applyArray.push(data);
-                    // localStorage.setItem('applied_job_id', JSON.stringify(data));
-                    // // localStorage.setItem('applied_job_id',data);
-                    // window.alert("Job Applied Successfully and saved in dashboard");
-                } else {
-                    window.alert('Invalid Job');
-                }
-            });
-    }
+    //             if (responseObj.status === 'success') {
+    //                 // // this.applyArray.push(data);
+    //                 // localStorage.setItem('applied_job_id', JSON.stringify(data));
+    //                 // // localStorage.setItem('applied_job_id',data);
+    //                 // window.alert("Job Applied Successfully and saved in dashboard");
+    //             } else {
+    //                 window.alert('Invalid Job');
+    //             }
+    //         });
+    // }
 
     dataSheet(type: string) {
+        localStorage.setItem('current_tab',type);
         (<HTMLElement>document.getElementById('all')).classList.remove('active');
         (<HTMLElement>document.getElementById('shortlisted')).classList.remove('active');
         (<HTMLElement>document.getElementById('rejected')).classList.remove('active');
+        (<HTMLElement>document.getElementById('all_bottom')).classList.remove('active');
+        (<HTMLElement>document.getElementById('shortlisted_bottom')).classList.remove('active');
+        (<HTMLElement>document.getElementById('rejected_bottom')).classList.remove('active');
 
         (<HTMLElement>document.getElementById(type)).classList.add('active');
+        (<HTMLElement>document.getElementById(type+'_bottom')).classList.add('active');
+
+        if(type == 'all'){
+            this.showRejectButton = true;
+            this.showShortlistButton = true;
+        }
+        if(type == 'shortlisted'){
+            this.showRejectButton = true;
+            this.showShortlistButton = false;
+        }
+        if(type == 'rejected'){
+            this.showRejectButton = false;
+            this.showShortlistButton = true;
+        }
 
         this.http
             .get(
@@ -253,6 +274,8 @@ export class ApplicantsPageComponent implements OnInit {
                         email_id: string;
                         current_role: string;
                         headline: string;
+                        id:any;
+                        job_id: any;
                     };
                 }
 
@@ -280,7 +303,51 @@ export class ApplicantsPageComponent implements OnInit {
                     this.applicantsList[0].mobile_number = '--';
                     this.applicantsList[0].headline = '--';
                     this.applicantsList[0].current_role = '--';
+                    this.showRejectButton = false;
+                    this.showShortlistButton = false;
                 }
             });
     }
+
+    reject(cad_id:any, job_id:any){
+
+        this.http
+        .get(
+            'https://workfromhome.world/api/job/applicant/reject?candidate_id='+ cad_id +'&job_id=' + job_id
+        )
+        .subscribe((response: any) => {
+            interface ResponseObject {
+                status: string;
+                code: any;
+                data: Object;
+                // session_id: string;
+            }
+            
+            this.dataSheet(localStorage.getItem('current_tab') || 'all');
+        
+        });
+
+        // this.dataSheet(localStorage.getItem('current_tab') || 'all');
+
+    }
+
+    shortlist(cad_id:any, job_id:any){
+        this.http
+        .get(
+            'https://workfromhome.world/api/job/applicant/shortlist?candidate_id='+ cad_id +'&job_id=' + job_id
+        )
+        .subscribe((response: any) => {
+            interface ResponseObject {
+                status: string;
+                code: any;
+                data: Object;
+                // session_id: string;
+            }
+            
+            this.dataSheet(localStorage.getItem('current_tab') || 'all');
+        
+        });
+
+    }
+
 }
